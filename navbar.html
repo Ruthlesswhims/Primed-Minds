@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+
+		<!-- materialize css -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
+
+		<!-- jquery js -->
+  		<script src="public/javascript/jquery-1.12.3.min.js"></script>
+
+		<!-- materialize js -->
+  		<script src="public/javascript/materialize.min.js"></script>
+
+  		<!-- local js -->
+  		<script src="public/javascript/script.js"></script>
+
+		<!-- fonts from gapis -->
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+
+		<!-- local css -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/navbar.css">
+
+	</head>
+
+	<body>
+
+		<!-- navbar code, copy code to top of body -->
+
+		<!-- dropdown structures -->
+		<ul id="dropdown-about" class="dropdown-content">
+			<li><a href="#">What is Primed Minds?</a></li>
+			<li><a href="#">Who is this for?</a></li>
+			<li><a href="#">Philosophy</a></li>
+			<li><a href="#">What is mathematics anyway?</a></li>
+			<li><a href="#">How do I try an exploration?</a></li>		
+			<li><a href="#">The Team</a></li>
+			<li><a href="#">Partners</a></li>
+		</ul>
+
+		<ul id="dropdown-explorations" class="dropdown-content">
+			<li><a href="#">Exploration 1</a></li>
+			<li><a href="#">Exploration 2</a></li>
+			<li><a href="#">Exploration 3</a></li>
+		</ul>
+
+		<!-- nav wrapper -->
+		<nav class="red">
+			<div class="nav-wrapper">
+				<a href="#" class="title-logo">Primed Minds</a>
+
+				<!-- right aligned navitems -->
+				<ul class="right">
+					<!-- change 'active' class based on current page -->
+					<li class="active"><a href="#">Home</a></li>
+
+					<li><a class="dropdown-button" href="#" data-beloworigin="true" data-constrainwidth="false" data-activates="dropdown-about">About</a></li>
+
+					<li><a class="dropdown-button" href="#" data-beloworigin="true" data-constrainwidth="false" data-activates="dropdown-explorations">Explorations</a></li>
+					
+					<li><a href="#">Resources</a></li>
+					
+					<li><a href="#">Q & A</a></li>
+				</ul>
+			</div>
+		</nav>
+	</body>
+
+</html>

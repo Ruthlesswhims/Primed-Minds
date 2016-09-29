@@ -1,66 +1,35 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Team Alpha
-        </title>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Primed Minds</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300" rel="stylesheet">  
+    
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+</head>
 
-		<!-- materialize css -->
-		<link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
+<body>
+<div id="main">
+    <header>
+        <a href="index.html"><img id="pom" src="pom.png"></a>
+        <p id="heading">Primed<br>Minds</p>
+    </header>
+        
+    <video playsinline autoplay muted loop id="bgvid">
+        <source src="school.mp4" type="video/mp4">
+    </video>
+    
+    <p id="homeText">Primed Minds is a tool to inspire you mathematically!</p>
+    
+    <footer>
+        &copy; Copyright 2016
+    </footer>
+</div>
 
-		<!-- jquery js -->
-  		<script src="public/javascript/jquery-1.12.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
-		<!-- materialize js -->
-  		<script src="public/javascript/materialize.min.js"></script>
-
-  		<!-- local js -->
-  		<script src="public/javascript/script.js"></script>
-
-		<!-- fonts from gapis -->
-		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Pavanam">
-
-		<!-- local css -->
-		<link rel="stylesheet" type="text/css" href="stylesheets/navbar.css">
-    </head>
-    <body>
-		<!-- navbar code, copy code to top of body -->
-
-		<!-- dropdown structures -->
-		<ul id="dropdown-about" class="dropdown-content">
-            <li><a href="about.html#what is primed">What is Primed Minds?</a></li>
-            <li><a href="about.html#who for">Who is this for?</a></li>
-            <li><a href="about.html#philosophy">Philosoaphy</a></li>
-            <li><a href="about.html#what is math">What is mathematics anyway?</a></li>
-            <li><a href="#about.html#try exploration">How do I try an exploration?</a></li>       
-            <li><a href="about.html#team">The Team</a></li>
-            <li><a href="about.html#partners">Partners</a></li>
-		</ul>
-
-		<ul id="dropdown-explorations" class="dropdown-content">
-			<li><a href="#">Exploration 1</a></li>
-			<li><a href="#">Exploration 2</a></li>
-			<li><a href="#">Exploration 3</a></li>
-		</ul>
-
-		<!-- nav wrapper -->
-		<nav class="red">
-			<div class="nav-wrapper">
-				<a href="index.html" class="title-logo">PRIMED MINDS</a>
-
-				<!-- right aligned navitems -->
-				<ul class="right">
-						<!-- change 'active' class based on current page -->
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a class="dropdown-button" href="about.html" data-activates="dropdown-about">About</a></li>
-						<li><a class="dropdown-button" href="explorations.html" data-activates="dropdown-explorations">Explorations</a></li>
-						<li><a href="#">Resources</a></li>
-						<li><a href="#">Q & A</a></li>
-					</li>
-				</ul>
-			</div>
-		</nav>
-
-        <h1>Primed Minds Project</h1>
-        <h2>Primed Minds is a tool to inspire you mathematically!</h2>
-    </body>
+</body>
 </html>

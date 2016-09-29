@@ -1,3 +1,59 @@
+.body-text {
+	margin-left: 100px;
+	margin-right: 100px;
+	font-family: 'gill sans';
+}
+h1 {
+	font-size: 48px;
+	font-family: "Poppins";
+	text-align: center;
+}
+h3 {
+	font-size: 16px;
+	font-family: "Poppins";	
+	font-weight: bold;
+}
+a:link:#nav-wrapper {
+	color: #ff3333;
+	text-decoration: none;
+}
+
+a:visited#nav-wrapper {
+	color: #ff3333;
+	text-decoration: none;
+}
+
+a:hover#nav-wrapper {
+	color: #ff3333;
+	text-decoration: underline;
+}	
+
+.bio1, .bio2 {
+	display:none;
+	width: 300px;
+	position: relative;
+	top: 180px;
+	float: left;
+}
+
+#pic1 {
+	width: 300px;
+}
+
+#pic2 {
+	width: 300px;
+	position: relative;
+	left: 150px;
+}
+
+img {
+	float: left;
+}
+
+div a {
+    font-family: 'Montserrat', sans-serif;
+}
+
 nav ul li {
     text-align: center;
 }

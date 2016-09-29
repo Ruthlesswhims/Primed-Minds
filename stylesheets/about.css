@@ -1,7 +1,7 @@
 .body-text {
 	margin-left: 100px;
 	margin-right: 100px;
-	font-family: 'gill sans';
+	font-family: 'gill sans', sans-serif;
 }
 h1 {
 	font-size: 48px;

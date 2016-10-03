@@ -16,11 +16,11 @@
 	  		<script src="public/javascript/script.js"></script>
 
 			<!-- fonts from gapis -->
-                        <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet"> 
 			<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300">
 
 			<!-- local css -->
-			<link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+			<link rel="stylesheet" type="text/css" href="stylesheets/contact.css">
+			<script src="contact.js"></script>  
 	</head>
 
 	<body>
@@ -46,8 +46,7 @@
 	    <!-- nav wrapper -->
 	    <nav class="red">
             <div class="nav-wrapper">
-                <a href="index.html"><img id="pom" src="assets/pom.png"></a>
-                <a href="index.html" id="logo">PRIMED MINDS</a>
+                <a href="index.html" class="title-logo">PRIMED MINDS</a>
 
                 <!-- right aligned navitems -->
                 <ul class="right">
@@ -63,15 +62,15 @@
         </nav>
 
 		<div id="main">
-                    <video playsinline autoplay muted loop id="bgvid">
-		        <source src="assets/school.mp4" type="video/mp4">
-		    </video>
-		    
-		    <p id="homeText">Primed Minds is a tool to inspire you mathematically!</p>
-		    
-		    <footer>
-		        &copy; Copyright 2016
-		    </footer>
+		   <h1> CONTACT US </h1>
+		   <p>Name: <input type="text" id="name" ></p>
+<div id="name-msg"></div>
+<p>Email: <input type="text" id="email"></p>
+<div id="email-msg"></div>
+<p>Message: <textarea id="message" rows="10" cols="50"></textarea></p>
+<div id="message-msg"></div>
+<p><button onclick="validate()">Submit</button></p>
+<div id="success"></div>
 		</div>
 	</body>
 </html>

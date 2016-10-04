@@ -90,6 +90,10 @@ nav ul li {
     text-align: center;
 }
 
+#logo{
+    font-size: 30pt;
+}
+
 .title-logo {
     font-size: 20px;
     margin-left: 1%;

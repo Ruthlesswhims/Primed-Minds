@@ -4,10 +4,6 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-#main {
-
-}
-
 body,html{
     height: 100%;
     width: 100%;
@@ -88,6 +84,10 @@ footer {
 /* NAVBAR STYLING */
 nav ul li {
     text-align: center;
+}
+
+#logo {
+    font-size: 30pt;
 }
 
 .title-logo {

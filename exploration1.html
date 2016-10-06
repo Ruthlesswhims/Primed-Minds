@@ -8,13 +8,18 @@
     <title>Exploration 1</title>
 </head>
 <body>
-<label for="fader">Y Intercept</label>
+<label for="fader">Slope</label>
 <input type="range" min="-10" max="10" value="10" id="fader"
        step="1" oninput="outputUpdate(value)">
-<output for="fader" id="yintercept">10</output>
+<output for="fader" id="slope">10</output>
 <script>
     function outputUpdate(vol) {
-        document.querySelector('#yintercept').value = vol;
+        document.querySelector('#slope').value = vol;
+        var num = document.querySelector('#fader').value;
+
+        myGraph.drawEquation(function(x) {
+            return num * x;
+        }, 'red', 3);
     }
 </script>
 <canvas id="myCanvas" width="578" height="300"></canvas>
@@ -178,7 +183,7 @@
         unitsPerTick: 1
     });
 
-    var num = document.querySelector('#yintercept').value;
+    var num = document.querySelector('#fader').value;
 
     myGraph.drawEquation(function(x) {
         return num * x;

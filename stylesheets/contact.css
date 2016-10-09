@@ -11,6 +11,13 @@ h1 {
 #main {
     margin-left: 100px;
     margin-right: 100px;
+    position: relative;
+    float: right;
+    width: 40%;
+}
+
+#faq {
+    float: left;
 }
 
 /* NAVBAR STYLING */

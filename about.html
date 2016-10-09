@@ -22,7 +22,8 @@
         <!-- local css -->
         <link rel="stylesheet" type="text/css" href="stylesheets/about.css">
 
-
+    <link href="slider/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="slider/js-image-slider.js" type="text/javascript"></script>
 
     </head>
 
@@ -116,20 +117,61 @@
            Professor at BU, PhD from Harvard. Has kids. Has run substantial parts of the Ross Program, one of America's most prestigious summer schools for math.</div>
 
             <p style="clear:both"><br><br><br><br><h2 id="partners">Partners</h2></p>
-            <p><a href="http://mathspathway.com" target="_blank"><img src="../aboutphotos/mathspathway.jpg" title="Maths Pathway (field tester):
+            <p><a href="http://mathspathway.com" target="_blank"><img src="../itp460class/aboutphotos/mathspathway.jpg" title="Maths Pathway (field tester):
 
 An Australian Online learning company that believes in individualized learning. Trialing Primed in over 100 schools throughout Australia."></img></a>
-               <a href="http://betterexplained.com" target="_blank"><img src="../aboutphotos/betterexplained.jpg" title="Better Explained (content advisor):
+               <a href="http://betterexplained.com" target="_blank"><img src="../itp460class/aboutphotos/betterexplained.jpg" title="Better Explained (content advisor):
 
 Kalid, the mastermind behind BetterExplained.com, with exquisite mathematical taste."></img></a>
-            <a href="http://mathforlove.com/" target="_blank"><img src="../aboutphotos/math4love.jpg" title="Math For Love (field tester):
+            <a href="http://mathforlove.com/" target="_blank"><img src="../itp460class/aboutphotos/math4love.jpg" title="Math For Love (field tester):
 
 Founder of Math for Love, Dan Finkel, is road-testing Primed in dozens of schools around Seattle."></img></a></div>
 
-<div class="slideshow">
-<img src="http://www.jqueryscript.net/images/Lightweight-Responsive-jQuery-Slider-Plugin-Simple-Slideshow.jpg" width="500"></img>
-</div>
+ <div id="sliderFrame">
+        <div id="slider">
+            <img src="slider/images/AboutSlideShow1.jpg" />
+            <img src="slider/images/AboutSlideShow2.jpg" />
+            <img src="slider/images/AboutSlideShow3.jpg" />
+            <img src="slider/images/AboutSlideShow4.jpg" />
+            <img src="slider/images/AboutSlideShow5.jpg" />
+            <img src="slider/images/AboutSlideShow6.jpg" />
+            <img src="slider/images/AboutSlideShow7.jpg" />
+            <img src="slider/images/AboutSlideShow8.jpg" />
+            <img src="slider/images/AboutSlideShow9.jpg" />
+            <img src="slider/images/AboutSlideShow10.jpg" />
+            <img src="slider/images/AboutSlideShow11.jpg" />
+            <img src="slider/images/AboutSlideShow12.jpg" />
+            <img src="slider/images/AboutSlideShow13.jpg" />
+            <img src="slider/images/AboutSlideShow14.jpg" />
+            <img src="slider/images/AboutSlideShow15.jpg" />
+        </div>
+        <!--Custom navigation buttons on both sides-->
+        <div class="group1-Wrapper">
+            <a onclick="imageSlider.previous()" class="group1-Prev"></a>
+            <a onclick="imageSlider.next()" class="group1-Next"></a>
+        </div>
+        <!--nav bar-->
+        <div style="text-align:center;padding:20px;z-index:20;">
+            <a onclick="imageSlider.previous()" class="group2-Prev"></a>
+            <a id='auto' onclick="switchAutoAdvance()"></a>
+            <a onclick="imageSlider.next()" class="group2-Next"></a>
+        </div>
+    </div>
 
+        <script type="text/javascript">
+        //The following script is for the group 2 navigation buttons.
+        function switchAutoAdvance() {
+            imageSlider.switchAuto();
+            switchPlayPauseClass();
+        }
+        function switchPlayPauseClass() {
+            var auto = document.getElementById('auto');
+            var isAutoPlay = imageSlider.getAuto();
+            auto.className = isAutoPlay ? "group2-Pause" : "group2-Play";
+            auto.title = isAutoPlay ? "Pause" : "Play";
+        }
+        switchPlayPauseClass();
+    </script>
 
     </body>
 </html>

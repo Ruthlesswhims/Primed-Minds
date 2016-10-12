@@ -2,6 +2,7 @@
 
 .nav-wrapper {
     font-family: 'Open Sans';
+    position: fixed;
 }
 
 #main {

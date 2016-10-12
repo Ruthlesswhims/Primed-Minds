@@ -5,6 +5,10 @@
 	width: 500px;
 }
 
+.body{
+	position: relative;
+}
+
 .team {
 	width: 1000px;
 }
@@ -117,18 +121,6 @@ nav ul li {
     text-align: center;
 }
 
-.nav-wrapper {
-	font-family: "Open Sans";
-}
-
-#heading {
-    margin-top: 0;
-    box-sizing: border-box;
-    font-size: 38pt;
-    padding-top: 5px;
-    background-color: white;
-}
-
 #pom {
     width: 100px;
     height: 100px;
@@ -155,6 +147,7 @@ nav ul li {
 }
 
 .nav-wrapper {
+	font-family: "Open Sans";	
     margin-left: 40px;
     margin-right: 40px;
     position:fixed;
@@ -186,4 +179,11 @@ nav ul li {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.navbar-fixed {
+    top: 0;
+    z-index: 100;
+  	position: fixed;
+    width: 100%;
 }

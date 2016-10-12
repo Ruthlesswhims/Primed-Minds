@@ -13,7 +13,7 @@
 	width: 1000px;
 }
 
-.slideshow {
+#sliderFrame {
 	position:absolute;
 	right: 50px;
 	top: 100px;
@@ -45,7 +45,7 @@ a:hover#nav-wrapper {
 
 .bio1 {
 	display:none;
-	width: 250px;
+	width: 350px;
 	position: relative;
 	top: 100px;
 	left: -100px;
@@ -57,7 +57,7 @@ a:hover#nav-wrapper {
 	width: 250px;
 	position: relative;
 	top: 100px;
-	left: 60px;
+	left: -100px;
 	float: left;
 }
 
@@ -66,11 +66,11 @@ a:hover#nav-wrapper {
 	width: 250px;
 	position: relative;
 	top: 100px;
-	left: 200px;
+	left: -100px;
 	float: left;
 }
 
-.team1 {
+/*.team1 {
 	width: 150px;
 }
 
@@ -85,7 +85,8 @@ a:hover#nav-wrapper {
 	position: relative;
 	left: 300px;
 	margin-left: 10px;
-}
+}*/
+
 
 img {
 	float: left;

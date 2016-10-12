@@ -18,21 +18,21 @@ $(document).ready(function () {
         });
 
         $(".bio1").on("mouseleave", function(){
-            $(".bio1").slideUp(100);
+            $(".bio1").slideUp(10);
         });
            $(".team2").on("mouseenter", function(){
             $(".bio2").slideDown(100);
         });
 
         $(".bio2").on("mouseleave", function(){
-            $(".bio2").slideUp(100);
+            $(".bio2").slideUp(10);
         });
            $(".team3").on("mouseenter", function(){
             $(".bio3").slideDown(100);
         });
 
         $(".bio3").on("mouseleave", function(){
-            $(".bio3").slideUp(100);
+            $(".bio3").slideUp(10);
         });
 
 $(".q1").click(function(){
@@ -71,6 +71,26 @@ $(".q6").click(function(){
 $(".q6").hover(function() {
         $(this).css('cursor','pointer');
     });
+
+// $(".team1").click(function(){
+//         $(".bio1").toggle();
+//     });
+// $(".team1").hover(function() {
+//         $(this).css('cursor','pointer');
+//     });
+// $(".team2").click(function(){
+//         $(".bio2").toggle();
+//     });
+// $(".team2").hover(function() {
+//         $(this).css('cursor','pointer');
+//     });
+// $(".team3").click(function(){
+//         $(".bio3").toggle();
+//     });
+// $(".team3").hover(function() {
+//         $(this).css('cursor','pointer');
+//     });
+
     });
 
 (function($) {

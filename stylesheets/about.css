@@ -1,8 +1,15 @@
+
+
 .body-text {
 	margin-left: 100px;
 	margin-right: 100px;
 	font-family: 'gill sans', sans-serif;
 	width: 500px;
+	text-rendering: optimizeLegibility; 
+}
+
+.body{
+	padding-top: 70px;
 }
 
 .body{
@@ -26,7 +33,7 @@ h1 {
 h3 {
 	font-size: 20px;
 	font-family: "Open Sans";	
-	font-weight: bold;
+	
 }
 a:link:#nav_bar {
 	color: #ff3333;

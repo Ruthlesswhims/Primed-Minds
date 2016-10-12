@@ -6,7 +6,7 @@
 }
 
 .body{
-	position: relative;
+	padding-top: 70px;
 }
 
 .team {
@@ -14,7 +14,7 @@
 }
 
 #sliderFrame {
-	position:absolute;
+	position: relative;
 	right: 50px;
 	top: 100px;
 }
@@ -24,21 +24,21 @@ h1 {
 	font-family: "Open Sans";
 }
 h3 {
-	font-size: 16px;
+	font-size: 20px;
 	font-family: "Open Sans";	
 	font-weight: bold;
 }
-a:link:#nav-wrapper {
+a:link:#nav_bar {
 	color: #ff3333;
 	text-decoration: none;
 }
 
-a:visited#nav-wrapper {
+a:visited#nav_bar {
 	color: #ff3333;
 	text-decoration: none;
 }
 
-a:hover#nav-wrapper {
+a:hover#nav_bar {
 	color: #ff3333;
 	text-decoration: underline;
 }	
@@ -70,7 +70,7 @@ a:hover#nav-wrapper {
 	float: left;
 }
 
-/*.team1 {
+.team1 {
 	width: 150px;
 }
 
@@ -85,7 +85,7 @@ a:hover#nav-wrapper {
 	position: relative;
 	left: 300px;
 	margin-left: 10px;
-}*/
+}
 
 
 img {
@@ -102,19 +102,6 @@ div a {
 
 nav ul li {
     text-align: center;
-}
-
-.title-logo {
-    font-size: 20px;
-    margin-left: 1%;
-}
-
-.title-image {
-    width: 50px;
-    height: 50px;
-    margin-left: 12px;
-    margin-bottom: 9px;
-    vertical-align: middle;
 }
 
 /* NAVBAR STYLING */
@@ -147,10 +134,8 @@ nav ul li {
     vertical-align: middle;
 }
 
-.nav-wrapper {
+#nav_bar {
 	font-family: "Open Sans";	
-    margin-left: 40px;
-    margin-right: 40px;
     position:fixed;
 }
 
@@ -182,9 +167,3 @@ nav ul li {
     display: block;
 }
 
-.navbar-fixed {
-    top: 0;
-    z-index: 100;
-  	position: fixed;
-    width: 100%;
-}

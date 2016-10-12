@@ -1,18 +1,5 @@
 $(document).ready(function () {
 
-     $(window).scroll(function () {
-      // Get the height of the banner,
-      // and then set your menu.
-      var bannerHeight = $('.nav_wrapper').height();
-      // console.log(bannerHeight);
-    if ($(window).scrollTop() > bannerHeight) {
-      $('#nav_bar').addClass('navbar-fixed');
-    }
-    if ($(window).scrollTop() < bannerHeight) {
-      $('#nav_bar').removeClass('navbar-fixed');
-    }
-  });
-
         $(".team1").on("mouseenter", function(){
             $(".bio1").slideDown(100);
         });

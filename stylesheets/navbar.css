@@ -3,18 +3,6 @@ nav ul li {
     text-align: center;
 }
 
-.nav-wrapper {
-    font-family: "Open Sans";
-}
-
-#heading {
-    margin-top: 0;
-    box-sizing: border-box;
-    font-size: 38pt;
-    padding-top: 5px;
-    background-color: white;
-}
-
 #pom {
     width: 100px;
     height: 100px;
@@ -29,20 +17,21 @@ nav ul li {
 
 .title-logo {
     font-size: 20px;
-    margin-left: 1%;
+    /*margin-left: 1%;*/
 }
 
 .title-image {
     width: 50px;
     height: 50px;
-    margin-left: 12px;
+    /*margin-left: 12px;*/
     margin-bottom: 9px;
     vertical-align: middle;
 }
 
-.nav-wrapper {
-    margin-left: 40px;
-    margin-right: 40px;
+#nav_bar {
+    font-family: "Open Sans";   
+    /*margin-left: 40px;*/
+    /*margin-right: 40px;*/
     position:fixed;
 }
 
@@ -73,3 +62,4 @@ nav ul li {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+

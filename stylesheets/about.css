@@ -1,8 +1,19 @@
+
+
 .body-text {
 	margin-left: 100px;
 	margin-right: 100px;
 	font-family: 'gill sans', sans-serif;
 	width: 500px;
+	text-rendering: optimizeLegibility; 
+}
+
+.body{
+	padding-top: 70px;
+}
+
+.body{
+	padding-top: 70px;
 }
 
 .team {
@@ -21,7 +32,7 @@
 }
 
 #sliderFrame {
-	position:absolute;
+	position: relative;
 	right: 50px;
 	top: 100px;
 }
@@ -32,21 +43,25 @@ h1 {
 	font-weight: bold;
 }
 h3 {
+<<<<<<< HEAD
 	font-size: 18px;
+=======
+	font-size: 20px;
+>>>>>>> origin/master
 	font-family: "Open Sans";	
-	font-weight: bold;
+	
 }
-a:link:#nav-wrapper {
+a:link:#nav_bar {
 	color: #ff3333;
 	text-decoration: none;
 }
 
-a:visited#nav-wrapper {
+a:visited#nav_bar {
 	color: #ff3333;
 	text-decoration: none;
 }
 
-a:hover#nav-wrapper {
+a:hover#nav_bar {
 	color: #ff3333;
 	text-decoration: underline;
 }	
@@ -78,7 +93,7 @@ a:hover#nav-wrapper {
 	float: left;
 }
 
-/*.team1 {
+.team1 {
 	width: 150px;
 }
 
@@ -93,7 +108,7 @@ a:hover#nav-wrapper {
 	position: relative;
 	left: 300px;
 	margin-left: 10px;
-}*/
+}
 
 
 img {
@@ -112,34 +127,9 @@ nav ul li {
     text-align: center;
 }
 
-.title-logo {
-    font-size: 20px;
-    margin-left: 1%;
-}
-
-.title-image {
-    width: 50px;
-    height: 50px;
-    margin-left: 12px;
-    margin-bottom: 9px;
-    vertical-align: middle;
-}
-
 /* NAVBAR STYLING */
 nav ul li {
     text-align: center;
-}
-
-.nav-wrapper {
-	font-family: "Open Sans";
-}
-
-#heading {
-    margin-top: 0;
-    box-sizing: border-box;
-    font-size: 38pt;
-    padding-top: 5px;
-    background-color: white;
 }
 
 #pom {
@@ -167,9 +157,8 @@ nav ul li {
     vertical-align: middle;
 }
 
-.nav-wrapper {
-    margin-left: 40px;
-    margin-right: 40px;
+#nav_bar {
+	font-family: "Open Sans";	
     position:fixed;
 }
 
@@ -200,3 +189,4 @@ nav ul li {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+

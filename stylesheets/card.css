@@ -1,16 +1,11 @@
 
 
 .nav-wrapper {
-<<<<<<< Updated upstream
-    font-family: 'Open Sans';
-    position: fixed;
-=======
     
->>>>>>> Stashed changes
 }
 
 #main {
-
+    padding: 20px 5px 0px 5px;
 }
 
 body,html{
@@ -56,13 +51,11 @@ video#bgvid {
 
 #homeText {
     color: white;
-    font-size: 28pt;
+    font-size: 30pt;
     text-align: center;
     background-color: black;
-    opacity: 0.7;
-    width: 800px;
-    margin: 0 auto;
-    margin-top: 275px;
+    opacity: 0.8;
+    margin-top: 200px;
 }
 
 footer {
@@ -148,4 +141,22 @@ nav ul li {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.cardDeck {
+    width: 170px;
+}
+
+#objects {
+    width: 400px; 
+    float: right;
+    padding-top: 100px;
+}
+
+#objects img {
+    width: 100px;
+}
+
+#toggle {
+    font-size: 14pt;
 }

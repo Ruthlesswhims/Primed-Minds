@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
         $(".team1").on("mouseenter", function(){
             $(".bio1").slideDown(100);
         });
@@ -93,3 +94,4 @@ $('.dropdown-button').dropdown({
 
 		}); // End Document Ready
 })(jQuery); // End of jQuery name space
+

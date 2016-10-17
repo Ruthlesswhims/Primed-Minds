@@ -12,6 +12,15 @@
 <input type="range" min="-10" max="10" value="10" id="fader"
        step="1" oninput="outputUpdate(value)">
 <output for="fader" id="slope">10</output>
+
+<label for="yfader">Y-Intercept</label>
+<input type="range" min="-10" max="10" value="10" id="yfader"
+       step="1" oninput="outputUpdate(value)">
+<output for="yfader" id="yintercept">10</output>
+
+<button id="renderButton">Fire!</button>
+
+<div id="chart" style="width: 60%; float: right;">
 <script>
     function outputUpdate(vol) {
         document.querySelector('#slope').value = vol;
@@ -182,12 +191,15 @@
         maxY: 10,
         unitsPerTick: 1
     });
-
+    var renderButton = document.getElementById('renderButton');
+    renderButton.addEventListener('click', addDPsAndRender);
     var num = document.querySelector('#fader').value;
+    var yintercept = document.querySelector('#yfader').value;
 
     myGraph.drawEquation(function(x) {
-        return num * x;
+        return num * x + yintercept;
     }, 'red', 3);
     </script>
+</div>
 </body>
 </html>

@@ -1,0 +1,115 @@
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#main {
+ float: left;
+ margin-left: 100px;
+ margin-right: 100px;
+}
+
+
+/* NAVBAR STYLING */
+nav ul li {
+    text-align: center;
+}
+
+.title-logo {
+    font-size: 20px;
+    margin-left: 1%;
+}
+
+.title-image {
+    width: 50px;
+    height: 50px;
+    margin-left: 12px;
+    margin-bottom: 9px;
+    vertical-align: middle;
+}
+
+/* NAVBAR STYLING */
+nav ul li {
+    text-align: center;
+}
+
+.nav-wrapper {
+    font-family: "Open Sans";
+}
+
+#heading {
+    margin-top: 0;
+    box-sizing: border-box;
+    font-size: 38pt;
+    padding-top: 5px;
+    background-color: white;
+}
+
+#pom {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 10pt;
+}
+
+#logo{
+    font-family: 'Arima Madurai', cursive;
+    font-size: 30pt;
+}
+
+.title-logo {
+    font-size: 20px;
+    margin-left: 1%;
+}
+
+.title-image {
+    width: 50px;
+    height: 50px;
+    margin-left: 12px;
+    margin-bottom: 9px;
+    vertical-align: middle;
+}
+
+.nav-wrapper {
+    margin-left: 40px;
+    margin-right: 40px;
+    position:fixed;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#dropdown-about {
+    min-width: 250px;
+}
+
+#dropdown-explorations {
+    min-width: 140px;
+}
+
+.dropdown-content li a {
+    color: red;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover { 
+    background-color: #ffe900
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

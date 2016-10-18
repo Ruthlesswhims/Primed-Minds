@@ -12,10 +12,6 @@
 	padding-top: 70px;
 }
 
-.body{
-	padding-top: 70px;
-}
-
 .team {
 	position: relative;
 	top: 100px;
@@ -29,6 +25,7 @@
 	left: 50px;
 	background-color: #D3D3D3;
 	padding: 15px;
+	display: none;
 }
 
 #sliderFrame {
@@ -43,11 +40,7 @@ h1 {
 	font-weight: bold;
 }
 h3 {
-<<<<<<< HEAD
 	font-size: 18px;
-=======
-	font-size: 20px;
->>>>>>> origin/master
 	font-family: "Open Sans";	
 	
 }
@@ -115,16 +108,8 @@ img {
 	float: left;
 }
 
-.a1, .a2, .a3, .a4, .a5, .a6 {
-	display: none;
-}
-
 div a {
     font-family: 'Montserrat', sans-serif;
-}
-
-nav ul li {
-    text-align: center;
 }
 
 /* NAVBAR STYLING */

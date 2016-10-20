@@ -11,33 +11,18 @@ h1 {
 #main {
     margin-left: 100px;
     margin-right: 100px;
+    position: relative;
+    float: right;
+    width: 40%;
+}
+
+#faq {
+    float: left;
 }
 
 /* NAVBAR STYLING */
 nav ul li {
     text-align: center;
-}
-
-.title-logo {
-    font-size: 20px;
-    margin-left: 1%;
-}
-
-.title-image {
-    width: 50px;
-    height: 50px;
-    margin-left: 12px;
-    margin-bottom: 9px;
-    vertical-align: middle;
-}
-
-/* NAVBAR STYLING */
-nav ul li {
-    text-align: center;
-}
-
-.nav-wrapper {
-    font-family: "Open Sans";
 }
 
 #heading {

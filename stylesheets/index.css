@@ -1,7 +1,12 @@
 
 
 .nav-wrapper {
+<<<<<<< Updated upstream
     font-family: 'Open Sans';
+    position: fixed;
+=======
+    
+>>>>>>> Stashed changes
 }
 
 #main {
@@ -51,11 +56,13 @@ video#bgvid {
 
 #homeText {
     color: white;
-    font-size: 30pt;
+    font-size: 28pt;
     text-align: center;
     background-color: black;
-    opacity: 0.8;
-    margin-top: 200px;
+    opacity: 0.7;
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 275px;
 }
 
 footer {

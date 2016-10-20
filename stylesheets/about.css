@@ -1,16 +1,27 @@
+
+
 .body-text {
 	margin-left: 100px;
 	margin-right: 100px;
 	font-family: 'gill sans', sans-serif;
 	width: 500px;
+	text-rendering: optimizeLegibility; 
+}
+
+.body{
+	padding-top: 70px;
+}
+
+.body{
+	padding-top: 70px;
 }
 
 .team {
 	width: 1000px;
 }
 
-.slideshow {
-	position:absolute;
+#sliderFrame {
+	position: relative;
 	right: 50px;
 	top: 100px;
 }
@@ -20,28 +31,28 @@ h1 {
 	font-family: "Open Sans";
 }
 h3 {
-	font-size: 16px;
+	font-size: 20px;
 	font-family: "Open Sans";	
-	font-weight: bold;
+	
 }
-a:link:#nav-wrapper {
+a:link:#nav_bar {
 	color: #ff3333;
 	text-decoration: none;
 }
 
-a:visited#nav-wrapper {
+a:visited#nav_bar {
 	color: #ff3333;
 	text-decoration: none;
 }
 
-a:hover#nav-wrapper {
+a:hover#nav_bar {
 	color: #ff3333;
 	text-decoration: underline;
 }	
 
 .bio1 {
 	display:none;
-	width: 250px;
+	width: 350px;
 	position: relative;
 	top: 100px;
 	left: -100px;
@@ -53,7 +64,7 @@ a:hover#nav-wrapper {
 	width: 250px;
 	position: relative;
 	top: 100px;
-	left: 60px;
+	left: -100px;
 	float: left;
 }
 
@@ -62,7 +73,7 @@ a:hover#nav-wrapper {
 	width: 250px;
 	position: relative;
 	top: 100px;
-	left: 200px;
+	left: -100px;
 	float: left;
 }
 
@@ -83,6 +94,7 @@ a:hover#nav-wrapper {
 	margin-left: 10px;
 }
 
+
 img {
 	float: left;
 }
@@ -99,34 +111,9 @@ nav ul li {
     text-align: center;
 }
 
-.title-logo {
-    font-size: 20px;
-    margin-left: 1%;
-}
-
-.title-image {
-    width: 50px;
-    height: 50px;
-    margin-left: 12px;
-    margin-bottom: 9px;
-    vertical-align: middle;
-}
-
 /* NAVBAR STYLING */
 nav ul li {
     text-align: center;
-}
-
-.nav-wrapper {
-	font-family: "Open Sans";
-}
-
-#heading {
-    margin-top: 0;
-    box-sizing: border-box;
-    font-size: 38pt;
-    padding-top: 5px;
-    background-color: white;
 }
 
 #pom {
@@ -154,9 +141,8 @@ nav ul li {
     vertical-align: middle;
 }
 
-.nav-wrapper {
-    margin-left: 40px;
-    margin-right: 40px;
+#nav_bar {
+	font-family: "Open Sans";	
     position:fixed;
 }
 
@@ -187,3 +173,4 @@ nav ul li {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+

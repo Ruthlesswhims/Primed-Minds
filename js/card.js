@@ -1,9 +1,16 @@
 <<<<<<< HEAD
+function createImage() {
+  $('.image').interactive = true;
+};
+
+=======
+<<<<<<< HEAD
+>>>>>>> origin/dev
 // Array of cards (objects).
 var cards = [];
 
 // Create 7 cards & push to array of cards.
-for(var i = 0; i < 8; i++){
+for(var i = 0; i < 7; i++){
   
   // Temporary object
   var tempCard = {
@@ -13,7 +20,9 @@ for(var i = 0; i < 8; i++){
     // By default, each card is invalid (red).
     valid: false,
     // At the start, cards don't have any images.
-    image: null,
+    image1: null,
+    image2: null,
+    image3: null,
   }
 
     // Add temp card to array of cards.
@@ -76,6 +85,53 @@ function findCardIndex(cardName) {
 } /*END findCardIndex()*/
 
 
+<<<<<<< HEAD
+/*
+ * Iterate through 'cards' array and set 'valid' key to TRUE or FALSE.
+  * By default, set 'valid' for all cards to FALSE.
+ * Set 'valid' is TRUE if at least one other card has the same letter.
+ */
+function validateCards() {
+    // First loop here using 'i'.
+    for (var i = 0; i < cards.length; i++) {
+        // By default set all 'valid' to FALSE.
+        cards[i].valid = false;
+        
+        // Second loop using 'j'.
+        for (var j = 0; j < cards.length; j++) {
+        
+                // IF statements checks for 3 conditions:
+                // 1) 'i' cannot be the same as 'j'. Comparing cards[0].letter to cards[0].letter will always be TRUE, so we dont' want that.
+                // 2) cards[i].letter cannot be NULL. If NULL, means there is no card there, so it has to be FALSE.
+                // 3) If cards[i].letter and cards[j].letter have same letter, there is a match.
+                if (i != j
+                            && cards[i].image != null 
+                            && cards[i].image == cards[j].image) {
+                          // There is a match. set 'valid' of card[i] to TRUE and end the loop, moving on to next card.
+                          cards[i].valid = true;
+                          break;
+                }
+        }
+    }
+} /*END validateCards()*/
+
+/*
+ * Go through each card and color them using 'invalid-card' and 'valid-card' classes defined in CSS.
+ * If 'valid' is TRUE, remove 'invalid-card' class and add 'valid-card' class.
+ * If 'valid' is FALSE, remove 'valid-card' class and add 'invalid-card' class.
+ */
+function colorCards(){
+    for (var i = 0; i < cards.length; i++) {
+        if (cards[i].valid) {
+                $('#' + cards[i].name).removeClass('invalid-card');
+                $('#' + cards[i].name).addClass('valid-card');
+        } else {
+                $('#' + cards[i].name).removeClass('valid-card');
+                $('#' + cards[i].name).addClass('invalid-card');
+        }
+    }
+} /*END colorCards()*/
+=======
 			/*
 			 * Iterate through 'cards' array and set 'valid' key to TRUE or FALSE.
  			 * By default, set 'valid' for all cards to FALSE.
@@ -142,3 +198,4 @@ function selectRandomObj() {
     document.querySelector('#objects img').src = images[random];
 }
 >>>>>>> feliped
+>>>>>>> origin/dev

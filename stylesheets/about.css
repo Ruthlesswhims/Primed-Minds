@@ -1,6 +1,5 @@
-
-
 .body-text {
+	float: left;
 	margin-left: 100px;
 	margin-right: 100px;
 	font-family: 'gill sans', sans-serif;
@@ -8,30 +7,45 @@
 	text-rendering: optimizeLegibility; 
 }
 
-.body{
-	padding-top: 70px;
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
-.body{
-	padding-top: 70px;
+#main {
+    padding-top: 100px;
 }
 
 .team {
+	top: 100px;
 	width: 1000px;
+/*	margin-left: 100px;*/
+	margin-right: 100px;
+	margin-bottom: 125px;
+}
+
+.answer {
+	left: 50px;
+	background-color: #D3D3D3;
+	padding: 15px;
+	display: none;
 }
 
 #sliderFrame {
+	float: right;
 	position: relative;
 	right: 50px;
-	top: 100px;
+	top: 0px;
+	z-index: -1;
 }
 
 h1 {
 	font-size: 48px;
 	font-family: "Open Sans";
+	font-weight: bold;
 }
+
 h3 {
-	font-size: 20px;
+	font-size: 18px;
 	font-family: "Open Sans";	
 	
 }
@@ -53,7 +67,7 @@ a:hover#nav_bar {
 .bio1 {
 	display:none;
 	width: 350px;
-	position: relative;
+	/*position: relative;*/
 	top: 100px;
 	left: -100px;
 	float: left;
@@ -62,7 +76,7 @@ a:hover#nav_bar {
 .bio2 {
 	display:none;
 	width: 250px;
-	position: relative;
+	/*position: relative;*/
 	top: 100px;
 	left: -100px;
 	float: left;
@@ -71,7 +85,7 @@ a:hover#nav_bar {
 .bio3 {
 	display:none;
 	width: 250px;
-	position: relative;
+	/*position: relative;*/
 	top: 100px;
 	left: -100px;
 	float: left;
@@ -83,13 +97,13 @@ a:hover#nav_bar {
 
 .team2 {
 	width: 550px;
-	position: relative;
+	/*position: relative;*/
 	left: 150px;
 }
 
 .team3 {
 	width: 800px;
-	position: relative;
+	/*position: relative;*/
 	left: 300px;
 	margin-left: 10px;
 }
@@ -99,21 +113,33 @@ img {
 	float: left;
 }
 
-.a1, .a2, .a3, .a4, .a5, .a6 {
-	display: none;
-}
-
 div a {
     font-family: 'Montserrat', sans-serif;
 }
 
-nav ul li {
-    text-align: center;
+/* IMPORTANT 
+Put rest of page in div with id="main"
+This pads the rest of the page below the navbar */ 
+
+#main {
+    padding-top: 100px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* NAVBAR STYLING */
 nav ul li {
     text-align: center;
+}
+
+#heading {
+    margin-top: 0;
+    box-sizing: border-box;
+    font-size: 38pt;
+    padding-top: 5px;
+    background-color: white;
 }
 
 #pom {
@@ -142,7 +168,6 @@ nav ul li {
 }
 
 #nav_bar {
-	font-family: "Open Sans";	
     position:fixed;
 }
 
@@ -173,4 +198,3 @@ nav ul li {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-

@@ -1,7 +1,10 @@
+<<<<<<< Updated upstream
 .nav-wrapper {
     
 }
 
+=======
+>>>>>>> Stashed changes
 #main {
 <<<<<<< HEAD
     margin: 50px 30px 0px 50px;
@@ -112,9 +115,7 @@ nav ul li {
     vertical-align: middle;
 }
 
-.nav-wrapper {
-    margin-left: 40px;
-    margin-right: 40px;
+#nav_bar {
     position:fixed;
 }
 
@@ -144,6 +145,7 @@ nav ul li {
 
 .dropdown:hover .dropdown-content {
     display: block;
+<<<<<<< HEAD
 }
 
 <<<<<<< HEAD
@@ -224,3 +226,6 @@ nav ul li {
     font-size: 14pt;
 }
 >>>>>>> feliped
+=======
+}
+>>>>>>> master

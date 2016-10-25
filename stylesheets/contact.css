@@ -1,5 +1,3 @@
-
-
 body {
     font-family: 'Open Sans', sans-serif;
 }
@@ -11,13 +9,15 @@ h1 {
 #main {
     margin-left: 100px;
     margin-right: 100px;
-    position: relative;
+    margin-top: 100px;
     float: right;
     width: 40%;
 }
 
 #faq {
     float: left;
+    margin-top: 100px;
+    margin-left: 100px;
 }
 
 /* NAVBAR STYLING */
@@ -58,9 +58,7 @@ nav ul li {
     vertical-align: middle;
 }
 
-.nav-wrapper {
-    margin-left: 40px;
-    margin-right: 40px;
+#nav_bar {
     position:fixed;
 }
 

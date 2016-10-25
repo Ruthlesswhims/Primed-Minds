@@ -1,28 +1,3 @@
-
-
-.nav-wrapper {
-<<<<<<< Updated upstream
-    font-family: 'Open Sans';
-    position: fixed;
-=======
-    
->>>>>>> Stashed changes
-}
-
-#main {
-
-}
-
-body,html{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0;
-    margin: 0;
-}
-
 body,html{
     height: 100%;
     width: 100%;
@@ -76,7 +51,17 @@ footer {
     font-size: 13pt;
 }
 
+/* IMPORTANT 
+Put rest of page in div with id="main"
+This pads the rest of the page below the navbar */ 
 
+#main {
+    padding-top: 100px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
 
 /* NAVBAR STYLING */
 nav ul li {
@@ -116,9 +101,7 @@ nav ul li {
     vertical-align: middle;
 }
 
-.nav-wrapper {
-    margin-left: 40px;
-    margin-right: 40px;
+#nav_bar {
     position:fixed;
 }
 

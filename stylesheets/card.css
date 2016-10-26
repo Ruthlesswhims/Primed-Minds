@@ -1,5 +1,20 @@
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+.nav-wrapper {
+    
+}
+
+=======
+>>>>>>> Stashed changes
+>>>>>>> dev
 #main {
+<<<<<<< HEAD
+    margin: 50px 30px 0px 50px;
+    height: 100%;
+=======
     padding: 20px 5px 0px 5px;
+>>>>>>> feliped
 }
 
 body,html{
@@ -133,4 +148,91 @@ nav ul li {
 
 .dropdown:hover .dropdown-content {
     display: block;
+<<<<<<< HEAD
 }
+=======
+<<<<<<< HEAD
+}
+
+<<<<<<< HEAD
+.card {
+    width: 190px;
+    height: 258px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #ffdd54;
+    float: left;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.valid-card {
+    background-color: #0F0;
+}
+
+.invalid-card {
+    background-color: #ff3e3e;
+}
+
+#cards {
+    float: left;
+    width: 75%
+}
+
+#cardDeck {
+    width: 190px;
+    /* position: absolute; */
+}
+
+#images {
+    width: 25%;
+    float: right;
+}
+
+.image img {
+    width: 125px;
+    height: 125px;
+    float: right;
+}
+
+#startOver {
+    font-size: 14pt;
+    border-radius: 10px;
+    margin-left: 43px;
+}
+
+
+/*@media screen and (max-width: 1400px) {
+    body {
+        background-color: lightblue !important;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    body {
+        background-color: lightgreen !important;
+    }
+}*/
+=======
+.cardDeck {
+    width: 170px;
+}
+
+#objects {
+    width: 400px; 
+    float: right;
+    padding-top: 100px;
+}
+
+#objects img {
+    width: 100px;
+}
+
+#toggle {
+    font-size: 14pt;
+}
+>>>>>>> feliped
+=======
+}
+>>>>>>> master
+>>>>>>> dev

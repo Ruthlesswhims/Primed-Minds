@@ -1,0 +1,104 @@
+
+/* - exploration 1 template-- */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Raleway;
+}
+
+.exploration-page-container{
+    padding-top: 100px
+}
+
+.exploration-page-container > h3{
+    margin-left: 40px;
+    font-weight: 500;
+    color: #222;
+}
+
+.flex-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.explore-cont {
+    min-width: 663px;
+  max-width: 750px;
+  width: 750px;
+  height: 300px;
+  background-color: green;
+  padding: 0;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s;
+}
+.explore-cont:hover {
+  transform: scale(1.02);
+}
+
+.explore-cont-left, .explore-cont-right {
+  height: 100%;
+}
+
+.explore-cont-left {
+  float: left;
+  height: 100%;
+  width: 34%;
+  padding: 15px 25px;
+  background-color: #F5F5F5;
+}
+.explore-cont-left h3 {
+  margin: 20px 0px 20px 0px;
+  color: #DC2222;
+    font-size: 20pt;
+}
+.explore-cont-left p {
+  padding: 0 0 0 10px;
+  color: #2E2E2E;
+}
+.explore-cont-left a {
+  color: #AC1B1B;
+  text-decoration: none;
+  float: right;
+  font-size: 10pt;
+}
+
+.button {
+  margin: 30px auto 0 auto;
+  font-weight: 700;
+  text-align: center;
+  width: 80%;
+  padding: 7px 0 7px 0;
+  border: 1px solid #DC2222;
+  color: #DC2222;
+  transition: all 0.2s;
+}
+.button:hover {
+  background-color: #DC2222;
+  color: white;
+}
+
+.explore-cont-right {
+  float: right;
+  width: 66%;
+  background-color: pink;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.explore-cont-right img {
+  height: 110%;
+  flex: 1 1 0;
+}
+
+
+
+
+
+

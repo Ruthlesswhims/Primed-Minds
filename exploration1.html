@@ -11,17 +11,34 @@
 <label for="fader">Slope</label>
 <input type="range" min="-10" max="10" value="10" id="fader"
        step="1" oninput="outputUpdate(value)">
-<output for="fader" id="slope">10</output>
+<input type="number" min="-10" max="10" for="yfader" id="slope" value="10" oninput="outputSliderY(value)" onchange="validate(this.value)">
 
+<p><br></p>
 <label for="yfader">Y-Intercept</label>
 <input type="range" min="-10" max="10" value="10" id="yfader"
-       step="1" oninput="outputUpdate(value)">
-<output for="yfader" id="yintercept">10</output>
+       step="1" oninput="outputUpdateIntercept(value)">
+<input type="number" min="-10" max="10" for="yfader" id="yintercept" value="10" oninput="outputSliderY(value)" onchange="validate(this.value)">
+
+<p><br></p>
+<p id="error-text"></p>
 
 <button id="renderButton">Fire!</button>
 
 <div id="chart" style="width: 60%; float: right;">
 <script>
+    function validate(val) {
+        var value, text;
+        // Get the value of the input field
+        value = parseInt(val);
+        if (value < -10 || value > 10) {
+            text = "Please enter values between -10 and 10";
+        }
+        else {
+            text = "";
+        }
+        document.getElementById("error-text").innerHTML = text;
+    }
+
     function outputUpdate(vol) {
         document.querySelector('#slope').value = vol;
         var num = document.querySelector('#fader').value;
@@ -30,6 +47,21 @@
             return num * x;
         }, 'red', 3);
     }
+
+    function outputUpdateIntercept(vol) {
+        document.querySelector('#yintercept').value = vol;
+        var num = document.querySelector('#yfader').value;
+    }
+
+    function outputSliderY(vol) {
+        var num = document.getElementById("yintecept").value;
+        document.getElementById("yfader").value = num;
+    }
+
+    $("yintercept").change(function () {
+        var value = this.value;
+        $("#yfader").slider("value", parseInt(value));
+    });
 </script>
 <canvas id="myCanvas" width="578" height="300"></canvas>
 <script>

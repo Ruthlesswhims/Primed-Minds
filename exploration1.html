@@ -9,15 +9,13 @@
 </head>
 <body>
 <label for="fader">Slope</label>
-<input type="range" min="-10" max="10" value="10" id="fader"
-       step="1" oninput="outputUpdate(value)">
-<input type="number" min="-10" max="10" for="yfader" id="slope" value="10" oninput="outputSliderY(value)" onchange="validate(this.value)">
+<input type="range" min="-10" max="10" value="10" id="slope_fader" step="1" oninput="updateText(this.value, 'slope')">
+<input type="number" min="-10" max="10" for="slope_fader" id="slope" value="10" onchange="updateSlider(this.value, 'slope_fader')">
 
 <p><br></p>
 <label for="yfader">Y-Intercept</label>
-<input type="range" min="-10" max="10" value="10" id="yfader"
-       step="1" oninput="outputUpdateIntercept(value)">
-<input type="number" min="-10" max="10" for="yfader" id="yintercept" value="10" oninput="outputSliderY(value)" onchange="validate(this.value)">
+<input type="range" min="-10" max="10" value="10" id="yfader" step="1" oninput="updateText(this.value, 'yintercept')">
+<input type="number" min="-10" max="10" for="yfader" id="yintercept" value="10" onchange="updateSlider(this.value, 'yfader')">
 
 <p><br></p>
 <p id="error-text"></p>
@@ -26,17 +24,34 @@
 
 <div id="chart" style="width: 60%; float: right;">
 <script>
+    // This function validates if entries are between -10 and 10 
     function validate(val) {
-        var value, text;
+        var value, text, pass;
         // Get the value of the input field
         value = parseInt(val);
         if (value < -10 || value > 10) {
             text = "Please enter values between -10 and 10";
+            pass = false;
         }
         else {
             text = "";
+            pass = true;
         }
         document.getElementById("error-text").innerHTML = text;
+        return pass;
+    }
+
+    // Updates the slider value when the text value is changed for the input named 'id'
+    function updateSlider(val, id) {
+        var pass = validate(val); 
+        if(pass) {
+            document.getElementById(id).value = parseInt(val);
+        }
+    }
+
+    // Updates the text value displayed when the slider value is adjusted for the input named 'id'
+    function updateText(val, id) {
+        document.getElementById(id).value = val; 
     }
 
     function outputUpdate(vol) {
@@ -47,21 +62,6 @@
             return num * x;
         }, 'red', 3);
     }
-
-    function outputUpdateIntercept(vol) {
-        document.querySelector('#yintercept').value = vol;
-        var num = document.querySelector('#yfader').value;
-    }
-
-    function outputSliderY(vol) {
-        var num = document.getElementById("yintecept").value;
-        document.getElementById("yfader").value = num;
-    }
-
-    $("yintercept").change(function () {
-        var value = this.value;
-        $("#yfader").slider("value", parseInt(value));
-    });
 </script>
 <canvas id="myCanvas" width="578" height="300"></canvas>
 <script>

@@ -1,18 +1,17 @@
-
 /* - exploration 1 template-- */
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: Raleway;
+  /*padding: 0;*/
+  /*margin: 0;*/
+  /*box-sizing: border-box;*/
+  /*font-family: Raleway;*/
 }
 
-.exploration-page-container{
+.exploration-page-container {
     padding-top: 100px
 }
 
-.exploration-page-container > h3{
+.exploration-page-container > h3 {
     margin-left: 40px;
     font-weight: 500;
     color: #222;
@@ -26,7 +25,7 @@
 }
 
 .explore-cont {
-    min-width: 663px;
+  min-width: 663px;
   max-width: 750px;
   width: 750px;
   height: 300px;
@@ -97,8 +96,86 @@
   flex: 1 1 0;
 }
 
+/* IMPORTANT 
+Put rest of page in div with id="main"
+This pads the rest of the page below the navbar */ 
 
+#main {
+    padding-top: 100px;
+}
 
+body {
+    font-family: 'Open Sans', sans-serif;
+}
 
+/* NAVBAR STYLING */
+nav ul li {
+    text-align: center;
+}
+
+#heading {
+    margin-top: 0;
+    box-sizing: border-box;
+    font-size: 38pt;
+    padding-top: 5px;
+    background-color: white;
+}
+
+#pom {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 10pt;
+}
+
+#logo{
+    font-family: 'Arima Madurai', cursive;
+    font-size: 30pt;
+}
+
+.title-logo {
+    font-size: 20px;
+    margin-left: 1%;
+}
+
+.title-image {
+    width: 50px;
+    height: 50px;
+    margin-left: 12px;
+    margin-bottom: 9px;
+    vertical-align: middle;
+}
+
+#nav_bar {
+    position:fixed;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#dropdown-about {
+    min-width: 250px;
+}
+
+#dropdown-explorations {
+    min-width: 140px;
+}
+
+.dropdown-content li a {
+    color: red;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover { 
+    background-color: #ffe900
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 

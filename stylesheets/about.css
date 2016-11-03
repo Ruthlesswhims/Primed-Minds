@@ -31,8 +31,9 @@ h3 {
 }
 
 #sliderFrame {
-    margin-top: 100px;
+    z-index: -1;
 }
+
 
 /* GRID STYLING */
 [class*='col-'] {

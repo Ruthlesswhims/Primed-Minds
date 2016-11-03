@@ -1,30 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head lang="en">
-<<<<<<< HEAD
 	    <meta charset="UTF-8">	
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-=======
-	    <meta charset="UTF-8">
->>>>>>> feliped
 	    <title>Spot It Exploration</title>
 			<!-- materialize css -->
 			<link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
 
-<<<<<<< HEAD
 			
-=======
-			<!-- jquery js -->
-	  		<script src="public/javascript/jquery-1.12.3.min.js"></script>
-
-			<!-- materialize js -->
-	  		<script src="public/javascript/materialize.min.js"></script>
-
-	  		<!-- local js -->
-	  		<script src="public/javascript/script.js"></script>
-
->>>>>>> feliped
 			<!-- fonts from gapis -->
 			<link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet"> 
 			<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
@@ -35,63 +19,78 @@
 	</head>
 
 	<body>
-        <!-- navbar code, copy code to top of body -->
+	    <!-- navbar code, copy code to top of body -->
 
-        <!-- dropdown structures -->
-        <ul id="dropdown-about" class="dropdown-content">
-            <li><a href="about.html">About Primed Minds</a></li>    
-            <li><a href="about.html#team">The Team</a></li>
-            <li><a href="about.html#partners">Partners</a></li>
-        </ul>
+	    <!-- dropdown structures -->
+	    <ul id="dropdown-about" class="dropdown-content">
+	        <li><a href="about.html#what is primed">What is Primed Minds?</a></li>
+	        <li><a href="about.html#who for">Who is this for?</a></li>
+	        <li><a href="about.html#philosophy">Philosophy</a></li>
+	        <li><a href="about.html#what is math">What is mathematics anyway?</a></li>
+	        <li><a href="#about.html#try exploration">How do I try an exploration?</a></li>       
+	        <li><a href="about.html#team">The Team</a></li>
+	        <li><a href="about.html#partners">Partners</a></li>
+	    </ul>
 
-        <ul id="dropdown-explorations" class="dropdown-content">
-            <li><a href="#">Exploration 1</a></li>
-            <li><a href="#">Exploration 2</a></li>
-            <li><a href="#">Exploration 3</a></li>
-        </ul>
+	    <ul id="dropdown-explorations" class="dropdown-content">
+	        <li><a href="card.html">Exploration 1</a></li>
+	        <li><a href="#">Exploration 2</a></li>
+	        <li><a href="#">Exploration 3</a></li>
+	    </ul>
 
-        <!-- nav wrapper -->
-        <nav class="red navbar navbar-default navbar-fixed-top" id="nav_bar">
-            <div class="container">
+	    <!-- nav wrapper -->
+	    <nav class="red">
+            <div class="nav-wrapper">
                 <a href="index.html"><img id="pom" src="assets/pom.png"></a>
                 <a href="index.html" id="logo">PRIMED MINDS</a>
 
                 <!-- right aligned navitems -->
                 <ul class="right">
                         <!-- change 'active' class based on current page -->
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><a class="dropdown-button" href="about.html" data-activates="dropdown-about">About</a></li>
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a class="dropdown-button" href="about.html" data-activates="dropdown-about">About</a></li>
                         <li><a class="dropdown-button" href="explorations.html" data-activates="dropdown-explorations">Explorations</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                        <li><a href="contact.html">FAQ</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="contact.html">Q & A</a></li>
                     </li>
                 </ul>
             </div>
         </nav>
+
 		<div id="main">
-<<<<<<< HEAD
+			
+			<div id="buttons">
+				<button id="draw1">1 </button>
+				<button id="draw2">2 </button>
+				<button id="draw3">3 </button>
+				<button id="draw4">4 </button>
+				<button id="draw5">5 </button>
+				<button id="draw6">6 </button>
+				<button id="draw7">7 </button>
+				<br>
+				<br>
+				<button id="reset">Start Over</button>
+			</div>
 			
 			<div id="cards">
 				
 			</div>
 			
 			<!--<img id="cardDeck" src="assets/card.png">
-			<br>
-			<button id="startOver">Start Over</button>-->
+			<br>-->
 			
 			<div id="images">
-				<div class="image" image="black"> <img src="assets/blackPom.png"> </div>
-				<div class="image" image="black"> <img src="assets/blackPom.png"> </div>
-				<div class="image" image="bw"> <img src="assets/bwPom.png"> </div>
-				<div class="image" image="bw"> <img src="assets/bwPom.png"> </div>
-				<div class="image" image="blue"> <img src="assets/bluePom.png"> </div>
-				<div class="image" image="blue"> <img src="assets/bluePom.png"> </div>
-				<div class="image" image="orange"> <img src="assets/orangePom.png"> </div>
-				<div class="image" image="purple"> <img src="assets/purplePom.png"> </div>
-				<div class="image" image="green"> <img src="assets/greenPom.png"> </div>
-				<div class="image" image="red"> <img src="assets/redPom.png"> </div>
+				<div class="image blackPom" image="black"> <!--< img src="assets/blackPom.png"> --> </div>
+				<div class="image blackPom" image="black"> <!--< img src="assets/blackPom.png"> --> </div>
+				<div class="image bwPom" image="bw"> <!--< img src="assets/bwPom.png"> --> </div>
+				<div class="image bwPom" image="bw"> <!--< img src="assets/bwPom.png"> --> </div>
+				<div class="image bluePom" image="blue"> <!--< img src="assets/bluePom.png"> --> </div>
+				<div class="image bluePom" image="blue"> <!--< img src="assets/bluePom.png"> --> </div>
+				<div class="image orangePom" image="orange"> <!--< img src="assets/orangePom.png"> --> </div>
+				<div class="image purplePom" image="purple"> <!--< img src="assets/purplePom.png"> --> </div>
+				<div class="image greenPom" image="green"> <!--< img src="assets/greenPom.png"> --> </div>
+				<div class="image redPom" image="red"> <!--< img src="assets/redPom.png"> --> </div>
 			</div>
-			
 		   
 		    <!--<footer>
 		        &copy; Copyright 2016
@@ -99,7 +98,7 @@
 		</div>
 		
 	<!-- jquery js -->
-	<script src="public/javascript/jquery-1.12.3.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 	
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>	
 
@@ -108,35 +107,12 @@
 
 	<!-- local js -->
 	<script src="public/javascript/script.js"></script>
-
-	  
-	<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 	
-=======
-                   
-			<img class="cardDeck" src="assets/card.png">
-			<img class="cardDeck" src="assets/card.png">
-			<img class="cardDeck" src="assets/card.png">
-			<img class="cardDeck" src="assets/card.png">
-			<img class="cardDeck" src="assets/card.png">
-			<img class="cardDeck" src="assets/card.png">
-			<img class="cardDeck" src="assets/card.png">
-		   
-			<div id="objects">
-				<img class="obj" src="assets/blackPom.jpg">
-				<button id="toggle" onclick="selectRandomObj()">Toggle</button>
-			</div>
-			
-		   
-		    <footer>
-		        &copy; Copyright 2016
-		    </footer>
-		</div>
-	  
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>	
->>>>>>> feliped
+<!--	<script src="js/pixi.min.js"></script>-->
+	
 	<script src="js/card.js"></script>
+	
+<!--	<script src="js/dragging.js"></script>-->
 	
 	</body>
 </html>

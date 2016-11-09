@@ -58,7 +58,7 @@
         var num = parseInt(document.querySelector('#slope_fader').value);
         var yintercept = parseInt(document.querySelector('#yintercept').value);
         myGraph.drawEquation(function(x) {
-            return num*x + yintercept;
+            return (num*x + yintercept)%20-10;
         }, 'green', 2);
     }
 </script>

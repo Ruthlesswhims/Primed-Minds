@@ -37,54 +37,10 @@ for(var i = 0; i < cards.length; i++){
 
 $('.card').hide();
 $('#draw1').click(function(){
-    $('#card0').show(500);
+    $('.card').show(500);
   
 });
 
-$('#draw2').click(function(){
-    $('#card0').show(500);
-    $('#card1').show(500);
-});
-
-$('#draw3').click(function(){
-    $('#card0').show(500);
-    $('#card1').show(500);
-    $('#card2').show(500);
-});
-
-$('#draw4').click(function(){
-    $('#card0').show(500);
-    $('#card1').show(500);
-    $('#card2').show(500);
-    $('#card3').show(500);
-});
-
-$('#draw5').click(function(){
-    $('#card0').show(500);
-    $('#card1').show(500);
-    $('#card2').show(500);
-    $('#card3').show(500);
-    $('#card4').show(500);
-});
-
-$('#draw6').click(function(){
-    $('#card0').show(500);
-    $('#card1').show(500);
-    $('#card2').show(500);
-    $('#card3').show(500);
-    $('#card4').show(500);
-    $('#card5').show(500);
-});
-
-$('#draw7').click(function(){
-    $('#card0').show(500);
-    $('#card1').show(500);
-    $('#card2').show(500);
-    $('#card3').show(500);
-    $('#card4').show(500);
-    $('#card5').show(500);
-    $('#card6').show(500);
-});
 
 $('#reset').click(function(){
   $('.card').removeClass('valid-card');

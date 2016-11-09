@@ -3,7 +3,7 @@
 }
 
 #main {
-    margin: 50px 30px 0px 50px;
+    margin: 50px 10px 0px 50px;
     height: 100%;
 }
 
@@ -143,8 +143,8 @@ nav ul li {
 }
 
 .card {
-    width: 255px;
-    height: 330px;
+    width: 235px;
+    height: 310px;
     border: 2px solid black;
     border-radius: 20px;
     background-color: #ffdd54;
@@ -164,6 +164,8 @@ nav ul li {
 #cards {
     float: left;
     width: 72%;
+    height: 100%;
+    padding-left: 50px;
 }
 
 #cardDeck {
@@ -180,12 +182,12 @@ nav ul li {
 #images {
     width: 28%;
     float: right;
-    padding-right: 40px;
+    padding-right: 20px;
 }
 
 .image {
-    width: 125px;
-    height: 125px;
+    width: 150px;
+    height: 150px;
     float: right;
 }
 

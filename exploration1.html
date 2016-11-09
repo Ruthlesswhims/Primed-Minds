@@ -20,7 +20,7 @@
 <p><br></p>
 <p id="error-text"></p>
 
-<button id="renderButton">Fire!</button>
+<button id="renderButton" onclick="outputUpdate()">Fire!</button>
 
 <div id="chart" style="width: 60%; float: right;">
 <script>
@@ -54,18 +54,17 @@
         document.getElementById(id).value = val; 
     }
 
-    function outputUpdate(vol) {
-        document.querySelector('#slope').value = vol;
-        var num = document.querySelector('#fader').value;
-
+    function outputUpdate() {
+        var num = parseInt(document.querySelector('#slope_fader').value);
+        var yintercept = parseInt(document.querySelector('#yintercept').value);
         myGraph.drawEquation(function(x) {
-            return num * x;
-        }, 'red', 3);
+            return num*x + yintercept;
+        }, 'green', 2);
     }
 </script>
-<canvas id="myCanvas" width="578" height="300"></canvas>
-<script>
-    function Graph(config) {
+    <canvas id="myCanvas" width="578" height="300"></canvas>
+    <script>
+      function Graph(config) {
         // user defined properties
         this.canvas = document.getElementById(config.canvasId);
         this.minX = config.minX;
@@ -78,6 +77,7 @@
         this.axisColor = '#aaa';
         this.font = '8pt Calibri';
         this.tickSize = 20;
+
         // relationships
         this.context = this.canvas.getContext('2d');
         this.rangeX = this.maxX - this.minX;
@@ -93,9 +93,9 @@
         // draw x and y axis
         this.drawXAxis();
         this.drawYAxis();
-    }
+      }
 
-    Graph.prototype.drawXAxis = function() {
+      Graph.prototype.drawXAxis = function() {
         var context = this.context;
         context.save();
         context.beginPath();
@@ -116,29 +116,29 @@
         xPos = this.centerX - xPosIncrement;
         unit = -1 * this.unitsPerTick;
         while(xPos > 0) {
-            context.moveTo(xPos, this.centerY - this.tickSize / 2);
-            context.lineTo(xPos, this.centerY + this.tickSize / 2);
-            context.stroke();
-            context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
-            unit -= this.unitsPerTick;
-            xPos = Math.round(xPos - xPosIncrement);
+          context.moveTo(xPos, this.centerY - this.tickSize / 2);
+          context.lineTo(xPos, this.centerY + this.tickSize / 2);
+          context.stroke();
+          context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+          unit -= this.unitsPerTick;
+          xPos = Math.round(xPos - xPosIncrement);
         }
 
         // draw right tick marks
         xPos = this.centerX + xPosIncrement;
         unit = this.unitsPerTick;
         while(xPos < this.canvas.width) {
-            context.moveTo(xPos, this.centerY - this.tickSize / 2);
-            context.lineTo(xPos, this.centerY + this.tickSize / 2);
-            context.stroke();
-            context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
-            unit += this.unitsPerTick;
-            xPos = Math.round(xPos + xPosIncrement);
+          context.moveTo(xPos, this.centerY - this.tickSize / 2);
+          context.lineTo(xPos, this.centerY + this.tickSize / 2);
+          context.stroke();
+          context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+          unit += this.unitsPerTick;
+          xPos = Math.round(xPos + xPosIncrement);
         }
         context.restore();
-    };
+      };
 
-    Graph.prototype.drawYAxis = function() {
+      Graph.prototype.drawYAxis = function() {
         var context = this.context;
         context.save();
         context.beginPath();
@@ -159,31 +159,30 @@
         yPos = this.centerY - yPosIncrement;
         unit = this.unitsPerTick;
         while(yPos > 0) {
-            context.moveTo(this.centerX - this.tickSize / 2, yPos);
-            context.lineTo(this.centerX + this.tickSize / 2, yPos);
-            context.stroke();
-            context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
-            unit += this.unitsPerTick;
-            yPos = Math.round(yPos - yPosIncrement);
+          context.moveTo(this.centerX - this.tickSize / 2, yPos);
+          context.lineTo(this.centerX + this.tickSize / 2, yPos);
+          context.stroke();
+          context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+          unit += this.unitsPerTick;
+          yPos = Math.round(yPos - yPosIncrement);
         }
 
         // draw bottom tick marks
         yPos = this.centerY + yPosIncrement;
         unit = -1 * this.unitsPerTick;
         while(yPos < this.canvas.height) {
-            context.moveTo(this.centerX - this.tickSize / 2, yPos);
-            context.lineTo(this.centerX + this.tickSize / 2, yPos);
-            context.stroke();
-            context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
-            unit -= this.unitsPerTick;
-            yPos = Math.round(yPos + yPosIncrement);
+          context.moveTo(this.centerX - this.tickSize / 2, yPos);
+          context.lineTo(this.centerX + this.tickSize / 2, yPos);
+          context.stroke();
+          context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+          unit -= this.unitsPerTick;
+          yPos = Math.round(yPos + yPosIncrement);
         }
         context.restore();
-    };
+      };
 
-    Graph.prototype.drawEquation = function(equation, color, thickness) {
+      Graph.prototype.drawEquation = function(equation, color, thickness) {
         var context = this.context;
-        context.save();
         context.save();
         this.transformContext();
 
@@ -191,7 +190,7 @@
         context.moveTo(this.minX, equation(this.minX));
 
         for(var x = this.minX + this.iteration; x <= this.maxX; x += this.iteration) {
-            context.lineTo(x, equation(x));
+          context.lineTo(x, equation(x));
         }
 
         context.restore();
@@ -200,9 +199,9 @@
         context.strokeStyle = color;
         context.stroke();
         context.restore();
-    };
+      };
 
-    Graph.prototype.transformContext = function() {
+      Graph.prototype.transformContext = function() {
         var context = this.context;
 
         // move context to center of canvas
@@ -214,23 +213,15 @@
          * as you move upwards
          */
         context.scale(this.scaleX, -this.scaleY);
-    };
-    var myGraph = new Graph({
+      };
+      var myGraph = new Graph({
         canvasId: 'myCanvas',
         minX: -10,
         minY: -10,
         maxX: 10,
         maxY: 10,
         unitsPerTick: 1
-    });
-    var renderButton = document.getElementById('renderButton');
-    renderButton.addEventListener('click', addDPsAndRender);
-    var num = document.querySelector('#fader').value;
-    var yintercept = document.querySelector('#yfader').value;
-
-    myGraph.drawEquation(function(x) {
-        return num * x + yintercept;
-    }, 'red', 3);
+      });
     </script>
 </div>
 </body>

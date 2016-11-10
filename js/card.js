@@ -1,5 +1,5 @@
 function createImage() {
-  $('.image').interactive = true;
+  
 };
 
 // Array of cards (objects).
@@ -52,18 +52,21 @@ $(function(){
 
 	// Draggable character images.
 	$(".image").draggable({containment:'#main'});
-
+	
+	$('.card').draggable();
+	
 	// Droppable cards.
 	$('.card').droppable({
 
           // Triggered when a character is dropped.
 	  drop: function (event, ui) {
-            // find index of this card using findCardIndex() function created below.
+            
+	    // find index of this card using findCardIndex() function created below.
             var index = findCardIndex($(this).attr('id'));
 
             // Check if card already has more than 1 image.
             if (cards[index].images.length >= 3) {
-              // Card is full, reverrt the image.
+              // Card is full, revert the image.
               ui.draggable.draggable('option', 'revert', true);
             } else {
               // Card is NOT full, disable reverting.
@@ -79,12 +82,11 @@ $(function(){
               validateCards();
               // Color cards based on 'valid' key using function created below.
               colorCards();
-            }
+            }  
           },
 	}); /* $('.card').droppable({}); */
 
 });	/* END $(function(){}); */
-
 
 /*
  * Find index of a card in 'cards' array based on its name.

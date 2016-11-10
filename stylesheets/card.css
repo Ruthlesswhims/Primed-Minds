@@ -233,10 +233,16 @@ nav ul li {
     background-size: cover;
 }
 
-#startOver {
-    font-size: 14pt;
-    border-radius: 10px;
-    margin-left: 43px;
+#draw1 {
+    font-size: 18pt;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+#reset {
+    font-size: 18pt;
+    border: 2px solid black;
+    border-radius: 8px;
 }
 
 

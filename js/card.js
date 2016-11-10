@@ -35,10 +35,16 @@ for(var i = 0; i < cards.length; i++){
 	$('#cards').append('<div id="' + cards[i].name + '" class="card"></div>');
 }
 
+var cardCount = 0;
+
 $('.card').hide();
 $('#draw1').click(function(){
-    $('.card').show(500);
-  
+    if (cardCount >= 7) {
+      alert("No more cards available!");
+    } else {
+        $('#card' + cardCount).show(500);
+        cardCount++;
+    }
 });
 
 

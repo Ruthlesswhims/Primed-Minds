@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <!-- If you delete this meta tag World War Z will become a reality -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exploration 1</title>
+    <title>Exploration 1.2</title>
 </head>
 <body>
 <label for="fader">Slope</label>
@@ -58,7 +58,7 @@
         var num = parseInt(document.querySelector('#slope_fader').value);
         var yintercept = parseInt(document.querySelector('#yintercept').value);
         myGraph.drawEquation(function(x) {
-            return (num*x + yintercept)%20-10;
+            return (num*x + yintercept+10)%20-10;
         }, 'green', 2);
     }
 </script>

@@ -10,21 +10,21 @@ $(document).ready(function () {
     $(".team3").on("mouseenter", function(){
         $(".bio3").slideDown(100);
     });
-    // click to disappear / show cursor
-    $(".team1").click(function(){
-            $(".bio1").toggle();
+    // move mouse to disappear / show cursor
+    $(".col-1-3").on("mouseleave", function(){
+            $(".bio1").slideUp(100);
     });
     $(".team1").hover(function() {
         $(this).css('cursor','pointer');
     });
-    $(".team2").click(function(){
-        $(".bio2").toggle();
+    $(".col-2-3").on("mouseleave", function(){
+            $(".bio2").slideUp(100);
     });
     $(".team2").hover(function() {
         $(this).css('cursor','pointer');
     });
-    $(".team3").click(function(){
-        $(".bio3").toggle();
+    $(".col-3-3").on("mouseleave", function(){
+            $(".bio3").slideUp(100);
     });
     $(".team3").hover(function() {
         $(this).css('cursor','pointer');
@@ -33,7 +33,7 @@ $(document).ready(function () {
     // ABOUT PAGE - FAQ 
     $("#q1").click(function(){
         $("#a1").toggle();
-        $('#q1-arrow').html($('#q1-arrow').text() == "&#x25B6" ? "&#x25BC" : "&#x25B6");
+        $("#q1-arrow").html($("#q1-arrow").html() == '&#x25B6;' ? '&#x25BC;' : '&#x25B6;');
     });
     $("#q1").hover(function() {
         $(this).css('cursor','pointer');
@@ -60,12 +60,6 @@ $(document).ready(function () {
         $("#a5").toggle();
     });
     $("#q5").hover(function() {
-        $(this).css('cursor','pointer');
-    });
-    $("#q6").click(function(){
-        $("#a6").toggle();
-    });
-    $("#q6").hover(function() {
         $(this).css('cursor','pointer');
     });
 });

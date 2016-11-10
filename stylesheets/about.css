@@ -14,7 +14,10 @@ body {
 
 h1 {
     font-size: 48px;
-    font-family: "Open Sans";
+}
+
+h2 {
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -31,9 +34,14 @@ h3 {
 }
 
 #sliderFrame {
-    z-index: -1;
+    z-index: 0;
 }
 
+#contact {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+}
 
 /* GRID STYLING */
 [class*='col-'] {
@@ -126,6 +134,7 @@ nav ul li {
 
 #nav_bar {
     position:fixed;
+    z-index: 2;
 }
 
 .dropdown {

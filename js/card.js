@@ -39,10 +39,11 @@ var cardCount = 0;
 
 $('.card').hide();
 $('#draw1').click(function(){
-    $('#card' + cardCount).show(500);
-    cardCount++;
     if (cardCount >= 7) {
-      cardCount = 7;
+      alert("No more cards available!");
+    } else {
+        $('#card' + cardCount).show(500);
+        cardCount++;
     }
 });
 

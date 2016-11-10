@@ -43,6 +43,12 @@ h3 {
     padding-bottom: 30px;
 }
 
+#q1-plus, #q2-plus, #q3-plus, #q4-plus, #q5-plus {
+    height: 30px;
+    width: 50px;
+    padding-top: 0px;
+}
+
 /* GRID STYLING */
 [class*='col-'] {
   float: left;

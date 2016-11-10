@@ -33,31 +33,35 @@ $(document).ready(function () {
     // ABOUT PAGE - FAQ 
     $("#q1").click(function(){
         $("#a1").toggle();
-        $("#q1-arrow").html($("#q1-arrow").html() == '&#x25B6;' ? '&#x25BC;' : '&#x25B6;');
+        $("#q1-plus").html($("#q1-plus").html() == '+' ? '-' : '+');
     });
     $("#q1").hover(function() {
         $(this).css('cursor','pointer');
     });
     $("#q2").click(function(){
         $("#a2").toggle();
+        $("#q2-plus").html($("#q2-plus").html() == '+' ? '-' : '+');
     });
     $("#q2").hover(function() {
         $(this).css('cursor','pointer');
     });
     $("#q3").click(function(){
         $("#a3").toggle();
+        $("#q3-plus").html($("#q3-plus").html() == '+' ? '-' : '+');
     });
     $("#q3").hover(function() {
         $(this).css('cursor','pointer');
     });
     $("#q4").click(function(){
         $("#a4").toggle();
+        $("#q4-plus").html($("#q4-plus").html() == '+' ? '-' : '+');
     });
     $("#q4").hover(function() {
         $(this).css('cursor','pointer');
     });
     $("#q5").click(function(){
         $("#a5").toggle();
+        $("#q5-plus").html($("#q5-plus").html() == '+' ? '-' : '+');
     });
     $("#q5").hover(function() {
         $(this).css('cursor','pointer');

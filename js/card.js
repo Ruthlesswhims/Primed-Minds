@@ -35,10 +35,15 @@ for(var i = 0; i < cards.length; i++){
 	$('#cards').append('<div id="' + cards[i].name + '" class="card"></div>');
 }
 
+var cardCount = 0;
+
 $('.card').hide();
 $('#draw1').click(function(){
-    $('.card').show(500);
-  
+    $('#card' + cardCount).show(500);
+    cardCount++;
+    if (cardCount >= 7) {
+      cardCount = 7;
+    }
 });
 
 

@@ -12,11 +12,11 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-h1 {
+.h1 {
     font-size: 48px;
 }
 
-h2 {
+.h2 {
     font-size: 20px;
     font-weight: bold;
 }
@@ -40,13 +40,19 @@ h3 {
 #contact {
     width: 100%;
     text-align: center;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
+    padding-top: 85px;
+    font-size: 20px;
 }
 
 #q1-plus, #q2-plus, #q3-plus, #q4-plus, #q5-plus {
     height: 30px;
     width: 50px;
     padding-top: 0px;
+}
+
+#partners {
+    padding-top: 85px;
 }
 
 /* GRID STYLING */

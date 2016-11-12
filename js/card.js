@@ -8,8 +8,8 @@ var cards = [];
 // Save 'previous' card for this image.
 var previousCard = null;
 
-// Create 7 cards & push to array of cards.
-for(var i = 0; i < 7; i++){
+// Create 8 cards & push to array of cards.
+for(var i = 0; i < 8; i++){
   
   // Temporary object
   var tempCard = {
@@ -39,7 +39,7 @@ var cardCount = 0;
 
 $('.card').hide();
 $('#draw1').click(function(){
-    if (cardCount >= 7) {
+    if (cardCount >= 8) {
       alert("No more cards available!");
     } else {
         $('#card' + cardCount).show(500);
@@ -58,8 +58,6 @@ $(function(){
 
 	// Draggable character images.
 	$(".image").draggable({containment:'#main'});
-	
-	$('.card').draggable();
 	
 	// Droppable cards.
 	$('.card').droppable({

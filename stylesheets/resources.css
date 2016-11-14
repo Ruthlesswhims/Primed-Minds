@@ -1,9 +1,13 @@
+
+
 body {
     font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
     font-size: 48px;
+    font-family: "Open Sans";
+    font-weight: bold;
 }
 
 h2 {
@@ -11,25 +15,54 @@ h2 {
     font-weight: bold;
 }
 
-/* IMPORTANT 
-Put rest of page in div with id="main"
-This pads the rest of the page below the navbar */ 
-
-#main {
-    padding-top: 100px;
-    margin-left: 100px;
-    margin-right: 100px;
+#header {
+    position: relative;
+    float: left;
+    margin-left: -225px;
+    top: 35px;
 }
 
-body {
-    font-family: 'Open Sans', sans-serif;
+#main {
+    position: relative;
+    float: left;
+    top: 150px;
+    margin-left: -270px;
+    margin-right: 100px;
+    width: 500px;
+}
+
+#sliderFrame {
+    position:absolute;
+    right: 50px;
+    top: 100px;
+}
+
+
+/* NAVBAR STYLING */
+nav ul li {
+    text-align: center;
+}
+
+.title-logo {
+    font-size: 20px;
+    margin-left: 1%;
+}
+
+.title-image {
+    width: 50px;
+    height: 50px;
+    margin-left: 12px;
+    margin-bottom: 9px;
+    vertical-align: middle;
 }
 
 /* NAVBAR STYLING */
 nav ul li {
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 25;
+}
+
+.nav-wrapper {
+    font-family: "Open Sans";
 }
 
 #heading {
@@ -65,7 +98,9 @@ nav ul li {
     vertical-align: middle;
 }
 
-#nav_bar {
+.nav-wrapper {
+    margin-left: 40px;
+    margin-right: 40px;
     position:fixed;
 }
 
@@ -96,4 +131,3 @@ nav ul li {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-

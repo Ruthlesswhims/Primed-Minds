@@ -16,9 +16,13 @@
 
 			<!-- local css -->
 			<link rel="stylesheet" type="text/css" href="stylesheets/card.css">
+
+			<!-- dragula css --> 
+			<link rel="stylesheet" type="text/css" href="dragula/dragula.min.css">
 	</head>
 
 	<body>
+	<script src='dragula/dragula.min.js'></script>
 	    <!-- navbar code, copy code to top of body -->
 
 	    <!-- dropdown structures -->
@@ -63,17 +67,17 @@
 			<button id="draw1">Draw Card</button> <button id="reset">Start Over</button>
 			</div>
 
-			<div id="images">
-				<div class="image blackPom" image="black"> <!--< img src="assets/blackPom.png"> --> </div>
-				<div class="image bwPom" image="bw"> <!--< img src="assets/bwPom.png"> --> </div>
-				<div class="image bluePom" image="blue"> <!--< img src="assets/bluePom.png"> --> </div>
-				<div class="image orangePom" image="orange"> <!--< img src="assets/orangePom.png"> --> </div>
-				<div class="image purplePom" image="purple"> <!--< img src="assets/purplePom.png"> --> </div>
-				<div class="image greenPom" image="green"> <!--< img src="assets/greenPom.png"> --> </div>
-				<div class="image redPom" image="red"> <!--< img src="assets/redPom.png"> --> </div>
+			<div class="container" id="images">
+				<img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" src="assets/blackPom.png">
+				<img class="monster" id="image bwPom" image="bw" draggable="true" ondragstart="drag(event)" img src="assets/bwPom.png">
+				<img class="monster" id="image bluePom" image="blue" draggable="true" ondragstart="drag(event)" img src="assets/bluePom.png">
+				<img class="monster" id="image orangePom" image="orange" draggable="true" ondragstart="drag(event)" img src="assets/orangePom.png">
+				<img class="monster" id="image purplePom" image="purple" draggable="true" ondragstart="drag(event)" img src="assets/purplePom.png">
+				<img class="monster" id="image greenPom" image="green" draggable="true" ondragstart="drag(event)" img src="assets/greenPom.png">
+				<img class="monster" id="image redPom" image="red" draggable="true" ondragstart="drag(event)" img src="assets/redPom.png">
 			</div>
 			
-			<div id="cards">
+			<div class="container" id="cards">
 				
 			</div>
 		   
@@ -99,5 +103,23 @@
 	
 <!--	<script src="js/dragging.js"></script>-->
 	
+	<script>
+	function allowDrop(ev) {
+	    ev.preventDefault();
+	}
+
+	function drag(ev) {
+	    ev.dataTransfer.setData("text", ev.target.id);
+	}
+
+	function drop(ev) {
+	    ev.preventDefault();
+	    var data = ev.dataTransfer.getData("text");
+	    var nodeCopy = document.getElementById(data).cloneNode(true);
+  		// nodeCopy.id = "newId"; /* We cannot use the same ID */
+  		ev.target.appendChild(nodeCopy);
+	}
+	</script>
+
 	</body>
 </html>

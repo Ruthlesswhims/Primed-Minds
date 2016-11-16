@@ -1,3 +1,32 @@
+// var dragAndDrop = {
+
+//     limit: 4,
+//     count: 0,
+    
+//     init: function () {
+//         this.dragula();
+//         this.eventListeners();
+//     },
+
+//     eventListeners: function () {
+//         this.dragula.on('drop', this.dropped.bind(this));
+//     },
+
+//     dragula: function () {
+//         this.dragula = dragula([document.querySelector('#images'), document.querySelector('.card')],
+//         {
+//             copy: true,
+//         });
+//     },
+    
+//     dropped: function (el) {
+//         this.count++;
+//     }
+
+// };
+
+// dragAndDrop.init();
+
 function createImage() {
   
 };
@@ -32,7 +61,8 @@ for(var i = 0; i < 8; i++){
 // Add cards to <div id="cards"></div>
 // Format: <div id="CARD_NAME">CARD_NAME</div>
 for(var i = 0; i < cards.length; i++){
-	$('#cards').append('<div id="' + cards[i].name + '" class="card"></div>');
+	$('#cards').append('<div id="' + cards[i].name + '" class="card" ondrop="drop(event)" ondragover="allowDrop(event)"></div>');
+  // $('#cards').append('<div id="' + cards[i].name + '" class="card"></div>');
 }
 
 var cardCount = 0;
@@ -62,13 +92,15 @@ $(function(){
 	// Droppable cards.
 	$('.card').droppable({
 
-          // Triggered when a character is dropped.
+    
+
+    // Triggered when a character is dropped.
 	  drop: function (event, ui) {
             
 	    // find index of this card using findCardIndex() function created below.
             var index = findCardIndex($(this).attr('id'));
 
-            // Check if card already has more than 1 image.
+            // Check if card already has more than 3 images.
             if (cards[index].images.length >= 3) {
               // Card is full, revert the image.
               ui.draggable.draggable('option', 'revert', true);
@@ -132,22 +164,20 @@ function validateCards() {
                 // 1) 'i' cannot be the same as 'j'. Comparing cards[0].letter to cards[0].letter will always be TRUE, so we dont' want that.
                 // 2) cards[i].letter cannot be NULL. If NULL, means there is no card there, so it has to be FALSE.
                 // 3) If cards[i].letter and cards[j].letter have same letter, there is a match.
-                // if (i != j
-                //             && cards[i].image != null 
-                //             && cards[i].image == cards[j].image) {
-                //           // There is a match. set 'valid' of card[i] to TRUE and end the loop, moving on to next card.
-                //           cards[i].valid = true;
-                //           break;
-                // }
+                if (i != j && cards[i].image != null && (cards[i].image == cards[j].image)) {
+                          // There is a match. set 'valid' of card[i] to TRUE and end the loop, moving on to next card.
+                          cards[i].valid = true;
+                          break;
+                }
 
-                cards[i].images.forEach(function(image1){
-                  cards[j].images.forEach(function(image2){
-                    if (i != j && image1 == image2) {
-                      cards[i].valid = true;
-                      return;
-                    }
-                  });
-                });
+                // cards[i].images.forEach(function(image1){
+                //   cards[j].images.forEach(function(image2){
+                //     if (i != j && image1 == image2) {
+                //       cards[i].valid = true;
+                //       return;
+                //     }
+                //   });
+                // });
         }
     }
 } /*END validateCards()*/
@@ -160,11 +190,12 @@ function validateCards() {
 function colorCards(){
     for (var i = 0; i < cards.length; i++) {
         if (cards[i].valid) {
-                $('#' + cards[i].name).removeClass('invalid-card');
-                $('#' + cards[i].name).addClass('valid-card');
+                // $('#' + cards[i].name).removeClass('invalid-card');
+                // $('#' + cards[i].name).addClass('valid-card');
+                cards[i].style.backgroundColor = '#5fb962';
         } else {
-                $('#' + cards[i].name).removeClass('valid-card');
-                $('#' + cards[i].name).addClass('invalid-card');
+                // $('#' + cards[i].name).removeClass('valid-card');
+                // $('#' + cards[i].name).addClass('invalid-card');
         }
     }
 } /*END colorCards()*/

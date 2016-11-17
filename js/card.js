@@ -50,7 +50,7 @@ $('#draw1').click(function(){
 
 
 $('#reset').click(function(){
-  $('.card').style.backgroundColor = '#5fb962';
+  $('.card').hide(200);
   // $('.card').removeClass('invalid-card');
 });
 

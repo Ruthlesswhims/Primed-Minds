@@ -177,30 +177,27 @@
 		for(var i = 0; i< cards.length; i++) {
 			// do not compare to itself 
 			if (index != i) {
-				for(var j=0; j<cards[i].images.size; j++) {
-					if ( cards[i].images.size == cards[index].images.size) {
-						console.log("lengths equal in cards " + index + " and " + i);
-						var valid = true;
-						for(var image in cards[index].images) {
-							var num = cards[i].images.get(image);
-							console.log("found: " + image + " x" + num + " in " + i);
-							if (num == null || num != cards[i].images.get(image)) {
-								console.log(image + " not found in card " + i);
-								valid = false;
-							}
+				if ( cards[i].images.size == cards[index].images.size) {
+					var valid = true;
+					for(var image in cards[index].images) {
+						var num = cards[i].images.get(image);
+						console.log("found: " + image + " x" + num + " in " + i);
+						if (num == null || num != cards[index].images.get(image)) {
+							console.log(image + " not found in card " + i);
+							valid = false;
 						}
-						if (valid) {
-							console.log("found pair: " + i + ", " + index);
-							found = true;
-							cards[i].valid = true;
-							cards[index].valid = true;
-						} else {
-							cards[i].valid = false;
-						}
+					}
+					if (valid) {
+						console.log("found pair: " + i + ", " + index);
+						found = true;
+						cards[i].valid = true;
+						cards[index].valid = true;
 					} else {
-						// cards[i].valid = false;
-					}					
-				}
+						cards[i].valid = false;
+					}
+				} else {
+					cards[i].valid = false;
+				}					
 			}
 		}
 		if (!found) {
@@ -215,7 +212,7 @@
 				console.log("card " + i + " is true");
 				document.getElementById(cards[i].name).style.backgroundColor = "#5fb962";
 			} else {
-				document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
+				document.getElementById(cards[i].name).style.backgroundColor = "#f5493d";
 			}
 		}
 	}

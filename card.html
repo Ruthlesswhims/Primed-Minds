@@ -181,10 +181,11 @@
 					if ( cards[i].images.size == cards[index].images.size) {
 						console.log("lengths equal in cards " + index + " and " + i);
 						var valid = true;
-						for(var image in cards[i].images) {
-							var num = cards[index].images.get(image);
-							console.log("checking: " + image + ", " + num);
+						for(var image in cards[index].images) {
+							var num = cards[i].images.get(image);
+							console.log("found: " + image + " x" + num + " in " + i);
 							if (num == null || num != cards[i].images.get(image)) {
+								console.log(image + " not found in card " + i);
 								valid = false;
 							}
 						}
@@ -197,13 +198,13 @@
 							cards[i].valid = false;
 						}
 					} else {
-						cards[i].valid = false;
+						// cards[i].valid = false;
 					}					
 				}
 			}
 		}
 		if (!found) {
-			ccards[index].valid = false;
+			cards[index].valid = false;
 		}
 	}
 

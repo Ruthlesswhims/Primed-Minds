@@ -60,7 +60,7 @@
 		<div id="main">
 			
 			<div id="buttons">
-			<button id="draw1">Draw Card</button> <button id="reset">Start Over</button>
+			<button id="draw1">Draw Card</button> <button id="reset" onclick="clearCards()">Start Over</button>
 			</div>
 
 			<div class="container" id="images">
@@ -112,18 +112,16 @@
 	    ev.preventDefault();
 	    var data = ev.dataTransfer.getData("text");
 	    var nodeCopy = document.getElementById(data).cloneNode(true);
-	    console.log(data);
   		if (ev.target.childNodes.length < 3) {
   			ev.target.appendChild(nodeCopy);
   			var index = findCardIndex(ev.target.id);
-  			console.log(index);
   			var existingNum = cards[index].images.get(data);
   			if (existingNum == null) {
   				existingNum = 0;
   			}
   			cards[index].images.set(data, existingNum+1);
   			console.log(existingNum+1);
-  			console.log("length of card " + index + " is :" + cards[index].images.size)
+  			console.log("adding " + data + " to " + index)
   			validateCards(index);
   			colorCards();	
   		}
@@ -147,6 +145,12 @@
 
       // Add temp card to array of cards.
       cards.push(tempCard);
+	}
+
+	function clearCards() {
+		for(var i=0; i<cards.length; i++) {
+			var el = document.getElementById(cards[i].name);
+		}
 	}
 
 	/*
@@ -178,15 +182,16 @@
 			// do not compare to itself 
 			if (index != i) {
 				if ( cards[i].images.size == cards[index].images.size) {
+					console.log("card " + i + " and " + index + " have equal sizes");
 					var valid = true;
-					for(var image in cards[index].images) {
-						var num = cards[i].images.get(image);
-						console.log("found: " + image + " x" + num + " in " + i);
-						if (num == null || num != cards[index].images.get(image)) {
+					cards[index].images.forEach(function(num, image) { 
+						console.log("here " + num + " " + image); 
+						var checkNum = cards[i].images.get(image);
+						if (checkNum == null || num != checkNum) {
 							console.log(image + " not found in card " + i);
 							valid = false;
 						}
-					}
+					});
 					if (valid) {
 						console.log("found pair: " + i + ", " + index);
 						found = true;

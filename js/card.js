@@ -50,8 +50,8 @@ $('#draw1').click(function(){
 
 
 $('#reset').click(function(){
-  $('.card').removeClass('valid-card');
-  $('.card').removeClass('invalid-card');
+  $('.card').style.backgroundColor = '#5fb962';
+  // $('.card').removeClass('invalid-card');
 });
 
 // Wait for the page to load.		

@@ -154,6 +154,12 @@ nav ul li {
     font-size: 14pt;
 }
 
+#trashcan {
+    height: 70px;
+    margin-top: 15px;
+    float: left;
+}
+
 #images {
     width: 100%;
     height: 20%;

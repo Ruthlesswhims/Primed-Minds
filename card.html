@@ -64,13 +64,14 @@
 			</div>
 
 			<div class="container" id="images">
-				<img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" src="assets/blackPom.png">
-				<img class="monster" id="image bwPom" image="bw" draggable="true" ondragstart="drag(event)" img src="assets/bwPom.png">
-				<img class="monster" id="image bluePom" image="blue" draggable="true" ondragstart="drag(event)" img src="assets/bluePom.png">
-				<img class="monster" id="image orangePom" image="orange" draggable="true" ondragstart="drag(event)" img src="assets/orangePom.png">
-				<img class="monster" id="image purplePom" image="purple" draggable="true" ondragstart="drag(event)" img src="assets/purplePom.png">
-				<img class="monster" id="image greenPom" image="green" draggable="true" ondragstart="drag(event)" img src="assets/greenPom.png">
-				<img class="monster" id="image redPom" image="red" draggable="true" ondragstart="drag(event)" img src="assets/redPom.png">
+				<img id="trashcan" ondrop="dropTrash(event)" ondragover="allowDrop(event)" src="assets/trash.png">
+				<img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" src="assets/blackPom-min.png">
+				<img class="monster" id="image bwPom" image="bw" draggable="true" ondragstart="drag(event)" img src="assets/bwPom-min.png">
+				<img class="monster" id="image bluePom" image="blue" draggable="true" ondragstart="drag(event)" img src="assets/bluePom-min.png">
+				<img class="monster" id="image orangePom" image="orange" draggable="true" ondragstart="drag(event)" img src="assets/orangePom-min.png">
+				<img class="monster" id="image purplePom" image="purple" draggable="true" ondragstart="drag(event)" img src="assets/purplePom-min.png">
+				<img class="monster" id="image greenPom" image="green" draggable="true" ondragstart="drag(event)" img src="assets/greenPom-min.png">
+				<img class="monster" id="image redPom" image="red" draggable="true" ondragstart="drag(event)" img src="assets/redPom-min.png">
 			</div>
 			
 			<div class="container" id="cards">
@@ -100,6 +101,8 @@
 <!--	<script src="js/dragging.js"></script>-->
 	
 	<script>
+
+
 	function allowDrop(ev) {
 	    ev.preventDefault();
 	}
@@ -108,22 +111,26 @@
 	    ev.dataTransfer.setData("text", ev.target.id);
 	}
 
+	function dropTrash(ev) {
+		ev.preventDefault();
+		var data = ev.dataTransfer.getData("text");
+		var el = document.getElementById(data);
+		el.parentNode.removeChild(el);
+		findCardError();
+	}
+
 	function drop(ev) {
 	    ev.preventDefault();
 	    var data = ev.dataTransfer.getData("text");
 	    var nodeCopy = document.getElementById(data).cloneNode(true);
   		if (ev.target.childNodes.length < 3) {
-  			ev.target.appendChild(nodeCopy);
   			var index = findCardIndex(ev.target.id);
-  			var existingNum = cards[index].images.get(data);
-  			if (existingNum == null) {
-  				existingNum = 0;
-  			}
-  			cards[index].images.set(data, existingNum+1);
-  			console.log(existingNum+1);
+  			nodeCopy.id += ("_" + index);
+  			ev.target.appendChild(nodeCopy);
+  			cards[index].images.add(data);
   			console.log("adding " + data + " to " + index)
-  			validateCards(index);
-  			colorCards();	
+  			findCardError();
+  			// colorCards();	
   		}
 	}
 
@@ -140,18 +147,18 @@
 	    valid: false,
 	    // At the start, cards don't have any images.
 	    // imageName: numPresent,
-	    images: new Map(),
+	    images: new Set(),
 	  }
 
       // Add temp card to array of cards.
       cards.push(tempCard);
 	}
 
-	function clearCards() {
-		for(var i=0; i<cards.length; i++) {
-			var el = document.getElementById(cards[i].name);
-		}
-	}
+	// function clearCards() {
+	// 	for(var i=0; i<cards.length; i++) {
+	// 		var el = document.getElementById(cards[i].name);
+	// 	}
+	// }
 
 	/*
 	 * Find index of a card in 'cards' array based on its name.
@@ -184,10 +191,9 @@
 				if ( cards[i].images.size == cards[index].images.size) {
 					console.log("card " + i + " and " + index + " have equal sizes");
 					var valid = true;
-					cards[index].images.forEach(function(num, image) { 
-						console.log("here " + num + " " + image); 
-						var checkNum = cards[i].images.get(image);
-						if (checkNum == null || num != checkNum) {
+					cards[index].images.forEach(function(image) { 
+						console.log("here " + image); 
+						if (!cards[i].images.has(image)) {
 							console.log(image + " not found in card " + i);
 							valid = false;
 						}
@@ -210,14 +216,60 @@
 		}
 	}
 
+	function findCardError() {
+		var foundError = false;
+		var i=0;
+		while(!foundError && i<cards.length) {
+			for(var j=i+1; j<cards.length; j++) {
+				if (cards[i].images.size == 3 && cards[j].images.size == 3) {
+					var matches = 0;
+					cards[j].images.forEach(function(image) { 
+						console.log("here " + image); 
+						if (cards[i].images.has(image)) {
+							console.log(image + " found in card " + i);
+							matches++;
+						}
+					});
+					if(matches != 1) {
+						foundError = true;
+						cards[i].valid = false;
+						cards[j].valid = false;
+						colorErrors(i, j);
+					} else {
+						cards[i].valid = true;
+						cards[j].valid = true;
+					}
+				}
+			}
+			i++;			
+		}
+		// if (!foundError) {
+			colorCards();
+		// }
+	}
+
+	function colorErrors(x, y) {
+		document.getElementById(cards[i].name).style.backgroundColor = "#f5493d";
+		document.getElementById(cards[j].name).style.backgroundColor = "#f5493d";
+		for(var i=0; i<cards.length; i++) {
+			if(i != x || i != y) {
+				document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
+			}
+		}
+		
+	}
+
 	function colorCards() {
 		console.log("coloring");
 		for(var i=0; i<cards.length; i++) {
-			if (cards[i].valid) {
-				console.log("card " + i + " is true");
-				document.getElementById(cards[i].name).style.backgroundColor = "#5fb962";
+			if (cards[i].images.size != 3) {
+ 				document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
 			} else {
-				document.getElementById(cards[i].name).style.backgroundColor = "#f5493d";
+				if (cards[i].valid) {
+					document.getElementById(cards[i].name).style.backgroundColor = "#5fb962";
+				} else {
+					document.getElementById(cards[i].name).style.backgroundColor = "#f5493d";
+				}
 			}
 		}
 	}

@@ -1,0 +1,15 @@
+.img1 {
+	position: absolute;
+	left: 1000px;
+}
+
+.img2 {
+	position: absolute;
+	left: 1150px;
+	top: 200px;
+}
+
+#chart {
+	position: relative;
+	top: 40px;
+}

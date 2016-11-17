@@ -6,6 +6,7 @@
     <!-- If you delete this meta tag World War Z will become a reality -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exploration 1.2</title>
+        <link rel="stylesheet" type="text/css" href="stylesheets/fruit.css">
 </head>
 <body>
 <label for="fader">Slope</label>
@@ -21,6 +22,10 @@
 <p id="error-text"></p>
 
 <button id="renderButton" onclick="outputUpdate()">Fire!</button>
+<button id="clear"> CLEAR</button>
+
+<div class="img1"><img src="banana.png" width="40px"/></div>
+<div class="img2"><img src="banana.png" width="40px"/></div>
 
 <div id="chart" style="width: 60%; float: right;">
 <script>
@@ -58,9 +63,11 @@
         var num = parseInt(document.querySelector('#slope_fader').value);
         var yintercept = parseInt(document.querySelector('#yintercept').value);
         myGraph.drawEquation(function(x) {
-            return (num*x + yintercept+10)%20-10;
+            return (num*x + yintercept);
         }, 'green', 2);
     }
+
+
 </script>
     <canvas id="myCanvas" width="578" height="300"></canvas>
     <script>
@@ -222,6 +229,10 @@
         maxY: 10,
         unitsPerTick: 1
       });
+
+      document.getElementById('clear').addEventListener('click', function() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+      }, false);
     </script>
 </div>
 </body>

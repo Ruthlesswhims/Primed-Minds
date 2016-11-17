@@ -227,11 +227,12 @@
 		var i=0;
 		while(!foundError && i<cards.length) {
 			for(var j=0; j<cards.length; j++) {
+				// don't compare to itself
 				if (i!=j) {
+					// only cards with 3 monsters should be compared 
 					if (cards[i].images.size == 3 && cards[j].images.size == 3) {
 						var matches = 0;
 						cards[j].images.forEach(function(image) { 
-							console.log("here " + image); 
 							if (cards[i].images.has(image)) {
 								matches++;
 							}
@@ -252,15 +253,16 @@
 			i++;			
 		}
 		// if (!foundError) {
-			colorCards();
+			// colorCards();
 		// }
 	}
 
 	function colorErrors(x, y) {
-		document.getElementById(cards[i].name).style.backgroundColor = "#f5493d";
-		document.getElementById(cards[j].name).style.backgroundColor = "#f5493d";
+		console.log("coloring errors in " + cards[x].name + ", " + cards[y].name);
+		document.getElementById(cards[x].name).style.backgroundColor = "#f5493d";
+		document.getElementById(cards[y].name).style.backgroundColor = "#f5493d";
 		for(var i=0; i<cards.length; i++) {
-			if(i != x || i != y) {
+			if(i != x && i != y) {
 				document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
 			}
 		}

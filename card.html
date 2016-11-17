@@ -16,13 +16,9 @@
 
 			<!-- local css -->
 			<link rel="stylesheet" type="text/css" href="stylesheets/card.css">
-
-			<!-- dragula css --> 
-			<link rel="stylesheet" type="text/css" href="dragula/dragula.min.css">
 	</head>
 
 	<body>
-	<script src='dragula/dragula.min.js'></script>
 	    <!-- navbar code, copy code to top of body -->
 
 	    <!-- dropdown structures -->
@@ -116,8 +112,111 @@
 	    ev.preventDefault();
 	    var data = ev.dataTransfer.getData("text");
 	    var nodeCopy = document.getElementById(data).cloneNode(true);
-  		// nodeCopy.id = "newId"; /* We cannot use the same ID */
-  		ev.target.appendChild(nodeCopy);
+	    console.log(data);
+  		if (ev.target.childNodes.length < 3) {
+  			ev.target.appendChild(nodeCopy);
+  			var index = findCardIndex(ev.target.id);
+  			console.log(index);
+  			var existingNum = cards[index].images.get(data);
+  			if (existingNum == null) {
+  				existingNum = 0;
+  			}
+  			cards[index].images.set(data, existingNum+1);
+  			console.log(existingNum+1);
+  			console.log("length of card " + index + " is :" + cards[index].images.size)
+  			validateCards(index);
+  			colorCards();	
+  		}
+	}
+
+	// Array of cards (objects).
+	var cards = [];
+
+	// Create 8 cards & push to array of cards.
+	for(var i = 0; i < 8; i++){
+	  // Temporary object
+	  var tempCard = {
+	    // Each card gets a name: card0, card1, etc.
+	    name: 'card' + i,
+	    // By default, each card is invalid (red).
+	    valid: false,
+	    // At the start, cards don't have any images.
+	    // imageName: numPresent,
+	    images: new Map(),
+	  }
+
+      // Add temp card to array of cards.
+      cards.push(tempCard);
+	}
+
+	/*
+	 * Find index of a card in 'cards' array based on its name.
+	 * Returns -1 if card is not found.
+	 * Returns card index (in this case 0 - 6) if found.
+	 */
+	function findCardIndex(cardName) {
+		// Set index to -1 (not found) by default. If found, we'll overwrite this.
+		var index = -1;
+
+		// Iterate through all the cards.
+		for(var i = 0; i < cards.length; i++){
+	          if (cards[i].name == cardName) {
+	              // Card name found. Set index & end looop.
+	              index = i;
+	              break;
+	          }
+		}
+
+	        return index;
+	} /*END findCardIndex()*/
+
+	/* Compare all cards to just updated card */ 
+	function validateCards(index) {
+		console.log("validating");
+		var found = false;
+		for(var i = 0; i< cards.length; i++) {
+			// do not compare to itself 
+			if (index != i) {
+				for(var j=0; j<cards[i].images.size; j++) {
+					if ( cards[i].images.size == cards[index].images.size) {
+						console.log("lengths equal in cards " + index + " and " + i);
+						var valid = true;
+						for(var image in cards[i].images) {
+							var num = cards[index].images.get(image);
+							console.log("checking: " + image + ", " + num);
+							if (num == null || num != cards[i].images.get(image)) {
+								valid = false;
+							}
+						}
+						if (valid) {
+							console.log("found pair: " + i + ", " + index);
+							found = true;
+							cards[i].valid = true;
+							cards[index].valid = true;
+						} else {
+							cards[i].valid = false;
+						}
+					} else {
+						cards[i].valid = false;
+					}					
+				}
+			}
+		}
+		if (!found) {
+			ccards[index].valid = false;
+		}
+	}
+
+	function colorCards() {
+		console.log("coloring");
+		for(var i=0; i<cards.length; i++) {
+			if (cards[i].valid) {
+				console.log("card " + i + " is true");
+				document.getElementById(cards[i].name).style.backgroundColor = "#5fb962";
+			} else {
+				document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
+			}
+		}
 	}
 	</script>
 

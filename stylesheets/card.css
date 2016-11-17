@@ -167,7 +167,7 @@ nav ul li {
 }
 
 .card {
-    width: 200px;
+    width: 220px;
     height: 245px;
     border: 2px solid black;
     border-radius: 20px;
@@ -180,7 +180,7 @@ nav ul li {
 .monster {
     height: 100px;
     float: left;
-    margin: 0 10px 0 10px;
+    /*margin: 0 10px 0 10px;*/ /* taken out to make room for two monsters per line on a card */
     z-index: 2;
 }
 

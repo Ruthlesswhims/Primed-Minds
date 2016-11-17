@@ -196,8 +196,8 @@
         context.beginPath();
         context.moveTo(this.minX, equation(this.minX));
 
-        for(var x = this.minX + this.iteration; x <= this.maxX; x += this.iteration) {
-          context.lineTo(x, equation(x));
+        for(var x = this.minX + this.iteration*0.1; x <= this.maxX; x += this.iteration*0.1) {
+          context.lineTo(10*(x-Math.floor(x)), 10*(equation(x)-Math.floor(equation(x))));
         }
 
         context.restore();
@@ -223,10 +223,10 @@
       };
       var myGraph = new Graph({
         canvasId: 'myCanvas',
-        minX: -10,
+        minX: 0,
         minY: -10,
         maxX: 10,
-        maxY: 10,
+        maxY: 0,
         unitsPerTick: 1
       });
 

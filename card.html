@@ -115,6 +115,11 @@
 		ev.preventDefault();
 		var data = ev.dataTransfer.getData("text");
 		var el = document.getElementById(data);
+		var index = findCardIndex(el.parentNode.id);
+		console.log("removing " + data + " from card: " + index);
+		var dataSubstring = data.substring(0, data.indexOf("_"));
+		var deleted = cards[index].images.delete(dataSubstring); 
+		console.log(dataSubstring + " is deleted: " + deleted);
 		el.parentNode.removeChild(el);
 		findCardError();
 	}
@@ -161,7 +166,7 @@
 			while (el.firstChild) {
 			    el.removeChild(el.firstChild);
 			}
-			cards[i].images = new Set();
+			cards[i].images.clear();
 			cards[i].valid = false;
 		}
 	}
@@ -234,6 +239,7 @@
 						var matches = 0;
 						cards[j].images.forEach(function(image) { 
 							if (cards[i].images.has(image)) {
+								console.log("found matching " + image);
 								matches++;
 							}
 						});
@@ -252,9 +258,9 @@
 			}
 			i++;			
 		}
-		// if (!foundError) {
-			// colorCards();
-		// }
+		if (!foundError) {
+			colorCards();
+		}
 	}
 
 	function colorErrors(x, y) {
@@ -278,7 +284,7 @@
 				if (cards[i].valid) {
 					document.getElementById(cards[i].name).style.backgroundColor = "#5fb962";
 				} else {
-					document.getElementById(cards[i].name).style.backgroundColor = "#f5493d";
+					document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
 				}
 			}
 		}

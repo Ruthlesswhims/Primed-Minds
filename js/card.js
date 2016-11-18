@@ -51,7 +51,7 @@ $('#draw1').click(function(){
 
 $('#reset').click(function(){
   $('.card').hide(200);
-  // $('.card').removeClass('invalid-card');
+  cardCount = 0;
 });
 
 // Wait for the page to load.		

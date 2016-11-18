@@ -55,7 +55,7 @@ $('#reset').click(function(){
 });
 
 // Wait for the page to load.		
-$(function(){
+//$(function(){
 
 // 	// Draggable character images.
 // 	$(".image").draggable({containment:'#main'});
@@ -93,7 +93,7 @@ $(function(){
 //           },
 // 	}); /* $('.card').droppable({}); */
 
-});	/* END $(function(){}); */
+//});	/* END $(function(){}); */
 
 /*
  * Find index of a card in 'cards' array based on its name.

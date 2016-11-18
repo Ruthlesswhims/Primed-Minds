@@ -153,6 +153,7 @@ nav ul li {
 #buttons {
     font-size: 14pt;
     float: left;
+    margin-top: 20px;
 }
 
 #trashcan {

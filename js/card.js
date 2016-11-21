@@ -22,3 +22,8 @@ $('#reset').click(function(){
   $('.card').hide(200);
   cardCount = 0;
 });
+
+$(function() {
+    $(".sortable").sortable();
+    $(".sortable").disableSelection();
+});

@@ -22,15 +22,11 @@
 	    <!-- navbar code, copy code to top of body -->
 
 	    <!-- dropdown structures -->
-	    <ul id="dropdown-about" class="dropdown-content">
-	        <li><a href="about.html#what is primed">What is Primed Minds?</a></li>
-	        <li><a href="about.html#who for">Who is this for?</a></li>
-	        <li><a href="about.html#philosophy">Philosophy</a></li>
-	        <li><a href="about.html#what is math">What is mathematics anyway?</a></li>
-	        <li><a href="#about.html#try exploration">How do I try an exploration?</a></li>       
-	        <li><a href="about.html#team">The Team</a></li>
-	        <li><a href="about.html#partners">Partners</a></li>
-	    </ul>
+	<ul id="dropdown-about" class="dropdown-content">
+		<li><a href="about_2.html">About Primed Minds</a></li>    
+		<li><a href="about_2.html#team">The Team</a></li>
+		<li><a href="about_2.html#partners">Partners</a></li>
+	</ul>
 
 	    <ul id="dropdown-explorations" class="dropdown-content">
 	        <li><a href="card.html">Exploration 1</a></li>
@@ -48,38 +44,35 @@
                 <ul class="right">
                         <!-- change 'active' class based on current page -->
                         <li class="active"><a href="index.html">Home</a></li>
-                        <li><a class="dropdown-button" href="about.html" data-activates="dropdown-about">About</a></li>
+                        <li><a class="dropdown-button" href="about_2.html" data-activates="dropdown-about">About</a></li>
                         <li><a class="dropdown-button" href="explorations.html" data-activates="dropdown-explorations">Explorations</a></li>
-                        <li><a href="#">Resources</a></li>
-                        <li><a href="contact.html">Q & A</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="contact.html">FAQ</a></li>
                     </li>
                 </ul>
             </div>
         </nav>
 
 		<div id="main">
-			
-			<div id="buttons">
-			<button id="draw1">Draw Card</button> <button id="reset">Start Over</button>
+			<div class="container" id="images">
+				<div id="buttons">
+					<button id="reset" onclick="clearCards()">Start Over</button>
+					<br>
+					<button id="draw1">Draw Card</button>
+				</div>
+				<img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" src="assets/blackPom-min.png">
+				<img class="monster" id="image bwPom" image="bw" draggable="true" ondragstart="drag(event)" img src="assets/bwPom-min.png">
+				<img class="monster" id="image bluePom" image="blue" draggable="true" ondragstart="drag(event)" img src="assets/bluePom-min.png">
+				<img class="monster" id="image orangePom" image="orange" draggable="true" ondragstart="drag(event)" img src="assets/orangePom-min.png">
+				<img class="monster" id="image purplePom" image="purple" draggable="true" ondragstart="drag(event)" img src="assets/purplePom-min.png">
+				<img class="monster" id="image greenPom" image="green" draggable="true" ondragstart="drag(event)" img src="assets/greenPom-min.png">
+				<img class="monster" id="image redPom" image="red" draggable="true" ondragstart="drag(event)" img src="assets/redPom-min.png">
+				<img id="trashcan" ondrop="dropTrash(event)" ondragover="allowDrop(event)" src="assets/trash.png">
 			</div>
-
-			<div id="images">
-				<div class="image blackPom" image="black"> <!--< img src="assets/blackPom.png"> --> </div>
-				<div class="image bwPom" image="bw"> <!--< img src="assets/bwPom.png"> --> </div>
-				<div class="image bluePom" image="blue"> <!--< img src="assets/bluePom.png"> --> </div>
-				<div class="image orangePom" image="orange"> <!--< img src="assets/orangePom.png"> --> </div>
-				<div class="image purplePom" image="purple"> <!--< img src="assets/purplePom.png"> --> </div>
-				<div class="image greenPom" image="green"> <!--< img src="assets/greenPom.png"> --> </div>
-				<div class="image redPom" image="red"> <!--< img src="assets/redPom.png"> --> </div>
+			<br>
+			<div class="container" id="cards">
+				<!-- filled in by card.js -->
 			</div>
-			
-			<div id="cards">
-				
-			</div>
-		   
-		    <!--<footer>
-		        &copy; Copyright 2016
-		    </footer>-->
 		</div>
 		
 	<!-- jquery js -->
@@ -92,12 +85,161 @@
 
 	<!-- local js -->
 	<script src="public/javascript/script.js"></script>
-	
-<!--	<script src="js/pixi.min.js"></script>-->
-	
-	<script src="js/card.js"></script>
-	
-<!--	<script src="js/dragging.js"></script>-->
-	
+	<script src="js/card.js"></script>	
+
+	<script>
+	function allowDrop(ev) {
+	    ev.preventDefault();
+	}
+
+	function drag(ev) {
+	    ev.dataTransfer.setData("text", ev.target.id);
+	}
+
+	function dropTrash(ev) {
+		ev.preventDefault();
+		var data = ev.dataTransfer.getData("text");
+		var el = document.getElementById(data);
+		var index = findCardIndex(el.parentNode.id);
+		console.log("removing " + data + " from card: " + index);
+		var dataSubstring = data.substring(0, data.indexOf("_"));
+		var deleted = cards[index].images.delete(dataSubstring); 
+		console.log(dataSubstring + " is deleted: " + deleted);
+		el.parentNode.removeChild(el);
+		findCardError();
+	}
+
+	function drop(ev) {
+	    ev.preventDefault();
+	    var data = ev.dataTransfer.getData("text");
+	    var nodeCopy = document.getElementById(data).cloneNode(true);
+  		if (ev.target.childNodes.length < 3) {
+  			var index = findCardIndex(ev.target.id);
+  			nodeCopy.id += ("_" + index);
+  			ev.target.appendChild(nodeCopy);
+  			cards[index].images.add(data);
+  			console.log("adding " + data + " to " + index)
+  			findCardError();
+  			// colorCards();	
+  		}
+	}
+
+	// Array of cards (objects).
+	var cards = [];
+
+	// Create 8 cards & push to array of cards.
+	for(var i = 0; i < 8; i++){
+	  // Temporary object
+	  var tempCard = {
+	    // Each card gets a name: card0, card1, etc.
+	    name: 'card' + i,
+	    // By default, each card is invalid (red).
+	    valid: false,
+	    // At the start, cards don't have any images.
+	    // imageName: numPresent,
+	    images: new Set(),
+	  }
+
+      // Add temp card to array of cards.
+      cards.push(tempCard);
+	}
+
+	function clearCards() {
+		for(var i=0; i<cards.length; i++) {
+			document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
+			var el = document.getElementById(cards[i].name);
+			while (el.firstChild) {
+			    el.removeChild(el.firstChild);
+			}
+			cards[i].images.clear();
+			cards[i].valid = false;
+		}
+	}
+
+	/*
+	 * Find index of a card in 'cards' array based on its name.
+	 * Returns -1 if card is not found.
+	 * Returns card index (in this case 0 - 6) if found.
+	 */
+	function findCardIndex(cardName) {
+		// Set index to -1 (not found) by default. If found, we'll overwrite this.
+		var index = -1;
+
+		// Iterate through all the cards.
+		for(var i = 0; i < cards.length; i++){
+	          if (cards[i].name == cardName) {
+	              // Card name found. Set index & end looop.
+	              index = i;
+	              break;
+	          }
+		}
+
+	        return index;
+	} /*END findCardIndex()*/
+
+	// Finds the first error, if any
+	function findCardError() {
+		var foundError = false;
+		var i=0;
+		while(!foundError && i<cards.length) {
+			for(var j=0; j<cards.length; j++) {
+				// don't compare to itself
+				if (i!=j) {
+					// only cards with 3 monsters should be compared 
+					if (cards[i].images.size == 3 && cards[j].images.size == 3) {
+						var matches = 0;
+						cards[j].images.forEach(function(image) { 
+							if (cards[i].images.has(image)) {
+								matches++;
+							}
+						});
+						if(matches != 1) {
+							foundError = true;
+							cards[i].valid = false;
+							cards[j].valid = false;
+							colorErrors(i, j);
+						} else {
+							cards[i].valid = true;
+							cards[j].valid = true;
+						}
+					}
+				}
+			}
+			i++;			
+		}
+		if (!foundError) {
+			colorCards();
+		}
+	}
+
+	// Color cards x and y red, rest of the cards should be yellow
+	function colorErrors(x, y) {
+		document.getElementById(cards[x].name).style.backgroundColor = "#f5493d";
+		document.getElementById(cards[y].name).style.backgroundColor = "#f5493d";
+		for(var i=0; i<cards.length; i++) {
+			if(i != x && i != y) {
+				document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
+			}
+		}
+		
+	}
+
+	// Called if no error was found
+	// Color all matching cards green, non-matched cards yellow
+	function colorCards() {
+		for(var i=0; i<cards.length; i++) {
+			if (cards[i].images.size != 3) {
+ 				document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
+			} else {
+				if (cards[i].valid) {
+					document.getElementById(cards[i].name).style.backgroundColor = "#53dd25";
+				} else {
+					document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
+				}
+			}
+		}
+	}
+	</script>
+
 	</body>
 </html>

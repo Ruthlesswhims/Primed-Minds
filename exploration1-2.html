@@ -6,28 +6,36 @@
     <!-- If you delete this meta tag World War Z will become a reality -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exploration 1.2</title>
-        <link rel="stylesheet" type="text/css" href="stylesheets/fruit.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/exploration1-2.css">
 </head>
 <body>
-<label for="fader">Slope</label>
-<input type="range" min="-10" max="10" value="10" id="slope_fader" step="1" oninput="updateText(this.value, 'slope')">
-<input type="number" min="-10" max="10" for="slope_fader" id="slope" value="10" onchange="updateSlider(this.value, 'slope_fader')">
+<div class="grid">
+    <div class="col-1-2">
+        <label for="fader">Slope</label>
+        <input type="range" min="-10" max="10" value="10" id="slope_fader" step="1" oninput="updateText(this.value, 'slope')">
+        <input type="number" min="-10" max="10" for="slope_fader" id="slope" value="10" onchange="updateSlider(this.value, 'slope_fader')">
 
-<p><br></p>
-<label for="yfader">Y-Intercept</label>
-<input type="range" min="-10" max="10" value="10" id="yfader" step="1" oninput="updateText(this.value, 'yintercept')">
-<input type="number" min="-10" max="10" for="yfader" id="yintercept" value="10" onchange="updateSlider(this.value, 'yfader')">
+        <p><br></p>
+        <label for="yfader">Y-Intercept</label>
+        <input type="range" min="-10" max="10" value="10" id="yfader" step="1" oninput="updateText(this.value, 'yintercept')">
+        <input type="number" min="-10" max="10" for="yfader" id="yintercept" value="10" onchange="updateSlider(this.value, 'yfader')">
 
-<p><br></p>
-<p id="error-text"></p>
+        <p><br></p>
+        <p id="error-text"></p>
 
-<button id="renderButton" onclick="outputUpdate()">Fire!</button>
-<button id="clear"> CLEAR</button>
+        <button id="renderButton" onclick="outputUpdate()">Fire!</button>
+        <button id="clear"> CLEAR</button>
+    </div>
+    <div class="col-2-2">
+        <div class="hittable" id="img1"><img src="banana.png" width="40px"/></div>
+        <div class="hittable" id="img2"><img src="banana.png" width="40px"/></div>
+        <canvas id="myCanvas" width="400" height="400"></canvas>
+    </div>
 
-<div class="img1"><img src="banana.png" width="40px"/></div>
-<div class="img2"><img src="banana.png" width="40px"/></div>
+<script> 
+    // document.getElementById()
+</script>
 
-<div id="chart" style="width: 60%; float: right;">
 <script>
     // This function validates if entries are between -10 and 10 
     function validate(val) {
@@ -43,6 +51,7 @@
             pass = true;
         }
         document.getElementById("error-text").innerHTML = text;
+
         return pass;
     }
 
@@ -62,14 +71,19 @@
     function outputUpdate() {
         var num = parseInt(document.querySelector('#slope_fader').value);
         var yintercept = parseInt(document.querySelector('#yintercept').value);
+        var positiveslope; 
+        if (num > 0) {
+          positiveslope = true; 
+        } else {
+          positiveslope = false;
+        }
         myGraph.drawEquation(function(x) {
             return (num*x + yintercept);
-        }, 'green', 2);
+        }, 'red', 2, positiveslope);
     }
 
 
 </script>
-    <canvas id="myCanvas" width="578" height="300"></canvas>
     <script>
       function Graph(config) {
         // user defined properties
@@ -188,7 +202,7 @@
         context.restore();
       };
 
-      Graph.prototype.drawEquation = function(equation, color, thickness) {
+      Graph.prototype.drawEquation = function(equation, color, thickness, positiveSlope) {
         var context = this.context;
         context.save();
         this.transformContext();
@@ -196,8 +210,30 @@
         context.beginPath();
         context.moveTo(this.minX, equation(this.minX));
 
-        for(var x = this.minX + this.iteration*0.1; x <= this.maxX; x += this.iteration*0.1) {
-          context.lineTo(10*(x-Math.floor(x)), 10*(equation(x)-Math.floor(equation(x))));
+        // ignore the vertical lines, false by default
+        // originally the graph would connect topmost points (y=max) to y=min in a vertical line -- ignore these
+        var ignoreLine = false;
+        // iterate through the graph points 
+        for(var x = this.minX + this.iteration*0.1; x < this.maxX; x += this.iteration*0.1) {
+          // if the slope is positive and has hit the top, start ignoring the line (not drawing it)
+          // if the slope is negative and has hit the bottom, also start ignoring
+          if ( (positiveSlope && equation(x)-Math.floor(equation(x)) > 0.995)
+                || (!positiveSlope && equation(x)-Math.floor(equation(x)) < 0.005)) {
+            ignoreLine = true;
+          }
+          if (!ignoreLine) {
+            // if not ignoring line, actually draw it 
+            context.lineTo((x-Math.floor(x)), (equation(x)-Math.floor(equation(x))));
+          } else {
+            // if ignoring line, move the cursor, but do not draw a line 
+            context.moveTo((x-Math.floor(x)), (equation(x)-Math.floor(equation(x))));
+            // if positive slope and equation has hit bottom again, start drawing again
+            // if negative slope and equation has hit top again, also start drawing again 
+            if ( (positiveSlope && equation(x)-Math.floor(equation(x)) < 0.005) 
+                  || (!positiveSlope && equation(x)-Math.floor(equation(x)) > 0.995)) {
+              ignoreLine = false;
+            }
+          }
         }
 
         context.restore();
@@ -224,8 +260,8 @@
       var myGraph = new Graph({
         canvasId: 'myCanvas',
         minX: 0,
-        minY: -10,
-        maxX: 10,
+        minY: -1,
+        maxX: 1,
         maxY: 0,
         unitsPerTick: 1
       });

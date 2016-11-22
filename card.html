@@ -151,9 +151,12 @@
 			// while (el.firstChild) {
 			//     el.removeChild(el.firstChild);
 			// }
-			for(var j=1; j<el.childNodes.length; j++) {
-				el.removeChild(el.childNodes[j]);
+			console.log('has ' + el.childNodes.length + ' children');
+			while (el.childNodes.length != 1) {
+				console.log('removing');
+				el.removeChild(el.childNodes[1]);
 			}
+
 			cards[i].images.clear();
 			cards[i].valid = false;
 		}

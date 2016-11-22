@@ -60,14 +60,16 @@
 					<br>
 					<button id="draw1">Draw Card</button>
 				</div>
-				<img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" src="assets/blackPom-min.png">
-				<img class="monster" id="image bwPom" image="bw" draggable="true" ondragstart="drag(event)" img src="assets/bwPom-min.png">
-				<img class="monster" id="image bluePom" image="blue" draggable="true" ondragstart="drag(event)" img src="assets/bluePom-min.png">
-				<img class="monster" id="image orangePom" image="orange" draggable="true" ondragstart="drag(event)" img src="assets/orangePom-min.png">
-				<img class="monster" id="image purplePom" image="purple" draggable="true" ondragstart="drag(event)" img src="assets/purplePom-min.png">
-				<img class="monster" id="image greenPom" image="green" draggable="true" ondragstart="drag(event)" img src="assets/greenPom-min.png">
-				<img class="monster" id="image redPom" image="red" draggable="true" ondragstart="drag(event)" img src="assets/redPom-min.png">
-				<img id="trashcan" ondrop="dropTrash(event)" ondragover="allowDrop(event)" src="assets/trash.png">
+				<div id="monster_bar" ondrop="dropTrash(event)" ondragover="allowDrop(event)">
+					<img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" src="assets/blackPom-min.png">
+					<img class="monster" id="image bwPom" image="bw" draggable="true" ondragstart="drag(event)" img src="assets/bwPom-min.png">
+					<img class="monster" id="image bluePom" image="blue" draggable="true" ondragstart="drag(event)" img src="assets/bluePom-min.png">
+					<img class="monster" id="image orangePom" image="orange" draggable="true" ondragstart="drag(event)" img src="assets/orangePom-min.png">
+					<img class="monster" id="image purplePom" image="purple" draggable="true" ondragstart="drag(event)" img src="assets/purplePom-min.png">
+					<img class="monster" id="image greenPom" image="green" draggable="true" ondragstart="drag(event)" img src="assets/greenPom-min.png">
+					<img class="monster" id="image redPom" image="red" draggable="true" ondragstart="drag(event)" img src="assets/redPom-min.png">
+					<img id="trashcan" ondrop="dropTrash(event)" ondragover="allowDrop(event)" src="assets/trash.png">
+				</div>
 			</div>
 			<br>
 			<div class="sortable container" id="cards">

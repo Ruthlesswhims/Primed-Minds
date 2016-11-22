@@ -32,10 +32,7 @@
         <canvas id="myCanvas" width="400" height="400"></canvas>
     </div>
 
-<script> 
-    // document.getElementById()
-</script>
-
+<!-- Scripts for validating equation input and hitting objects --> 
 <script>
     // This function validates if entries are between -10 and 10 
     function validate(val) {
@@ -68,9 +65,16 @@
         document.getElementById(id).value = val; 
     }
 
+    // Coordinates of the objects they are trying to hit
+    var objects = [{x: 5, y: 10, hit: false}, {x: 10, y: 10, hit: false}];
+
+    // Called when "Fire" is clicked 
     function outputUpdate() {
         var num = parseInt(document.querySelector('#slope_fader').value);
         var yintercept = parseInt(document.querySelector('#yintercept').value);
+
+        checkHits(num);
+
         var positiveslope; 
         if (num > 0) {
           positiveslope = true; 
@@ -82,8 +86,24 @@
         }, 'red', 2, positiveslope);
     }
 
+    // y = ax 
+    function checkHits(slope) {
+        for(var i=0; i<objects.length; i++) {
+          var x = objects[i].x; 
+          var y = objects[i].y; 
+          // at given x, does y = 10? 
+            if(x*slope%10 == 0) {
+              objects[i].hit = true;
+              console.log("object" + i + "hit");
+              // document.getElementById('img' + (i+1)).hide(200);
+            }
+        }
+    }
+
 
 </script>
+
+    <!-- Scripts for drawing the graph --> 
     <script>
       function Graph(config) {
         // user defined properties

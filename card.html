@@ -231,6 +231,7 @@
 		for(var i=0; i<cards.length; i++) {
 			if(i != x && i != y) {
 				document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
+				document.getElementById("text_bubble").innerHTML = "Oh no! Can you fix the error?";
 			}
 		}
 		
@@ -245,6 +246,7 @@
 			} else {
 				if (cards[i].valid) {
 					document.getElementById(cards[i].name).style.backgroundColor = "#53dd25";
+					document.getElementById("text_bubble").innerHTML = "Great job! Can you match more cards?";
 				} else {
 					document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
 				}

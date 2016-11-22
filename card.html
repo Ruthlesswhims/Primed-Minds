@@ -148,12 +148,8 @@
 		for(var i=0; i<cards.length; i++) {
 			document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
 			var el = document.getElementById(cards[i].name);
-			// while (el.firstChild) {
-			//     el.removeChild(el.firstChild);
-			// }
-			console.log('has ' + el.childNodes.length + ' children');
+			// Should always have one child (the handle span, which is always child[0])
 			while (el.childNodes.length != 1) {
-				console.log('removing');
 				el.removeChild(el.childNodes[1]);
 			}
 

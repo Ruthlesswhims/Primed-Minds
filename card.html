@@ -54,6 +54,7 @@
         </nav>
 
 		<div id="main">
+			<p class="bubble" id="text_bubble">Welcome to Spot It! Good Luck!</p>
 			<div class="container" id="images">
 				<div id="buttons">
 					<button id="reset" onclick="clearCards()">Start Over</button>
@@ -117,12 +118,19 @@
 	    var nodeCopy = document.getElementById(data).cloneNode(true);
   		if (ev.target.childNodes.length < 4) {
   			var index = findCardIndex(ev.target.id);
-  			nodeCopy.id += ("_" + index);
-  			ev.target.appendChild(nodeCopy);
-  			cards[index].images.add(data);
-  			console.log("adding " + data + " to " + index)
-  			findCardError();
-  			// colorCards();	
+			var contains = cards[index].images.has(data); 
+			console.log(contains);
+			if (contains) {
+				document.getElementById("text_bubble").innerHTML = "Oops, you can't repeat monsters on a card!";
+			} else {
+	  			nodeCopy.id += ("_" + index);
+	  			ev.target.appendChild(nodeCopy);
+	  			cards[index].images.add(data);
+	  			console.log("adding " + data + " to " + index)
+	  			findCardError();
+	  		}
+  		} else {
+			document.getElementById("text_bubble").innerHTML = "Sorry! No more than 3 monsters per card";
   		}
 	}
 

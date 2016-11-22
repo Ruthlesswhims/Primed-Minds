@@ -10,7 +10,7 @@ var cardCount = 0;
 $('.card').hide();
 $('#draw1').click(function(){
     if (cardCount >= 8) {
-      alert("No more cards available!");
+      document.getElementById("text_bubble").innerHTML = "Uh oh! No more cards left.";
     } else {
         $('#card' + cardCount).show(500);
         cardCount++;

@@ -88,16 +88,18 @@
 
     // y = ax 
     function checkHits(slope) {
+        var text = "";
         for(var i=0; i<objects.length; i++) {
           var x = objects[i].x; 
           var y = objects[i].y; 
           // at given x, does y = 10? 
             if(x*slope%10 == 0) {
               objects[i].hit = true;
-              console.log("object" + i + "hit");
+              text += "You hit object #" + (i+1) + "! ";
               // document.getElementById('img' + (i+1)).hide(200);
             }
         }
+        document.getElementById("error-text").innerHTML = text;
     }
 
 

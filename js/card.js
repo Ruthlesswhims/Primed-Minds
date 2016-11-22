@@ -1,7 +1,7 @@
 // Add cards to <div id="cards"></div>
 // Format: <div id="CARD_NAME">CARD_NAME</div>
 for(var i = 0; i < 8; i++){
-	$('#cards').append('<div id="' + 'card' + i + '" class="card" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="handle">' + 'X' + '</span></div>');
+	$('#cards').append('<div id="' + 'card' + i + '" class="card" ondrop="drop(event)" ondragover="allowDrop(event)"><img class="handle" src="assets/handle.png"></span></div>');
   // $('#cards').append('<div id="' + cards[i].name + '" class="card"></div>');
 }
 

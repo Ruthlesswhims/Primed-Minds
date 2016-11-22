@@ -113,7 +113,7 @@
 	    ev.preventDefault();
 	    var data = ev.dataTransfer.getData("text");
 	    var nodeCopy = document.getElementById(data).cloneNode(true);
-  		if (ev.target.childNodes.length < 3) {
+  		if (ev.target.childNodes.length < 4) {
   			var index = findCardIndex(ev.target.id);
   			nodeCopy.id += ("_" + index);
   			ev.target.appendChild(nodeCopy);

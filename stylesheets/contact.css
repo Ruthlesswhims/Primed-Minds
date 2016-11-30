@@ -59,6 +59,7 @@ nav ul li {
 }
 
 #nav_bar {
+  min-width: 1200px;
     position:fixed;
 }
 
@@ -82,7 +83,7 @@ nav ul li {
     display: block;
 }
 
-.dropdown-content a:hover { 
+.dropdown-content a:hover {
     background-color: #ffe900
 }
 

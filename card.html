@@ -209,7 +209,13 @@
 							foundError = true;
 							cards[i].valid = false;
 							cards[j].valid = false;
-							colorErrors(i, j);
+							var text = "Oh no! "; 
+							if (matches == 0) {
+								text = "Oops! These two cards don't have a match.";
+							} else {
+								text = "Oh no! Cards can only match ONE monster.";
+							}
+							colorErrors(i, j, text);
 						} else {
 							cards[i].valid = true;
 							cards[j].valid = true;
@@ -225,13 +231,13 @@
 	}
 
 	// Color cards x and y red, rest of the cards should be yellow
-	function colorErrors(x, y) {
+	function colorErrors(x, y, text) {
 		document.getElementById(cards[x].name).style.backgroundColor = "#f5493d";
 		document.getElementById(cards[y].name).style.backgroundColor = "#f5493d";
 		for(var i=0; i<cards.length; i++) {
 			if(i != x && i != y) {
 				document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
-				document.getElementById("text_bubble").innerHTML = "Oh no! Can you fix the error?";
+				document.getElementById("text_bubble").innerHTML = text;
 			}
 		}
 		

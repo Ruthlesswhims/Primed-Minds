@@ -24,7 +24,7 @@
         <p id="error-text"></p>
 
         <button id="renderButton" onclick="outputUpdate()">Fire!</button>
-        <button id="clear" > CLEAR</button>
+        <button id="clear" onclick="myGraph.clearPath()">CLEAR</button>
     </div>
     <div class="col-2-2">
         <div class="hittable" id="img1"><img src="banana.png" width="40px"/></div>
@@ -81,17 +81,11 @@
         } else {
           positiveslope = false;
         }
+        myGraph.clearPath();
         myGraph.drawEquation(function(x) {
             return (num*x + yintercept);
         }, 'red', 2, positiveslope);
     }
-
-    // Clear graph
-    // function clear() {
-    // context.clearRect(0, 0, canvas.width, canvas.height);
-    // context.beginPath();
-// }
-
 
     // y = ax 
     function checkHits(slope) {
@@ -142,6 +136,15 @@
         this.scaleY = this.canvas.height / this.rangeY;
 
         // draw x and y axis
+        this.drawXAxis();
+        this.drawYAxis();
+      }
+
+      // Note this is currently a workaround as it has to redraw the x and y axis every time
+      // Should look for a way to clear graph without having to redraw axes
+      Graph.prototype.clearPath = function() {
+        var context = this.context;
+        context.clearRect(0, 0, context.canvas.width, context.canvas.height);
         this.drawXAxis();
         this.drawYAxis();
       }
@@ -297,10 +300,11 @@
       });
 
 
-      document.getElementById('clear').addEventListener('click', function() {
-        context.clearRect(0, 0, 400, 400);
-        context.beginPath();
-      }, false);
+      // document.getElementById('clear').addEventListener('click', function() {
+      //   // context.clearRect(0, 0, 400, 400);
+      //   // context.beginPath();
+      //   myGraph.clearPath();
+      // }, false);
     </script>
 </div>
 </body>

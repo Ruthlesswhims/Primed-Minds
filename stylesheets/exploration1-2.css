@@ -1,0 +1,56 @@
+.hittable {
+  position: absolute;
+  float: left;
+}
+
+#img0 {
+  left: 200px;
+}
+
+#img1 {
+  left: 400px;
+}
+
+#img2 {
+  left: 400px;
+}
+
+#chart {
+	position: relative;
+	top: 40px;
+}
+
+#myCanvas {
+  padding-left: 30px;
+}
+
+/* GRID STYLING */
+[class*='col-'] {
+  float: left;
+}
+
+.col-1-2 {
+    width: 35%;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 30px;
+}
+
+.col-2-2 {
+    width: 65%;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 40px;
+    padding-top: 30px;
+}
+.grid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

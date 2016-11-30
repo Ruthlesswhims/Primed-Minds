@@ -1,7 +1,3 @@
-.nav-wrapper {
-    
-}
-
 #main {
     margin: 50px 0px 0px 20px;
     height: 100%;
@@ -158,7 +154,7 @@ nav ul li {
 
 #trashcan {
     height: 70px;
-    margin-top: 15px;
+    margin-top: 25px;
     float: left;
 }
 
@@ -176,7 +172,7 @@ nav ul li {
 
 .card {
     width: 280px;
-    height: 248px;
+    height: 262px;
     border: 2px solid black;
     border-radius: 20px;
     background-color: #ffdd54;
@@ -186,7 +182,7 @@ nav ul li {
 }
 
 .monster {
-    height: 125px;
+    height: 120px;
     float: left;
     /*margin: 0 10px 0 10px;*/ /* taken out to make room for two monsters per line on a card */
     z-index: 2;
@@ -205,8 +201,15 @@ nav ul li {
     margin-bottom: 2px;
 }
 
-
-
+.handle {
+    margin-top: 4px;
+    margin-left: 5px;
+    /*font-weight: bold;*/
+    float: left;
+    display:block;
+    cursor: move;
+    height: 30px;
+}
 
 /*@media screen and (max-width: 1400px) {
     body {
@@ -219,3 +222,36 @@ nav ul li {
         background-color: lightgreen !important;
     }
 }*/
+
+.bubble 
+{
+    position: relative;
+    width: 450px;
+    height: 60px;
+    margin-left: 150px;
+    background: #ffdd54;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.bubble:after 
+{
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    border-color: #ffdd54 transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -15px;
+    left: 32px;
+}
+
+#text_bubble {
+    font-family: 'Arima Madurai', cursive;
+    padding-top: 20px;
+    font-size: 16pt;
+    text-align: center;
+}

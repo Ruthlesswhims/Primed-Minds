@@ -1,6 +1,6 @@
-/* IMPORTANT 
+/* IMPORTANT
 Put rest of page in div with id="main"
-This pads the rest of the page below the navbar */ 
+This pads the rest of the page below the navbar */
 
 #main {
     padding-top: 100px;
@@ -23,7 +23,7 @@ body {
 
 h3 {
     font-size: 18px;
-    font-family: "Open Sans";       
+    font-family: "Open Sans";
 }
 
 .answer {
@@ -147,6 +147,7 @@ nav ul li {
 #nav_bar {
     position:fixed;
     z-index: 2;
+    min-width: 1200px;
 }
 
 .dropdown {
@@ -169,7 +170,7 @@ nav ul li {
     display: block;
 }
 
-.dropdown-content a:hover { 
+.dropdown-content a:hover {
     background-color: #ffe900
 }
 

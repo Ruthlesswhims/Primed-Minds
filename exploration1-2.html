@@ -15,16 +15,12 @@
         <input type="range" min="-10" max="10" value="10" id="slope_fader" step="1" oninput="updateText(this.value, 'slope')">
         <input type="number" min="-10" max="10" for="slope_fader" id="slope" value="10" onchange="updateSlider(this.value, 'slope_fader')">
 
-        <p><br></p>
-        <label for="yfader">Y-Intercept</label>
-        <input type="range" min="-10" max="10" value="10" id="yfader" step="1" oninput="updateText(this.value, 'yintercept')">
-        <input type="number" min="-10" max="10" for="yfader" id="yintercept" value="10" onchange="updateSlider(this.value, 'yfader')">
+        <br><br>
+        <button id="renderButton" onclick="outputUpdate()">Fire!</button>
+        <button id="clear" onclick="myGraph.clearPath()">CLEAR</button>
 
         <p><br></p>
         <p id="error-text"></p>
-
-        <button id="renderButton" onclick="outputUpdate()">Fire!</button>
-        <button id="clear" onclick="myGraph.clearPath()">CLEAR</button>
     </div>
     <div class="col-2-2">
         <div class="hittable" id="img1"><img src="banana.png" width="40px"/></div>
@@ -71,7 +67,6 @@
     // Called when "Fire" is clicked 
     function outputUpdate() {
         var num = parseInt(document.querySelector('#slope_fader').value);
-        var yintercept = parseInt(document.querySelector('#yintercept').value);
 
         checkHits(num);
 
@@ -83,7 +78,7 @@
         }
         myGraph.clearPath();
         myGraph.drawEquation(function(x) {
-            return (num*x + yintercept);
+            return (num*x);
         }, 'red', 2, positiveslope);
     }
 
@@ -298,13 +293,6 @@
         maxY: 0,
         unitsPerTick: 1
       });
-
-
-      // document.getElementById('clear').addEventListener('click', function() {
-      //   // context.clearRect(0, 0, 400, 400);
-      //   // context.beginPath();
-      //   myGraph.clearPath();
-      // }, false);
     </script>
 </div>
 </body>

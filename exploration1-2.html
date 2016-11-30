@@ -6,7 +6,16 @@
     <!-- If you delete this meta tag World War Z will become a reality -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exploration 1.2</title>
-        <link rel="stylesheet" type="text/css" href="stylesheets/exploration1-2.css">
+
+    <!-- Local css --> 
+    <link rel="stylesheet" type="text/css" href="stylesheets/exploration1-2.css">
+
+    <!-- jquery js -->
+    <script src="public/javascript/jquery-1.12.3.min.js"></script>
+    <!-- materialize js -->
+    <script src="public/javascript/materialize.min.js"></script>
+    <!-- local js --> 
+    <script src="js/graph.js"></script>  
 </head>
 <body>
 <div class="grid">
@@ -17,19 +26,26 @@
 
         <br><br>
         <button id="renderButton" onclick="outputUpdate()">Fire!</button>
-        <button id="clear" onclick="myGraph.clearPath()">CLEAR</button>
+        <button id="clear" onclick="myGraph.clearPath()">Clear</button>
+        <button id="nextConfig" onclick="nextConfig()">Try another setup!</button>
 
         <p><br></p>
         <p id="error-text"></p>
     </div>
     <div class="col-2-2">
+        <div class="hittable" id="img0"><img src="banana.png" width="40px"/></div>
         <div class="hittable" id="img1"><img src="banana.png" width="40px"/></div>
         <div class="hittable" id="img2"><img src="banana.png" width="40px"/></div>
-        <canvas id="myCanvas" width="400" height="400"></canvas>
+        <div class="hittable" id="img3"><img src="banana.png" width="40px"/></div>
     </div>
 
-<!-- Scripts for validating equation input and hitting objects --> 
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+
+<!-- Scripts for validating equation input and hitting objects -->
 <script>
+    document.getElementById('img2').style.display = "none";
+    document.getElementById('img3').style.display = "none";
+
     // This function validates if entries are between -10 and 10 
     function validate(val) {
         var value, text, pass;
@@ -92,14 +108,18 @@
             if(x*slope%10 == 0) {
               objects[i].hit = true;
               text += "You hit object #" + (i+1) + "! ";
-              document.getElementById('img' + (i+1)).style.display = 'none';
+              document.getElementById('img' + i).style.display = 'none';
             }
 
         }
         document.getElementById("error-text").innerHTML = text;
     }
 
-
+    function nextConfig() {
+      document.getElementById('img0').style.left = 133 + "px";
+      document.getElementById('img1').style.left = 267 + "px";
+      document.getElementById('img2').style.display = "inline";
+    }
 </script>
 
     <!-- Scripts for drawing the graph --> 

@@ -1,17 +1,18 @@
 .hittable {
+  position: absolute;
+  float: left;
+}
 
+#img0 {
+  left: 200px;
 }
 
 #img1 {
-	position: absolute;
-	left: 200px;
-	float: left;
+  left: 400px;
 }
 
 #img2 {
-	position: absolute;
-	left: 400px;
-	float: left;
+  left: 400px;
 }
 
 #chart {
@@ -19,6 +20,9 @@
 	top: 40px;
 }
 
+#myCanvas {
+  padding-left: 30px;
+}
 
 /* GRID STYLING */
 [class*='col-'] {
@@ -39,7 +43,6 @@
     padding-right: 40px;
     padding-top: 30px;
 }
-
 .grid:after {
   content: "";
   display: table;

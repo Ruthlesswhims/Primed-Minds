@@ -27,6 +27,8 @@
         <br><br>
         <button id="renderButton" onclick="outputUpdate()">Fire!</button>
         <button id="clear" onclick="myGraph.clearPath()">Clear</button>
+        <button id="resetCurrent" onclick="resetCurrent()">Reset this setup</button>
+        <br>
         <button id="nextConfig" onclick="nextConfig()">Try another setup!</button>
 
         <p><br></p>
@@ -105,7 +107,10 @@
           var x = objects[i].x; 
           var y = objects[i].y; 
           // at given x, does y = 10? 
-            if(x*slope%10 == 0) {
+          console.log(x+"*"+slope+"="+(x*slope));
+          // Have to fix to one decimal point due to rounding for 1/3s
+          console.log(((x*slope).toFixed(1))%10);
+            if(((x*slope).toFixed(1))%10 == 0) {
               objects[i].hit = true;
               text += "You hit object #" + (i+1) + "! ";
               document.getElementById('img' + i).style.display = 'none';
@@ -118,15 +123,75 @@
     var currentConfig=0;
 
     function nextConfig() {
+      myGraph.clearPath();
       currentConfig = (currentConfig+1)%3;
+      renderCurrentConfig();
+    }
+
+    function resetCurrent() {
+      myGraph.clearPath();
+      renderCurrentConfig();
+    }
+
+    function renderCurrentConfig() {
+      switch(currentConfig) {
+        case 0:
+          // Update the objects variable
+          objects = [{x: 5, y: 10, hit: false}, {x: 10, y: 10, hit: false}];
+
+          // Update the hittable image positions
+          document.getElementById('img0').style.left = 200 + "px";
+          document.getElementById('img1').style.left = 400 + "px";
+
+          // Update hittable image visibilities
+          document.getElementById('img0').style.display = "inline";
+          document.getElementById('img1').style.display = "inline";
+          document.getElementById('img2').style.display = "none";
+          document.getElementById('img3').style.display = "none";
+          break;  
+        case 1:
+          // Update objects variable
+          objects = [{x: 3.33, y: 10, hit: false}, {x: 6.67, y: 10, hit: false}, {x: 10, y: 10, hit: false}];
+
+          // Update hittable image positions
+          document.getElementById('img0').style.left = 133 + "px";
+          document.getElementById('img1').style.left = 267 + "px";
+          document.getElementById('img2').style.left = 400 + "px";
+          // Top margin of 30 is default for all images and chart
+          document.getElementById('img2').style.top = 30 + "px";
+
+          // Update hittable image visibilities
+          document.getElementById('img0').style.display = "inline";
+          document.getElementById('img1').style.display = "inline";
+          document.getElementById('img2').style.display = "inline";
+          document.getElementById('img3').style.display = "none";
+          break; 
+        case 2:
+          // Update objects variable
+          objects = [{x: 5, y: 10, hit: false}, {x: 10, y: 10, hit: false}, {x: 10, y: 5, hit: false}];
+
+          // Update hittable image positions
+          document.getElementById('img0').style.left = 200 + "px";
+          document.getElementById('img1').style.left = 400 + "px";
+          document.getElementById('img2').style.left = 400 + "px";
+          document.getElementById('img2').style.top = 200 + "px";
+
+          // Update hittable image visibilities
+          document.getElementById('img0').style.display = "inline";
+          document.getElementById('img1').style.display = "inline";
+          document.getElementById('img2').style.display = "inline";
+          document.getElementById('img3').style.display = "none";
+          break; 
+        default: // if none of the above cases
+          console.log("Could not find configuration #" + currentConfig);
+          console.log("Resetting");
+          currentConfig = 0;
+          // Call function to actually display config
+          nextConfig();
+          break; 
+      } 
 
 
-      document.getElementById('img0').style.left = 133 + "px";
-      document.getElementById('img1').style.left = 267 + "px";
-
-      document.getElementById('img0').style.display = "inline";
-      document.getElementById('img1').style.display = "inline";
-      document.getElementById('img2').style.display = "inline";
     }
 </script>
 

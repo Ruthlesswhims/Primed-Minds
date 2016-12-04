@@ -109,7 +109,9 @@
           // at given x, does y = 10? 
           console.log(x+"*"+slope+"="+(x*slope));
           // Have to fix to one decimal point due to rounding for 1/3s
-          console.log(((x*slope).toFixed(1))%10);
+          // console.log(((x*slope).toFixed(1))%10);
+                      // context.lineTo((x-Math.floor(x)), (equation(x)-Math.floor(equation(x))));
+          console.log( x*slope +  ", " + y  );
             if(((x*slope).toFixed(1))%10 == 0) {
               objects[i].hit = true;
               text += "You hit object #" + (i+1) + "! ";

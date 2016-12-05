@@ -101,6 +101,7 @@
     }
 
     // y = ax
+
     function checkHits(slope) {
         var text = "";
         for(var i=0; i<objects.length; i++) {
@@ -115,7 +116,34 @@
             if( (x*slope - Math.floor(x*slope)).toFixed(2) == (y - Math.floor(y)) ) {
               objects[i].hit = true;
               text += "You hit object #" + (i+1) + "! ";
-              document.getElementById('img' + i).style.display = 'none';
+              // document.getElementById('img' + i).style.display = 'none';
+              document.getElementById('img' + i).style.WebkitAnimation = "mynewmove 2s 1";
+      //           var elem = document.getElementById("hittable");
+      //           var pos = 0;
+      //           var id = setInterval(frame, 5);
+      //           function frame() {
+      //                   if (pos == 350) {
+      //   clearInterval(id);
+      // } else {
+      //   pos++;
+      //   elem.style.top
+      // }
+      //           }
+      //         }
+
+    //   function animate() {
+    //   var elem = document.getElementById("hittable");
+    //   var pos = 0;
+    //   var id = setInterval(frame, 5);
+    // function frame() {
+    //   if (pos == 350) {
+    //     clearInterval(id);
+    //   } else {
+    //     pos++;
+    //     elem.style.top
+    //   }
+    // }
+    // }
             }
 
         }
@@ -146,10 +174,10 @@
           document.getElementById('img1').style.left = 400 + "px";
 
           // Update hittable image visibilities
-          document.getElementById('img0').style.display = "inline";
-          document.getElementById('img1').style.display = "inline";
-          document.getElementById('img2').style.display = "none";
-          document.getElementById('img3').style.display = "none";
+          document.getElementById('img0').style.WebkitAnimation = "mynewmove 2s 1";
+          document.getElementById('img1').style.WebkitAnimation = "mynewmove 2s 1";
+          document.getElementById('img2').style.WebkitAnimation = "mynewmove 2s 1";
+          document.getElementById('img3').style.WebkitAnimation = "mynewmove 2s 1";
           break;  
         case 1:
           // Update objects variable
@@ -163,10 +191,10 @@
           document.getElementById('img2').style.top = 30 + "px";
 
           // Update hittable image visibilities
-          document.getElementById('img0').style.display = "inline";
-          document.getElementById('img1').style.display = "inline";
-          document.getElementById('img2').style.display = "inline";
-          document.getElementById('img3').style.display = "none";
+          document.getElementById('img0').style.WebkitAnimation = "mynewmove 2s 1";
+          document.getElementById('img1').style.WebkitAnimation = "mynewmove 2s 1";
+          document.getElementById('img2').style.WebkitAnimation = "mynewmove 2s 1";
+          document.getElementById('img3').style.WebkitAnimation = "mynewmove 2s 1";
           break; 
         case 2:
           // Update objects variable

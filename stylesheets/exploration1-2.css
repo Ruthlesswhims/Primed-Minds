@@ -3,6 +3,11 @@
   float: left;
 }
 
+@-webkit-keyframes mynewmove {
+    from {top: 0px;}
+    to {top: 400px;}
+}
+
 #img0 {
   left: 200px;
 }

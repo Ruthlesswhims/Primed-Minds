@@ -80,7 +80,7 @@
     }
 
     // Coordinates of the objects they are trying to hit
-    var objects = [{x: 5, y: 10, hit: false}, {x: 10, y: 10, hit: false}];
+    var objects = [{x: .5, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}];
 
     // Called when "Fire" is clicked
     function outputUpdate() {
@@ -95,7 +95,7 @@
           positiveslope = false;
         }
         myGraph.clearPath();
-        myGraph.drawEquation(function(x) {
+        drawEquation(function(x) {
             return (num*x);
         }, 'red', 2, positiveslope);
     }
@@ -261,8 +261,12 @@
       Graph.prototype.clearPath = function() {
         var context = this.context;
         context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+        // context.restore();
+        // this.transformContext();
         this.drawXAxis();
         this.drawYAxis();
+        context.moveTo(0, 400); 
+
       }
 
       Graph.prototype.drawXAxis = function() {
@@ -351,47 +355,120 @@
         context.restore();
       };
 
-      Graph.prototype.drawEquation = function(equation, color, thickness, positiveSlope) {
-        var context = this.context;
-        context.save();
-        this.transformContext();
 
-        context.beginPath();
-        context.moveTo(this.minX, equation(this.minX));
+      var myGraph = new Graph({
+        canvasId: 'myCanvas',
+        minX: 0,
+        minY: -1,
+        maxX: 1,
+        maxY: 0,
+        unitsPerTick: 1
+      });
+
+      // variable to hold how many frames have elapsed in the animation
+      var t = 1;
+      var vertices = [];
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "red";
+      var points; 
+
+      function drawEquation(equation, color, thickness, positiveSlope) {
+        var context = myGraph.context;
+        context.save();
+        // myGraph.transformContext();
+
+        // context.beginPath();
+        // context.moveTo(myGraph.minX, equation(myGraph.minX));
+        context.moveTo(0, 400); 
 
         // ignore the vertical lines, false by default
         // originally the graph would connect topmost points (y=max) to y=min in a vertical line -- ignore these
-        var ignoreLine = false;
+        // var ignoreLine = false;
         // iterate through the graph points
-        for(var x = this.minX + this.iteration*0.1; x < this.maxX; x += this.iteration*0.1) {
+        // for(var x = this.minX + this.iteration*0.1; x < this.maxX; x += this.iteration*0.1) {
           // if the slope is positive and has hit the top, start ignoring the line (not drawing it)
           // if the slope is negative and has hit the bottom, also start ignoring
-          if ( (positiveSlope && equation(x)-Math.floor(equation(x)) > 0.995)
-                || (!positiveSlope && equation(x)-Math.floor(equation(x)) < 0.005)) {
-            ignoreLine = true;
-          }
-          if (!ignoreLine) {
+          // if ( (positiveSlope && equation(x)-Math.floor(equation(x)) > 0.995)
+                // || (!positiveSlope && equation(x)-Math.floor(equation(x)) < 0.005)) {
+            // ignoreLine = true;
+          // }
+          // if (!ignoreLine) {
             // if not ignoring line, actually draw it
-            context.lineTo((x-Math.floor(x)), (equation(x)-Math.floor(equation(x))));
-          } else {
+            // context.lineTo((x-Math.floor(x)), (equation(x)-Math.floor(equation(x))));
+          // } else {
             // if ignoring line, move the cursor, but do not draw a line
-            context.moveTo((x-Math.floor(x)), (equation(x)-Math.floor(equation(x))));
+            // context.moveTo((x-Math.floor(x)), (equation(x)-Math.floor(equation(x))));
             // if positive slope and equation has hit bottom again, start drawing again
             // if negative slope and equation has hit top again, also start drawing again
-            if ( (positiveSlope && equation(x)-Math.floor(equation(x)) < 0.005)
-                  || (!positiveSlope && equation(x)-Math.floor(equation(x)) > 0.995)) {
-              ignoreLine = false;
-            }
+            // if ( (positiveSlope && equation(x)-Math.floor(equation(x)) < 0.005)
+                  // || (!positiveSlope && equation(x)-Math.floor(equation(x)) > 0.995)) {
+              // ignoreLine = false;
+            // }
+          // }
+        // }
+
+        for (var x = 0; x<1.0; x+=0.1) {
+          // console.log(x + ", " + (equation(x) - Math.floor(equation(x))));
+          if ( (equation(x) - Math.floor(equation(x))) == 0 || (equation(x) - Math.floor(equation(x))) > .98) {
+            vertices.push(x.toFixed(2));   
+            console.log('vertex at x=' + x.toFixed(2));       
           }
         }
 
-        context.restore();
-        context.lineJoin = 'round';
-        context.lineWidth = thickness;
-        context.strokeStyle = color;
+        // calculate incremental points along the path
+        points = calcWaypoints(vertices);
+        // extend the line from start to finish with animation
+        animate();
+        context.moveTo(0, 400); 
         context.stroke();
+
         context.restore();
-      };
+        // context.lineJoin = 'round';
+        // context.lineWidth = thickness;
+        // context.strokeStyle = color;
+        // context.stroke();
+        context.restore();
+      }
+
+      // calc waypoints traveling along vertices
+      function calcWaypoints(vertices) {
+            var waypoints = [];
+            for (var i = 1; i < vertices.length; i++) {
+                var pt0 = vertices[i - 1]*400;
+                var pt1 = vertices[i]*400;
+                var dx = pt1 - pt0;
+                var dy = -400;
+                for (var j = 0; j < 100; j++) {
+                    var x = pt0 + dx * j / 100;
+                    var y = 400 + dy * j / 100;
+                    var vertex = false; 
+                    if (j==0) { vertex = true; }
+                    waypoints.push({
+                        x: x,
+                        y: y,
+                        vertex: vertex,
+                    });
+                }
+            }
+            return (waypoints);
+      }
+
+      function animate() {
+        if (t < points.length - 1) {
+            requestAnimationFrame(animate);
+        }
+        // draw a line segment from the last waypoint
+        // to the current waypoint
+        ctx.beginPath();
+        ctx.moveTo(points[t - 1].x, points[t - 1].y);
+        ctx.lineTo(points[t].x, points[t].y);
+        ctx.stroke();
+        ctx.restore();
+        // increment "t" to get the next waypoint
+        t++;
+      }
 
       Graph.prototype.transformContext = function() {
         var context = this.context;
@@ -406,14 +483,6 @@
          */
         context.scale(this.scaleX, -this.scaleY);
       };
-      var myGraph = new Graph({
-        canvasId: 'myCanvas',
-        minX: 0,
-        minY: -1,
-        maxX: 1,
-        maxY: 0,
-        unitsPerTick: 1
-      });
     </script>
 </div>
 </body>

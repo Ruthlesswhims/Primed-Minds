@@ -391,8 +391,7 @@
           console.log('here ' + x + ", " + equation(x));
           console.log(x + ", " + (equation(x) - Math.floor(equation(x))));
           if ( (equation(x) - Math.floor(equation(x))) == 0 || (equation(x) - Math.floor(equation(x))) > .98) {
-            vertices.push({x: x, y: 1});
-            // vertices.push({x: x, y: 0});
+            vertices.push(x);          
           }
         }
         for (var i=0; i<2; i++) {

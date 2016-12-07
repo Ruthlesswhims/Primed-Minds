@@ -9,19 +9,12 @@
 
     <!-- Local css -->
     <link rel="stylesheet" type="text/css" href="stylesheets/exploration1-2.css">
-
-    <!-- jquery js -->
-    <!--<script src="public/javascript/jquery-1.12.3.min.js"></script> -->
-    <!-- materialize js -->
-    <!--<script src="public/javascript/materialize.min.js"></script> -->
-    <!-- local js -->
-    <!--<script src="js/graph.js"></script>  -->
 </head>
 <body>
 <div class="grid">
     <div class="col-1-2">
         <label for="fader">Slope</label>
-        <input type="range" min="-10" max="10" value="10" id="slope_fader" step="1" oninput="updateText(this.value, 'slope')">
+        <input type="range" min="-10" max="10" value="10" id="slope_fader" step="0.5" oninput="updateText(this.value, 'slope')">
         <input type="number" min="-10" max="10" for="slope_fader" id="slope" value="10" onchange="updateSlider(this.value, 'slope_fader')">
 
         <br><br>
@@ -52,7 +45,7 @@
     function validate(val) {
         var value, text, pass;
         // Get the value of the input field
-        value = parseInt(val);
+        value = parseFloat(val);
         if (value < -10 || value > 10) {
             text = "Please enter values between -10 and 10";
             pass = false;
@@ -70,7 +63,7 @@
     function updateSlider(val, id) {
         var pass = validate(val);
         if(pass) {
-            document.getElementById(id).value = parseInt(val);
+            document.getElementById(id).value = parseFloat(val);
         }
     }
 
@@ -80,11 +73,11 @@
     }
 
     // Coordinates of the objects they are trying to hit
-    var objects = [{x: 5, y: 10, hit: false}, {x: 10, y: 10, hit: false}];
+    var objects = [{x: .5, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}];
 
     // Called when "Fire" is clicked
     function outputUpdate() {
-        var num = parseInt(document.querySelector('#slope_fader').value);
+        var num = parseFloat(document.querySelector('#slope_fader').value);
 
         checkHits(num);
 
@@ -101,21 +94,23 @@
     }
 
     // y = ax
+
     function checkHits(slope) {
         var text = "";
         for(var i=0; i<objects.length; i++) {
           var x = objects[i].x; 
           var y = objects[i].y; 
           // at given x, does y = 10? 
-          console.log(x+"*"+slope+"="+(x*slope));
-          // Have to fix to one decimal point due to rounding for 1/3s
-          console.log(((x*slope).toFixed(1))%10);
-            if(((x*slope).toFixed(1))%10 == 0) {
-              objects[i].hit = true;
-              text += "You hit object #" + (i+1) + "! ";
-              document.getElementById('img' + i).style.display = 'none';
+          console.log( (x*slope - Math.floor(x*slope)).toFixed(2) +  ", " + (y - Math.floor(y)));
+          if( (x*slope - Math.floor(x*slope)).toFixed(2) == (y - Math.floor(y)) ) {
+            objects[i].hit = true;
+            text += "You hit object #" + (i+1) + "! ";
+            if ( objects[i].fall_half ) {
+              document.getElementById('img' + i).style.WebkitAnimationName = "fall-half";
+            } else {
+              document.getElementById('img' + i).style.WebkitAnimationName = "fall";
             }
-
+          }
         }
         document.getElementById("error-text").innerHTML = text;
     }
@@ -124,20 +119,31 @@
 
     function nextConfig() {
       myGraph.clearPath();
+      clearHits();
       currentConfig = (currentConfig+1)%3;
       renderCurrentConfig();
     }
 
     function resetCurrent() {
       myGraph.clearPath();
+      clearHits();
       renderCurrentConfig();
+    }
+
+    function clearHits() {
+      for(var i=0; i<objects.length; i++) {
+        objects[i].hit = false;
+      }
+      for(var i=0; i<4; i++) {
+          document.getElementById('img' + i).style.WebkitAnimationName = "";
+      }
     }
 
     function renderCurrentConfig() {
       switch(currentConfig) {
         case 0:
           // Update the objects variable
-          objects = [{x: 5, y: 10, hit: false}, {x: 10, y: 10, hit: false}];
+          objects = [{x: 0.5, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}];
 
           // Update the hittable image positions
           document.getElementById('img0').style.left = 200 + "px";
@@ -151,7 +157,7 @@
           break;  
         case 1:
           // Update objects variable
-          objects = [{x: 3.33, y: 10, hit: false}, {x: 6.67, y: 10, hit: false}, {x: 10, y: 10, hit: false}];
+          objects = [{x: 0.33, y: 0.99, hit: false}, {x: 0.667, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}];
 
           // Update hittable image positions
           document.getElementById('img0').style.left = 133 + "px";
@@ -168,7 +174,8 @@
           break; 
         case 2:
           // Update objects variable
-          objects = [{x: 5, y: 10, hit: false}, {x: 10, y: 10, hit: false}, {x: 10, y: 5, hit: false}];
+          objects = [{x: 0.5, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}, 
+            {x: 1.0, y: 0.5, hit: false, fall_half: true}];
 
           // Update hittable image positions
           document.getElementById('img0').style.left = 200 + "px";

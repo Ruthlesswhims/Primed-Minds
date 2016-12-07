@@ -467,10 +467,10 @@
         } 
         // draw a line segment from the last waypoint
         // to the current waypoint
-        ctx.beginPath();
-        ctx.moveTo(points[t - 1].x, points[t - 1].y);
-        ctx.lineTo(points[t].x, points[t].y);
-        ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(points[t - 1].x, points[t - 1].y);
+          ctx.lineTo(points[t].x, points[t].y);
+          ctx.stroke();
         // ctx.restore();
         // increment "t" to get the next waypoint
         t++;

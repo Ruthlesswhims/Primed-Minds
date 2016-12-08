@@ -1,10 +1,21 @@
 .hittable {
   position: absolute;
   float: left;
+  /*animation-name: fall;*/
+  animation-duration: 2s;
+  /*-webkit-animation-name: fall;*/
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 
-@-webkit-keyframes mynewmove {
+@-webkit-keyframes fall {
     from {top: 0px;}
+    to {top: 400px;}
+}
+
+@-webkit-keyframes fall-half {
+    from {top: 200px;}
     to {top: 400px;}
 }
 

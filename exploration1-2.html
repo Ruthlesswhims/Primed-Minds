@@ -9,13 +9,6 @@
 
     <!-- Local css -->
     <link rel="stylesheet" type="text/css" href="stylesheets/exploration1-2.css">
-
-    <!-- jquery js -->
-    <!--<script src="public/javascript/jquery-1.12.3.min.js"></script> -->
-    <!-- materialize js -->
-    <!--<script src="public/javascript/materialize.min.js"></script> -->
-    <!-- local js -->
-    <!--<script src="js/graph.js"></script>  -->
 </head>
 <body>
 <div class="grid">
@@ -108,44 +101,16 @@
           var x = objects[i].x; 
           var y = objects[i].y; 
           // at given x, does y = 10? 
-          console.log(x+"*"+slope+"="+(x*slope));
-          // Have to fix to one decimal point due to rounding for 1/3s
-          // console.log(((x*slope).toFixed(1))%10);
-                      // context.lineTo((x-Math.floor(x)), (equation(x)-Math.floor(equation(x))));
-          console.log( (x*slope - Math.floor(x*slope)).toFixed(2) +  ", " + (y - Math.floor(y))  );
-            if( (x*slope - Math.floor(x*slope)).toFixed(2) == (y - Math.floor(y)) ) {
-              objects[i].hit = true;
-              text += "You hit object #" + (i+1) + "! ";
-              // document.getElementById('img' + i).style.display = 'none';
-              document.getElementById('img' + i).style.WebkitAnimation = "mynewmove 2s 1";
-      //           var elem = document.getElementById("hittable");
-      //           var pos = 0;
-      //           var id = setInterval(frame, 5);
-      //           function frame() {
-      //                   if (pos == 350) {
-      //   clearInterval(id);
-      // } else {
-      //   pos++;
-      //   elem.style.top
-      // }
-      //           }
-      //         }
-
-    //   function animate() {
-    //   var elem = document.getElementById("hittable");
-    //   var pos = 0;
-    //   var id = setInterval(frame, 5);
-    // function frame() {
-    //   if (pos == 350) {
-    //     clearInterval(id);
-    //   } else {
-    //     pos++;
-    //     elem.style.top
-    //   }
-    // }
-    // }
+          console.log( (x*slope - Math.floor(x*slope)).toFixed(2) +  ", " + (y - Math.floor(y)));
+          if( (x*slope - Math.floor(x*slope)).toFixed(2) == (y - Math.floor(y)) ) {
+            objects[i].hit = true;
+            text += "You hit object #" + (i+1) + "! ";
+            if ( objects[i].fall_half ) {
+              document.getElementById('img' + i).style.WebkitAnimationName = "fall-half";
+            } else {
+              document.getElementById('img' + i).style.WebkitAnimationName = "fall";
             }
-
+          }
         }
         document.getElementById("error-text").innerHTML = text;
     }
@@ -154,13 +119,24 @@
 
     function nextConfig() {
       myGraph.clearPath();
+      clearHits();
       currentConfig = (currentConfig+1)%3;
       renderCurrentConfig();
     }
 
     function resetCurrent() {
       myGraph.clearPath();
+      clearHits();
       renderCurrentConfig();
+    }
+
+    function clearHits() {
+      for(var i=0; i<objects.length; i++) {
+        objects[i].hit = false;
+      }
+      for(var i=0; i<4; i++) {
+          document.getElementById('img' + i).style.WebkitAnimationName = "";
+      }
     }
 
     function renderCurrentConfig() {
@@ -174,10 +150,10 @@
           document.getElementById('img1').style.left = 400 + "px";
 
           // Update hittable image visibilities
-          document.getElementById('img0').style.WebkitAnimation = "mynewmove 2s 1";
-          document.getElementById('img1').style.WebkitAnimation = "mynewmove 2s 1";
-          document.getElementById('img2').style.WebkitAnimation = "mynewmove 2s 1";
-          document.getElementById('img3').style.WebkitAnimation = "mynewmove 2s 1";
+          document.getElementById('img0').style.display = "inline";
+          document.getElementById('img1').style.display = "inline";
+          document.getElementById('img2').style.display = "none";
+          document.getElementById('img3').style.display = "none";
           break;  
         case 1:
           // Update objects variable
@@ -191,14 +167,15 @@
           document.getElementById('img2').style.top = 30 + "px";
 
           // Update hittable image visibilities
-          document.getElementById('img0').style.WebkitAnimation = "mynewmove 2s 1";
-          document.getElementById('img1').style.WebkitAnimation = "mynewmove 2s 1";
-          document.getElementById('img2').style.WebkitAnimation = "mynewmove 2s 1";
-          document.getElementById('img3').style.WebkitAnimation = "mynewmove 2s 1";
+          document.getElementById('img0').style.display = "inline";
+          document.getElementById('img1').style.display = "inline";
+          document.getElementById('img2').style.display = "inline";
+          document.getElementById('img3').style.display = "none";
           break; 
         case 2:
           // Update objects variable
-          objects = [{x: 0.5, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}, {x: 1.0, y: 0.5, hit: false}];
+          objects = [{x: 0.5, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}, 
+            {x: 1.0, y: 0.5, hit: false, fall_half: true}];
 
           // Update hittable image positions
           document.getElementById('img0').style.left = 200 + "px";

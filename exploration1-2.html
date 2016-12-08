@@ -356,17 +356,23 @@
         var context = myGraph.context;
         context.save();
 
-        // IMPORTANT!!!! //// 
+        // IMPORTANT!!!!  
         // Have to keep these resets *HERE* so that firing a second round or clearing graph works properly
         t = 1;
         vertices = [];
         hits = 0;
         context.moveTo(0, 400); 
 
-        vertices.push(0);
+        vertices.push({x: 0, y: 0});
         for (var x=1; x<=slope; x++) {
-          vertices.push(x/slope); 
+          vertices.push({x: x/slope, y: 1}); 
           console.log('vertex at ' + (x/slope));
+        }
+        // console.log('math floor ' + Math.floor(slope));
+        if (Math.floor(slope) != slope) {
+          // slope is a fraction, push vertex at x = 1 
+          vertices.push({x: 1, y: (slope-Math.floor(slope)) }); 
+          console.log('vertex at x=1, y=' + (slope-Math.floor(slope)));
         }
 
         // calculate incremental points along the path
@@ -380,24 +386,33 @@
       function calcWaypoints(vertices) {
             var waypoints = [];
             for (var i = 1; i < vertices.length; i++) {
-                var pt0 = vertices[i-1]*400;
-                var pt1 = vertices[i]*400;
+                var pt0 = (vertices[i-1].x)*400;
+                var pt1 = (vertices[i].x)*400;
                 var dx = pt1 - pt0;
-                var dy = -400;
+                var dy = (vertices[i].y)*-400;
                 for (var j = 0; j < 100; j++) {
                     var x = pt0 + dx * j / 100;
                     var y = 400 + dy * j / 100;
-                    var ignore = false; 
-                    // cannot be hit unless one of endpoints
+                    // var ver is later used to check if an object is hit at this vertex
+                    // as it can only be hit when j==99 (a top waypoint), set ver=-1 to indicate
+                    // that this waypoint is not a vertex
                     var ver = -1; 
                     if (j==99) {
-                      ver = vertices[i];
+                      // since this waypoint is a vertex, set ver
+                      ver = vertices[i].x; 
                     }
+                    // "ignore" (aka do not draw) the last and first point to avoid drawing vertical lines
+                    // points with ignore=true use context.moveTo instead of context.lineTo
+                    var ignore = false; 
+                    if (j==0 || j==99) {
+                      ignore = true;
+                    }
+
                     waypoints.push({
-                        x: x,
-                        y: y,
-                        j: j,
-                        hit: ver,
+                        x: x, // the x coordinate on the graph
+                        y: y, // the y coordinate on the graph
+                        ignore: ignore, // if waypoint should NOT be drawn to 
+                        hit: ver, // the specific vertex point, used to check if object is hit
                     });
                 }
             } 
@@ -413,7 +428,7 @@
           ctx.beginPath();
           ctx.moveTo(points[t - 1].x, points[t - 1].y);
           // ignore the two endpoints two avoid creating connecting vertical line
-          if (points[t].j != 0 && points[t].j != 99 ) {
+          if (!points[t].ignore) {
             ctx.lineTo(points[t].x, points[t].y);
             ctx.stroke(); 
           } else {
@@ -424,12 +439,6 @@
               console.log(points[t].hit);
               checkHits(points[t].hit)
             }
-            // if (points[t].j == 99) {
-              
-              // objects[0].hit = true;
-              // checkHits();
-              // hits++;
-            // }
           }
         // increment "t" to get the next waypoint
         t++;
@@ -449,6 +458,6 @@
         context.scale(this.scaleX, -this.scaleY);
       };
     </script>
-</div>
+  </div>
 </body>
 </html>

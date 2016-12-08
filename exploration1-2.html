@@ -355,45 +355,18 @@
         var context = myGraph.context;
         context.save();
 
-        // important- have to keep these *HERE* so that firing a second round or clearing graph works properly
+        // IMPORTANT!!!! //// 
+        // Have to keep these resets *HERE* so that firing a second round or clearing graph works properly
         t = 1;
         vertices = [];
-        // myGraph.transformContext();
-
-        // context.beginPath();
-        // context.moveTo(myGraph.minX, equation(myGraph.minX));
         context.moveTo(0, 400); 
 
-        // ignore the vertical lines, false by default
-        // originally the graph would connect topmost points (y=max) to y=min in a vertical line -- ignore these
-        // var ignoreLine = false;
-        // iterate through the graph points
-        // for(var x = this.minX + this.iteration*0.1; x < this.maxX; x += this.iteration*0.1) {
-          // if the slope is positive and has hit the top, start ignoring the line (not drawing it)
-          // if the slope is negative and has hit the bottom, also start ignoring
-          // if ( (positiveSlope && equation(x)-Math.floor(equation(x)) > 0.995)
-                // || (!positiveSlope && equation(x)-Math.floor(equation(x)) < 0.005)) {
-            // ignoreLine = true;
-          // }
-          // if (!ignoreLine) {
-            // if not ignoring line, actually draw it
-            // context.lineTo((x-Math.floor(x)), (equation(x)-Math.floor(equation(x))));
-          // } else {
-            // if ignoring line, move the cursor, but do not draw a line
-            // context.moveTo((x-Math.floor(x)), (equation(x)-Math.floor(equation(x))));
-            // if positive slope and equation has hit bottom again, start drawing again
-            // if negative slope and equation has hit top again, also start drawing again
-            // if ( (positiveSlope && equation(x)-Math.floor(equation(x)) < 0.005)
-                  // || (!positiveSlope && equation(x)-Math.floor(equation(x)) > 0.995)) {
-              // ignoreLine = false;
-            // }
-          // }
-        // }
-
+        // Find vertices
         for (var x = 0; x<=1.0; x+=0.05) {
           // Round to two decimal places
           // Javascript for some reason sometimes adds .000000003 to end of x, causing it to never reach 1.0
           // Rounding to two decimal places ensures we avoid this problem
+          console.log(x);
           x = (Math.trunc(x*100))/100;
           if ( (equation(x) - Math.floor(equation(x))) < 0.02 || (equation(x) - Math.floor(equation(x))) > .98) {
             vertices.push(x.toFixed(2));   
@@ -405,14 +378,6 @@
         console.log('points length: ' + points.length);
         // extend the line from start to finish with animation
         animate();
-        // context.stroke();
-
-        // context.restore();
-        // context.lineJoin = 'round';
-        // context.lineWidth = thickness;
-        // context.strokeStyle = color;
-        // context.stroke();
-        // context.restore();
       }
 
       // calc waypoints traveling along vertices
@@ -423,18 +388,10 @@
                 var pt1 = vertices[i]*400;
                 var dx = pt1 - pt0;
                 var dy = -400;
-                console.log(i);
                 for (var j = 0; j < 100; j++) {
                     var x = pt0 + dx * j / 100;
                     var y = 400 + dy * j / 100;
                     var ignore = false; 
-                    // if (i%2 == 0) { 
-                      // ignore = true;
-                      // console.log('ignore ' + x);
-                    // } else { 
-                      // ignore = false; 
-                      // console.log('dont ignore ' + x);
-                    // } 
                     if (j==99 || j==0) {ignore = true;}
                     waypoints.push({
                         x: x,
@@ -442,7 +399,7 @@
                         ignore: ignore,
                     });
                 }
-            } // odd to even = ignore
+            } 
             return (waypoints);
       }
 

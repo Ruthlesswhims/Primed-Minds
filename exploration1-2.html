@@ -15,7 +15,7 @@
     <div class="col-1-2">
         <label for="fader">Slope</label>
         <input type="range" min="-10" max="10" value="2" id="slope_fader" step="0.5" oninput="updateText(this.value, 'slope')">
-        <input type="number" min="-10" max="10" for="slope_fader" id="slope" value="2" onchange="updateSlider(this.value, 'slope_fader')">
+        <input type="number" min="-10" max="10" for="slope_fader" id="slope" value="2" step="0.5" onchange="updateSlider(this.value, 'slope_fader')">
 
         <br><br>
         <button id="renderButton" onclick="outputUpdate()">Fire!</button>
@@ -184,7 +184,8 @@
           document.getElementById('img0').style.left = 200 + "px";
           document.getElementById('img1').style.left = 400 + "px";
           document.getElementById('img2').style.left = 400 + "px";
-          document.getElementById('img2').style.top = 200 + "px";
+          // 200px = middle of graph, adding 30px so line hits middle of object
+          document.getElementById('img2').style.top = 220 + "px";
 
           // Update hittable image visibilities
           document.getElementById('img0').style.display = "inline";
@@ -436,7 +437,6 @@
             ctx.moveTo(points[t].x, points[t].y);
             // at this point, also check if object is hit
             if (points[t].hit != -1) {
-              console.log(points[t].hit);
               checkHits(points[t].hit)
             }
           }

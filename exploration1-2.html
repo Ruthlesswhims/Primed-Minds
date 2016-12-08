@@ -90,7 +90,7 @@
         myGraph.clearPath();
         drawEquation(function(x) {
             return (num*x);
-        }, 'red', 2, positiveslope);
+        }, num, positiveslope);
     }
 
     // y = ax
@@ -351,7 +351,7 @@
       ctx.strokeStyle = "red";
       var points; 
 
-      function drawEquation(equation, color, thickness, positiveSlope) {
+      function drawEquation(equation, slope, positiveSlope) {
         var context = myGraph.context;
         context.save();
 
@@ -361,19 +361,12 @@
         vertices = [];
         context.moveTo(0, 400); 
 
-        // Find vertices
-        for (var x = 0; x<=1.0; x+=0.005) {
-          // Round to two decimal places
-          // Javascript for some reason sometimes adds .000000003 to end of x, causing it to never reach 1.0
-          // Rounding to two decimal places ensures we avoid this problem
-          // x = (Math.trunc(x*10000))/10000;
-          x = parseFloat(x.toFixed(3));
-          // console.log(x);
-          if ( (equation(x) - Math.floor(equation(x))) == 0.0 || (equation(x) - Math.floor(equation(x))) == 1.0) {
-            vertices.push(x);   
-            console.log('vertex at x=' + x);       
-          }
+        vertices.push(0);
+        for (var x=1; x<=slope; x++) {
+          vertices.push(x/slope); 
+          console.log('vertex at ' + (x/slope));
         }
+
         // calculate incremental points along the path
         points = calcWaypoints(vertices);
         console.log('points length: ' + points.length);

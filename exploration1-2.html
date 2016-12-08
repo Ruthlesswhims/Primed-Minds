@@ -14,8 +14,8 @@
 <div class="grid">
     <div class="col-1-2">
         <label for="fader">Slope</label>
-        <input type="range" min="-10" max="10" value="10" id="slope_fader" step="0.5" oninput="updateText(this.value, 'slope')">
-        <input type="number" min="-10" max="10" for="slope_fader" id="slope" value="10" onchange="updateSlider(this.value, 'slope_fader')">
+        <input type="range" min="-10" max="10" value="2" id="slope_fader" step="0.5" oninput="updateText(this.value, 'slope')">
+        <input type="number" min="-10" max="10" for="slope_fader" id="slope" value="2" onchange="updateSlider(this.value, 'slope_fader')">
 
         <br><br>
         <button id="renderButton" onclick="outputUpdate()">Fire!</button>
@@ -418,23 +418,31 @@
       // calc waypoints traveling along vertices
       function calcWaypoints(vertices) {
             var waypoints = [];
-            for (var i = 0; i < vertices.length; i++) {
-                var pt0 = vertices[i]*400;
-                var pt1 = vertices[i+1]*400;
+            for (var i = 1; i < vertices.length; i++) {
+                var pt0 = vertices[i-1]*400;
+                var pt1 = vertices[i]*400;
                 var dx = pt1 - pt0;
                 var dy = -400;
+                console.log(i);
                 for (var j = 0; j < 100; j++) {
                     var x = pt0 + dx * j / 100;
                     var y = 400 + dy * j / 100;
-                    var vertex = false; 
-                    if (j==0) { vertex = true; }
+                    var ignore = false; 
+                    // if (i%2 == 0) { 
+                      // ignore = true;
+                      // console.log('ignore ' + x);
+                    // } else { 
+                      // ignore = false; 
+                      // console.log('dont ignore ' + x);
+                    // } 
+                    if (j==99 || j==0) {ignore = true;}
                     waypoints.push({
                         x: x,
                         y: y,
-                        vertex: vertex,
+                        ignore: ignore,
                     });
                 }
-            }
+            } // odd to even = ignore
             return (waypoints);
       }
 
@@ -446,8 +454,12 @@
         // to the current waypoint
           ctx.beginPath();
           ctx.moveTo(points[t - 1].x, points[t - 1].y);
-          ctx.lineTo(points[t].x, points[t].y);
-          ctx.stroke();
+          if (!points[t].ignore) {
+            ctx.lineTo(points[t].x, points[t].y);
+            ctx.stroke(); 
+          } else {
+            ctx.moveTo(points[t].x, points[t].y);
+          }
         // ctx.restore();
         // increment "t" to get the next waypoint
         t++;

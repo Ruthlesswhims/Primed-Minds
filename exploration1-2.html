@@ -365,16 +365,33 @@
         context.moveTo(0, 400); 
 
         vertices.push({x: 0, y: 0});
-        for (var x=1; x<=slope; x++) {
-          vertices.push({x: x/slope, y: 1}); 
-          console.log('vertex at ' + (x/slope));
+        for (var i=1; i<=slope; i++) {
+          vertices.push({x: i/slope, y: 1}); 
+          vertices.push({x: i/slope, y: 0}); 
+          console.log('vertex at ' + (i/slope));
         }
         // console.log('math floor ' + Math.floor(slope));
         if (Math.floor(slope) != slope) {
           // slope is a fraction, push vertex at x = 1 
           vertices.push({x: 1, y: (slope-Math.floor(slope)) }); 
+          vertices.push({x: 0, y: (slope-Math.floor(slope)) }); 
           console.log('vertex at x=1, y=' + (slope-Math.floor(slope)));
-        }
+
+          // first vertex at y=1/2 --> slope*x = 1/2 --> x= (1/2)/slope = 1/(2*slope)
+          vertices.push({x: 1/(2*slope), y: 1});
+          vertices.push({x: 1/(2*slope), y: 0});
+          console.log('vertex at ', 1/(2*slope));
+          
+          var offset = 1/(2*slope); 
+          for(var i=1; i<=Math.floor(slope); i++){
+            // next vertex at y=1 --> slope*x=1 --> x=1/slope
+            var x = offset + 1/slope;
+            offset = x;
+            vertices.push({x: x, y: 1});
+            vertices.push({x: x, y: 0});
+            console.log('vertex at ', x, 1);
+          } // end for
+        } // end if 
 
         // calculate incremental points along the path
         points = calcWaypoints(vertices);
@@ -386,14 +403,16 @@
       // calc waypoints traveling along vertices
       function calcWaypoints(vertices) {
             var waypoints = [];
-            for (var i = 1; i < vertices.length; i++) {
+            for (var i = 1; i < vertices.length; i+=2) {
                 var pt0 = (vertices[i-1].x)*400;
                 var pt1 = (vertices[i].x)*400;
                 var dx = pt1 - pt0;
-                var dy = (vertices[i].y)*-400;
+                var y0 = 400 - (vertices[i-1].y)*400; 
+                var y1 = 400 - (vertices[i].y)*400;
+                var dy = y1 - y0;
                 for (var j = 0; j < 100; j++) {
                     var x = pt0 + dx * j / 100;
-                    var y = 400 + dy * j / 100;
+                    var y = y0 + dy * j / 100;
                     // var ver is later used to check if an object is hit at this vertex
                     // as it can only be hit when j==99 (a top waypoint), set ver=-1 to indicate
                     // that this waypoint is not a vertex
@@ -416,6 +435,7 @@
                         hit: ver, // the specific vertex point, used to check if object is hit
                     });
                 }
+                waypoints.push({x: pt1, y: 0, ignore: true});
             } 
             return (waypoints);
       }

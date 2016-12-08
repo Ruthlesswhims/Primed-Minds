@@ -362,15 +362,16 @@
         context.moveTo(0, 400); 
 
         // Find vertices
-        for (var x = 0; x<=1.0; x+=0.05) {
+        for (var x = 0; x<=1.0; x+=0.005) {
           // Round to two decimal places
           // Javascript for some reason sometimes adds .000000003 to end of x, causing it to never reach 1.0
           // Rounding to two decimal places ensures we avoid this problem
-          console.log(x);
-          x = (Math.trunc(x*100))/100;
-          if ( (equation(x) - Math.floor(equation(x))) < 0.02 || (equation(x) - Math.floor(equation(x))) > .98) {
-            vertices.push(x.toFixed(2));   
-            console.log('vertex at x=' + x.toFixed(2));       
+          // x = (Math.trunc(x*10000))/10000;
+          x = parseFloat(x.toFixed(3));
+          // console.log(x);
+          if ( (equation(x) - Math.floor(equation(x))) == 0.0 || (equation(x) - Math.floor(equation(x))) == 1.0) {
+            vertices.push(x);   
+            console.log('vertex at x=' + x);       
           }
         }
         // calculate incremental points along the path

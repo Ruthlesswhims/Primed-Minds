@@ -79,7 +79,7 @@
     function outputUpdate() {
         var num = parseFloat(document.querySelector('#slope_fader').value);
 
-        checkHits(num);
+        // checkHits(num);
 
         var positiveslope;
         if (num > 0) {
@@ -95,25 +95,28 @@
 
     // y = ax
 
-    function checkHits(slope) {
+    function checkHits(x) {
+        var slope = parseFloat(document.querySelector('#slope_fader').value);
         var text = "";
         for(var i=0; i<objects.length; i++) {
-          var x = objects[i].x; 
-          var y = objects[i].y; 
-          // at given x, does y = 10? 
-          console.log( (x*slope - Math.floor(x*slope)).toFixed(2) +  ", " + (y - Math.floor(y)));
-          if( (x*slope - Math.floor(x*slope)).toFixed(2) == (y - Math.floor(y)) ) {
-            objects[i].hit = true;
-            text += "You hit object #" + (i+1) + "! ";
-            if ( objects[i].fall_half ) {
-              document.getElementById('img' + i).style.WebkitAnimationName = "fall-half";
-            } else {
-              document.getElementById('img' + i).style.WebkitAnimationName = "fall";
+          if (x == objects[i].x) {
+            var y = objects[i].y; 
+            // at given x, does y = 10? 
+            // console.log( (x*slope - Math.floor(x*slope)).toFixed(2) +  ", " + (y - Math.floor(y)));
+            if( (x*slope - Math.floor(x*slope)).toFixed(2) == (y - Math.floor(y)) ) {
+              objects[i].hit = true;
+              text += "You hit object #" + (i+1) + "! ";
+              if ( objects[i].fall_half ) {
+                document.getElementById('img' + i).style.WebkitAnimationName = "fall-half";
+              } else {
+                document.getElementById('img' + i).style.WebkitAnimationName = "fall";
+              }
             }
           }
+          document.getElementById("error-text").innerHTML = text;
         }
-        document.getElementById("error-text").innerHTML = text;
     }
+
 
     var currentConfig = 0;
 
@@ -157,7 +160,7 @@
           break;  
         case 1:
           // Update objects variable
-          objects = [{x: 0.33, y: 0.99, hit: false}, {x: 0.667, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}];
+          objects = [{x: (1/3), y: 1.0, hit: false}, {x: (2/3), y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}];
 
           // Update hittable image positions
           document.getElementById('img0').style.left = 133 + "px";
@@ -198,11 +201,8 @@
           break; 
       } 
     }
-</script>
 
-    <!-- Scripts for drawing the graph -->
-    <script>
-      function Graph(config) {
+    function Graph(config) {
         // user defined properties
         this.canvas = document.getElementById(config.canvasId);
         this.minX = config.minX;
@@ -350,6 +350,7 @@
       ctx.lineWidth = 2;
       ctx.strokeStyle = "red";
       var points; 
+      var hits; 
 
       function drawEquation(equation, slope, positiveSlope) {
         var context = myGraph.context;
@@ -359,6 +360,7 @@
         // Have to keep these resets *HERE* so that firing a second round or clearing graph works properly
         t = 1;
         vertices = [];
+        hits = 0;
         context.moveTo(0, 400); 
 
         vertices.push(0);
@@ -386,11 +388,16 @@
                     var x = pt0 + dx * j / 100;
                     var y = 400 + dy * j / 100;
                     var ignore = false; 
-                    if (j==99 || j==0) {ignore = true;}
+                    // cannot be hit unless one of endpoints
+                    var ver = -1; 
+                    if (j==99) {
+                      ver = vertices[i];
+                    }
                     waypoints.push({
                         x: x,
                         y: y,
-                        ignore: ignore,
+                        j: j,
+                        hit: ver,
                     });
                 }
             } 
@@ -405,13 +412,25 @@
         // to the current waypoint
           ctx.beginPath();
           ctx.moveTo(points[t - 1].x, points[t - 1].y);
-          if (!points[t].ignore) {
+          // ignore the two endpoints two avoid creating connecting vertical line
+          if (points[t].j != 0 && points[t].j != 99 ) {
             ctx.lineTo(points[t].x, points[t].y);
             ctx.stroke(); 
           } else {
+            // if at one of the endpoints, simply moveTo and do not stroke to avoid vertical line
             ctx.moveTo(points[t].x, points[t].y);
+            // at this point, also check if object is hit
+            if (points[t].hit != -1) {
+              console.log(points[t].hit);
+              checkHits(points[t].hit)
+            }
+            // if (points[t].j == 99) {
+              
+              // objects[0].hit = true;
+              // checkHits();
+              // hits++;
+            // }
           }
-        // ctx.restore();
         // increment "t" to get the next waypoint
         t++;
       }

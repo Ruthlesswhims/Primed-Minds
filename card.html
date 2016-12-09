@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<head lang="en">
-	    <meta charset="UTF-8">	
+	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	    <title>Spot It Exploration</title>
 			<!-- materialize css -->
 			<link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-			
+
 			<!-- fonts from gapis -->
-			<link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet"> 
-			<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+			<link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 			<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300">
 
 			<!-- local css -->
@@ -22,75 +23,184 @@
 	    <!-- navbar code, copy code to top of body -->
 
 	    <!-- dropdown structures -->
-	<ul id="dropdown-about" class="dropdown-content">
-		<li><a href="about_2.html">About Primed Minds</a></li>    
-		<li><a href="about_2.html#team">The Team</a></li>
-		<li><a href="about_2.html#partners">Partners</a></li>
-	</ul>
+<!--<div class='absolute-container'>
+<div class='video-container'>
 
-	    <ul id="dropdown-explorations" class="dropdown-content">
-	        <li><a href="card.html">Exploration 1</a></li>
-	        <li><a href="#">Exploration 2</a></li>
-	        <li><a href="#">Exploration 3</a></li>
-	    </ul>
+		<iframe id='video-iframe' src="https://www.youtube.com/embed/A5P29MO0X-U" frameborder="0" allowfullscreen></iframe>
 
-	    <!-- nav wrapper -->
-	    <nav class="red">
-            <div class="nav-wrapper">
-                <a href="index.html"><img id="pom" src="assets/pom.png"></a>
-                <a href="index.html" id="logo">PRIMED MINDS</a>
+</div>
+</div>-->
+<div class='progression red'>
+	<div id="scroll-wrap">
 
-                <!-- right aligned navitems -->
-                <ul class="right">
-                        <!-- change 'active' class based on current page -->
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a class="dropdown-button" href="about_2.html" data-activates="dropdown-about">About</a></li>
-                        <li><a class="dropdown-button" href="explorations.html" data-activates="dropdown-explorations">Explorations</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                        <li><a href="contact.html">FAQ</a></li>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+		<div class="meter nostripes">
+			<span id='increment' style="width: 9%"></span>
+		</div>
 
-		<div id="main">
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+<div id='backHome-container'>
+<a href='explorations.html'><div id='backHome'></div></a>
+  Back to Explorations
+</div>
+
+
+<div class='left-arrow arrow'>
+<
+</div>
+
+<div class='right-arrow arrow'>
+>
+</div>
+
+
+
+<div id="main">
+
+	<div class='container2'>
+		<div class='container2-top'>
 			<p class="bubble" id="text_bubble">Welcome to Spot It! Good Luck!</p>
+		</div>
+		<div class='container2-left'>
+
 			<div class="container" id="images">
 				<div id="buttons">
 					<button id="reset" onclick="clearCards()">Start Over</button>
-					<br>
+
 					<button id="draw1">Draw Card</button>
 				</div>
-				<div id="monster_bar" ondrop="dropTrash(event)" ondragover="allowDrop(event)">
-					<img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" src="assets/blackPom-min.png">
-					<img class="monster" id="image bwPom" image="bw" draggable="true" ondragstart="drag(event)" img src="assets/bwPom-min.png">
-					<img class="monster" id="image bluePom" image="blue" draggable="true" ondragstart="drag(event)" img src="assets/bluePom-min.png">
-					<img class="monster" id="image orangePom" image="orange" draggable="true" ondragstart="drag(event)" img src="assets/orangePom-min.png">
-					<img class="monster" id="image purplePom" image="purple" draggable="true" ondragstart="drag(event)" img src="assets/purplePom-min.png">
-					<img class="monster" id="image greenPom" image="green" draggable="true" ondragstart="drag(event)" img src="assets/greenPom-min.png">
-					<img class="monster" id="image redPom" image="red" draggable="true" ondragstart="drag(event)" img src="assets/redPom-min.png">
+
+				<div id='trash-it'>
 					<img id="trashcan" ondrop="dropTrash(event)" ondragover="allowDrop(event)" src="assets/trash.png">
 				</div>
+
+
+				<div id="monster_bar" ondrop="dropTrash(event)" ondragover="allowDrop(event)">
+					<img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" src="assets/blackPom-min.png">
+					<img class="monster" id="image bwPom" image="bw" draggable="true" ondragstart="drag(event)" img="" src="assets/bwPom-min.png">
+					<img class="monster" id="image bluePom" image="blue" draggable="true" ondragstart="drag(event)" img="" src="assets/bluePom-min.png">
+					<img class="monster" id="image orangePom" image="orange" draggable="true" ondragstart="drag(event)" img="" src="assets/orangePom-min.png">
+					<img class="monster" id="image purplePom" image="purple" draggable="true" ondragstart="drag(event)" img="" src="assets/purplePom-min.png">
+					<img class="monster" id="image greenPom" image="green" draggable="true" ondragstart="drag(event)" img="" src="assets/greenPom-min.png">
+					<img class="monster" id="image redPom" image="red" draggable="true" ondragstart="drag(event)" img="" src="assets/redPom-min.png">
+
+				</div>
+
 			</div>
-			<br>
+		</div>
+		<div class='container2-right'>
 			<div class="sortable container" id="cards">
 				<!-- filled in by card.js -->
 			</div>
 		</div>
-		
+	</div>
+
+
+
+
+	<div class='container2-video'>
+
+
+		<div class='absolute-video-container'>
+
+			<div class="video-container">
+				<iframe frameborder="0" width="" height="" src="https://www.youtube.com/embed/A5P29MO0X-U?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+			</div>
+
+		</div>
+
+	</div>
+
+
+</div>
+
+
+
+
+
+
+
 	<!-- jquery js -->
 	<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-	
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 	<!-- materialize js -->
 	<script src="public/javascript/materialize.min.js"></script>
 
 	<!-- local js -->
 	<script src="public/javascript/script.js"></script>
-	<script src="js/card.js"></script>	
+	<script src="js/card.js"></script>
 
 	<script>
+
+
+	function onPlayerStateChange(event) {
+	  if (event.data == YT.PlayerState.ENDED){
+	    console.log('ended')
+	  }
+	}
+
+
+	$(function() {
+		$(".meter > span").each(function() {
+			$(this)
+				.data("origWidth", $(this).width())
+				.width(0)
+				.animate({
+					width: $(this).data("origWidth")
+				}, 1200);
+		});
+	});
+
+	$('.right-arrow').on('click',function(){
+
+	var current =	$('#increment').width();
+	var newWidth = current * 1.3;
+	$('#increment').animate(({'width': '+=10%'}))
+
+	if(newWidth>550){
+		$('#increment').stop();
+	}
+
+	});
+
+	$('.left-arrow').on('click',function(){
+
+	var current =	$('#increment').width();
+	var newWidth = current * 1.3;
+	$('#increment').animate(({'width': '-=10%'}))
+
+	if(newWidth<5){
+		$('#increment').stop();
+	}
+
+	});
+
+
+$('.right-arrow').on('click',function(){
+		$(".container2-video").toggle()
+		$(".container2").toggle();
+		$('.left-arrow').toggle();
+
+})
+
+$('.left-arrow').on('click',function(){
+		$(".container2-video").toggle()
+		$(".container2").toggle();
+		$('.left-arrow').toggle();
+})
+
+
+
 	function allowDrop(ev) {
 	    ev.preventDefault();
 	}
@@ -106,7 +216,7 @@
 		var index = findCardIndex(el.parentNode.id);
 		console.log("removing " + data + " from card: " + index);
 		var dataSubstring = data.substring(0, data.indexOf("_"));
-		var deleted = cards[index].images.delete(dataSubstring); 
+		var deleted = cards[index].images.delete(dataSubstring);
 		console.log(dataSubstring + " is deleted: " + deleted);
 		el.parentNode.removeChild(el);
 		findCardError();
@@ -118,7 +228,7 @@
 	    var nodeCopy = document.getElementById(data).cloneNode(true);
   		if (ev.target.childNodes.length < 4) {
   			var index = findCardIndex(ev.target.id);
-			var contains = cards[index].images.has(data); 
+			var contains = cards[index].images.has(data);
 			console.log(contains);
 			if (contains) {
 				document.getElementById("text_bubble").innerHTML = "Oops, you can't repeat monsters on a card!";
@@ -197,10 +307,10 @@
 			for(var j=0; j<cards.length; j++) {
 				// don't compare to itself
 				if (i!=j) {
-					// only cards with 3 monsters should be compared 
+					// only cards with 3 monsters should be compared
 					if (cards[i].images.size == 3 && cards[j].images.size == 3) {
 						var matches = 0;
-						cards[j].images.forEach(function(image) { 
+						cards[j].images.forEach(function(image) {
 							if (cards[i].images.has(image)) {
 								matches++;
 							}
@@ -209,7 +319,7 @@
 							foundError = true;
 							cards[i].valid = false;
 							cards[j].valid = false;
-							var text = "Oh no! "; 
+							var text = "Oh no! ";
 							if (matches == 0) {
 								text = "Oops! These two cards don't have a match.";
 							} else {
@@ -223,7 +333,7 @@
 					}
 				}
 			}
-			i++;			
+			i++;
 		}
 		if (!foundError) {
 			colorCards();
@@ -240,7 +350,7 @@
 				document.getElementById("text_bubble").innerHTML = text;
 			}
 		}
-		
+
 	}
 
 	// Called if no error was found
@@ -259,6 +369,19 @@
 			}
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 	</script>
 
 	</body>

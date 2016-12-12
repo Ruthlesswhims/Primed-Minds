@@ -377,6 +377,7 @@
           vertices.push({x: 0, y: (slope-Math.floor(slope)) }); 
           console.log('vertex at x=1, y=' + (slope-Math.floor(slope)));
 
+          // loop function starting at (0, 0.5), as if wrapping from right side
           var offset = -(1/(2*slope)); 
           for(var i=0; i<=Math.floor(slope); i++){
             // next vertex at y=1 --> slope*x=1 --> x=1/slope

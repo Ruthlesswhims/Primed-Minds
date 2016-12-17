@@ -79,8 +79,6 @@
     function outputUpdate() {
         var num = parseFloat(document.querySelector('#slope_fader').value);
 
-        // checkHits(num);
-
         var positiveslope;
         if (num > 0) {
           positiveslope = true;
@@ -93,25 +91,20 @@
         }, num, positiveslope);
     }
 
-    // y = ax
-
-    function checkHits(x) {
+    function checkHits(x, y) {
         var slope = parseFloat(document.querySelector('#slope_fader').value);
         var text = "";
+        console.log('here ', x, y);
         for(var i=0; i<objects.length; i++) {
-          if (x == objects[i].x) {
-            var y = objects[i].y; 
+          if (x == objects[i].x && y == objects[i].y) {
+            // var y = objects[i].y; 
             // at given x, does y = 10? 
             // console.log( (x*slope - Math.floor(x*slope)).toFixed(2) +  ", " + (y - Math.floor(y)));
-            if( (x*slope - Math.floor(x*slope)).toFixed(2) == (y - Math.floor(y)) ) {
+            // if( (x*slope - Math.floor(x*slope)).toFixed(2) == (y - Math.floor(y)) ) {
               objects[i].hit = true;
               text += "You hit object #" + (i+1) + "! ";
-              if ( objects[i].fall_half ) {
-                document.getElementById('img' + i).style.WebkitAnimationName = "fall-half";
-              } else {
-                document.getElementById('img' + i).style.WebkitAnimationName = "fall";
-              }
-            }
+              document.getElementById('img' + i).style.WebkitAnimationName = "fall";
+            // }
           }
           document.getElementById("error-text").innerHTML = text;
         }
@@ -178,7 +171,7 @@
         case 2:
           // Update objects variable
           objects = [{x: 0.5, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}, 
-            {x: 1.0, y: 0.5, hit: false, fall_half: true}];
+            {x: 1.0, y: 0.5, hit: false}];
 
           // Update hittable image positions
           document.getElementById('img0').style.left = 200 + "px";
@@ -412,11 +405,12 @@
                     // var ver is later used to check if an object is hit at this vertex
                     // as it can only be hit when j==99 (a top waypoint), set ver=-1 to indicate
                     // that this waypoint is not a vertex
-                    var ver = -1; 
+                    var ver = {x: -1, y:-1}; 
                     if (j==99) {
                       // since this waypoint is a vertex, set ver
-                      ver = vertices[i].x; 
-                    }
+                      ver = {x: vertices[i].x, y: vertices[i].y}; 
+                      console.log('setting vertex at x=', ver.x, 'y=', ver.y);
+                    } 
                     // "ignore" (aka do not draw) the last and first point to avoid drawing vertical lines
                     // points with ignore=true use context.moveTo instead of context.lineTo
                     var ignore = false; 
@@ -431,7 +425,7 @@
                         hit: ver, // the specific vertex point, used to check if object is hit
                     });
                 }
-                waypoints.push({x: pt1, y: 0, ignore: true});
+                waypoints.push({x: pt1, y: 0, ignore: true, hit: {x: -1, y:-1}});
             } 
             return (waypoints);
       }
@@ -452,8 +446,8 @@
             // if at one of the endpoints, simply moveTo and do not stroke to avoid vertical line
             ctx.moveTo(points[t].x, points[t].y);
             // at this point, also check if object is hit
-            if (points[t].hit != -1) {
-              checkHits(points[t].hit)
+            if (points[t].hit.x != -1) {
+              checkHits(points[t].hit.x, points[t].hit.y);
             }
           }
         // increment "t" to get the next waypoint

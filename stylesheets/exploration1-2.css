@@ -7,15 +7,10 @@
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-duration: 2s;
   animation-fill-mode: forwards;
+  top: 30px;
 }
 
 @-webkit-keyframes fall {
-    from {top: 0px;}
-    to {top: 400px;}
-}
-
-@-webkit-keyframes fall-half {
-    from {top: 200px;}
     to {top: 400px;}
 }
 

@@ -14,8 +14,14 @@
 <div class="grid">
     <div class="col-1-2">
         <label for="fader">Slope</label>
-        <input type="range" min="-10" max="10" value="2" id="slope_fader" step="0.5" oninput="updateText(this.value, 'slope')">
-        <input type="number" min="-10" max="10" for="slope_fader" id="slope" value="2" step="0.5" onchange="updateSlider(this.value, 'slope_fader')">
+        <input type="range" min="-10" max="10" value="2" id="slope_slider" step="0.1"
+          oninput="updateValue(this.value, 'slope_slider')">
+        <br><br>
+        <input class="slope" type="number" id="numerator" value="2" step="1" 
+          onchange="updateValue(this.value, 'slope_text')">
+        <hr class="slope" align='left'>
+        <input class="slope" type="number" id="denominator" value="2" step="1" 
+          onchange="updateValue(this.value, 'slope_text')">
 
         <br><br>
         <button id="renderButton" onclick="outputUpdate()">Fire!</button>
@@ -26,6 +32,7 @@
 
         <p><br></p>
         <p id="error-text"></p>
+        <p id="slope-text"></p>
     </div>
     <div class="col-2-2">
         <div class="hittable" id="img0"><img src="banana.png" width="40px"/></div>
@@ -38,38 +45,42 @@
 
 <!-- Scripts for validating equation input and hitting objects -->
 <script>
+  var INVALID_VALUE = 20; 
     document.getElementById('img2').style.display = "none";
     document.getElementById('img3').style.display = "none";
 
     // This function validates if entries are between -10 and 10
-    function validate(val) {
+    function validate() {
         var value, text, pass;
-        // Get the value of the input field
-        value = parseFloat(val);
+        
+        var num = parseFloat(document.getElementById("numerator").value);
+        var den = parseFloat(document.getElementById("denominator").value);
+        value = num/den; 
         if (value < -10 || value > 10) {
             text = "Please enter values between -10 and 10";
-            pass = false;
+            value = INVALID_VALUE; // represents non-pass
         }
         else {
             text = "";
-            pass = true;
         }
         document.getElementById("error-text").innerHTML = text;
-
-        return pass;
+        return value;
     }
 
     // Updates the slider value when the text value is changed for the input named 'id'
-    function updateSlider(val, id) {
-        var pass = validate(val);
-        if(pass) {
-            document.getElementById(id).value = parseFloat(val);
+    function updateValue(val, id) {
+        var value = validate();
+        if (id="slope_text") {
+          if(value != INVALID_VALUE) {
+            document.getElementById('slope_slider').value = parseFloat(value);
+          }
+        } 
+        if (id="slope_slider") {
+          // if (value != INVALID_VALUE) {
+            document.getElementById('numerator').value = value;
+            document.getElementById('denominator').value = 1;
+          // }
         }
-    }
-
-    // Updates the text value displayed when the slider value is adjusted for the input named 'id'
-    function updateText(val, id) {
-        document.getElementById(id).value = val;
     }
 
     // Coordinates of the objects they are trying to hit
@@ -77,7 +88,14 @@
 
     // Called when "Fire" is clicked
     function outputUpdate() {
-        var num = parseFloat(document.querySelector('#slope_fader').value);
+        var num = parseFloat(validate());
+
+        if (num == INVALID_VALUE) {
+          document.getElementById("error-text").innerHTML = "cannot fire - slope must be between -10 and 10";
+          return;
+        }
+
+        document.getElementById("slope-text").innerHTML = 'slope is ' + num;
 
         var positiveslope;
         if (num > 0) {
@@ -86,25 +104,18 @@
           positiveslope = false;
         }
         myGraph.clearPath();
-        drawEquation(function(x) {
-            return (num*x);
-        }, num, positiveslope);
+        drawEquation(num, positiveslope);
     }
 
     function checkHits(x, y) {
-        var slope = parseFloat(document.querySelector('#slope_fader').value);
+        var slope = parseFloat(document.querySelector('#slope_slider').value);
         var text = "";
-        console.log('here ', x, y);
         for(var i=0; i<objects.length; i++) {
           if (x == objects[i].x && y == objects[i].y) {
-            // var y = objects[i].y; 
             // at given x, does y = 10? 
-            // console.log( (x*slope - Math.floor(x*slope)).toFixed(2) +  ", " + (y - Math.floor(y)));
-            // if( (x*slope - Math.floor(x*slope)).toFixed(2) == (y - Math.floor(y)) ) {
-              objects[i].hit = true;
-              text += "You hit object #" + (i+1) + "! ";
-              document.getElementById('img' + i).style.WebkitAnimationName = "fall";
-            // }
+            objects[i].hit = true;
+            text += "You hit object #" + (i+1) + "! ";
+            document.getElementById('img' + i).style.WebkitAnimationName = "fall";
           }
           document.getElementById("error-text").innerHTML = text;
         }
@@ -346,7 +357,7 @@
       var points; 
       var hits; 
 
-      function drawEquation(equation, slope, positiveSlope) {
+      function drawEquation(slope, positiveSlope) {
         var context = myGraph.context;
         context.save();
 
@@ -357,30 +368,45 @@
         hits = 0;
         context.moveTo(0, 400); 
 
+        // Find list of vertices 
         vertices.push({x: 0, y: 0});
-        for (var i=1; i<=slope; i++) {
-          vertices.push({x: i/slope, y: 1}); 
-          vertices.push({x: i/slope, y: 0}); 
-          console.log('vertex at ' + (i/slope));
-        }
-        // console.log('math floor ' + Math.floor(slope));
-        if (Math.floor(slope) != slope) {
-          // slope is a fraction, push vertex at x = 1 
-          vertices.push({x: 1, y: (slope-Math.floor(slope)) }); 
-          vertices.push({x: 0, y: (slope-Math.floor(slope)) }); 
-          console.log('vertex at x=1, y=' + (slope-Math.floor(slope)));
 
-          // loop function starting at (0, 0.5), as if wrapping from right side
-          var offset = -(1/(2*slope)); 
-          for(var i=0; i<=Math.floor(slope); i++){
-            // next vertex at y=1 --> slope*x=1 --> x=1/slope
-            var x = offset + 1/slope;
-            offset = x;
-            vertices.push({x: x, y: 1});
-            vertices.push({x: x, y: 0});
-            console.log('vertex at ', x, 1);
-          } // end for
-        } // end if 
+        var i=0; var end = false;  
+        var y=0; var x = 0; 
+        while (i<100 && !end) {
+          // y = slope*x 
+          // x = y/slope 
+          // option A: next vertex is at a y=1 point
+          y_a = Math.floor(y) + 1;
+          x_a = y_a/slope;
+
+          // option B: next vertex is at x=1 point
+          x_b = Math.floor(x) + 1;
+          y_b = x_b*slope; 
+
+          // find which x comes first 
+          if (x_a < x_b) {
+            x = x_a; 
+            y=y_a;
+            x_vertex = x_a - Math.floor(x_a);
+            vertices.push({x: x_vertex, y: 1})
+            vertices.push({x: x_vertex, y: 0})
+            console.log('vertex at A: ', x_vertex, 1);
+          } else if (x_a > x_b) {
+            x = x_b; 
+            y=y_b;
+            y_vertex = y_b - Math.floor(y_b);
+            vertices.push({x: 1, y: y_vertex});
+            vertices.push({x: 0, y: y_vertex});
+            console.log('vertex at B: ', 1, y_vertex);
+          } else {
+            // x_a and x_b are the same, meaning this is a vertex at 1,1
+            var end = true; 
+            console.log('end with vertex at 1, 1');
+            vertices.push({x: 1, y: 1});
+          }
+          i++;
+        } // end while 
 
         // calculate incremental points along the path
         points = calcWaypoints(vertices);
@@ -409,7 +435,6 @@
                     if (j==99) {
                       // since this waypoint is a vertex, set ver
                       ver = {x: vertices[i].x, y: vertices[i].y}; 
-                      console.log('setting vertex at x=', ver.x, 'y=', ver.y);
                     } 
                     // "ignore" (aka do not draw) the last and first point to avoid drawing vertical lines
                     // points with ignore=true use context.moveTo instead of context.lineTo

@@ -14,8 +14,8 @@
 <div class="grid">
     <div class="col-1-2">
         <label for="fader">Slope</label>
-        <input type="range" min="-10" max="10" value="2" id="slope_fader" step="0.5" oninput="updateText(this.value, 'slope')">
-        <input type="number" min="-10" max="10" for="slope_fader" id="slope" value="2" step="0.5" onchange="updateSlider(this.value, 'slope_fader')">
+        <input type="range" min="-10" max="10" value="2" id="slope_fader" step="0.1" oninput="updateText(this.value, 'slope')">
+        <input type="number" min="-10" max="10" for="slope_fader" id="slope" value="2" step="0.1" onchange="updateSlider(this.value, 'slope_fader')">
 
         <br><br>
         <button id="renderButton" onclick="outputUpdate()">Fire!</button>
@@ -94,17 +94,12 @@
     function checkHits(x, y) {
         var slope = parseFloat(document.querySelector('#slope_fader').value);
         var text = "";
-        console.log('here ', x, y);
         for(var i=0; i<objects.length; i++) {
           if (x == objects[i].x && y == objects[i].y) {
-            // var y = objects[i].y; 
             // at given x, does y = 10? 
-            // console.log( (x*slope - Math.floor(x*slope)).toFixed(2) +  ", " + (y - Math.floor(y)));
-            // if( (x*slope - Math.floor(x*slope)).toFixed(2) == (y - Math.floor(y)) ) {
-              objects[i].hit = true;
-              text += "You hit object #" + (i+1) + "! ";
-              document.getElementById('img' + i).style.WebkitAnimationName = "fall";
-            // }
+            objects[i].hit = true;
+            text += "You hit object #" + (i+1) + "! ";
+            document.getElementById('img' + i).style.WebkitAnimationName = "fall";
           }
           document.getElementById("error-text").innerHTML = text;
         }
@@ -357,29 +352,46 @@
         hits = 0;
         context.moveTo(0, 400); 
 
+        // Find list of vertices 
         vertices.push({x: 0, y: 0});
+
+        var last_x = -1; 
         for (var i=1; i<=slope; i++) {
           vertices.push({x: i/slope, y: 1}); 
           vertices.push({x: i/slope, y: 0}); 
+          last_x = i/slope; 
           console.log('vertex at ' + (i/slope));
         }
-        // console.log('math floor ' + Math.floor(slope));
-        if (Math.floor(slope) != slope) {
-          // slope is a fraction, push vertex at x = 1 
-          vertices.push({x: 1, y: (slope-Math.floor(slope)) }); 
-          vertices.push({x: 0, y: (slope-Math.floor(slope)) }); 
-          console.log('vertex at x=1, y=' + (slope-Math.floor(slope)));
 
-          // loop function starting at (0, 0.5), as if wrapping from right side
-          var offset = -(1/(2*slope)); 
-          for(var i=0; i<=Math.floor(slope); i++){
+        // if (Math.floor(slope) != slope) {
+        var j=0; 
+        var last_y = (slope-Math.floor(slope));
+        while (last_x != 1 && j < 100) {
+          // slope is a fraction, push vertex at x = 1 
+          vertices.push({x: 1, y: last_y }); 
+          vertices.push({x: 0, y: last_y }); 
+          console.log('vertex at x=1, y=' + last_y);
+
+          // loop function as if wrapping from right side
+          var offset = last_x - 1; 
+          // for(var i=0; i<=Math.floor(slope); i++){
+          var cont = true;
+          while (cont && j < 100) {
             // next vertex at y=1 --> slope*x=1 --> x=1/slope
             var x = offset + 1/slope;
-            offset = x;
-            vertices.push({x: x, y: 1});
-            vertices.push({x: x, y: 0});
-            console.log('vertex at ', x, 1);
-          } // end for
+            if (x <= 1) {
+              if (x > 0.999999) { x = 1; console.log('j', j); }
+              vertices.push({x: x, y: 1});
+              vertices.push({x: x, y: 0});
+              console.log('vertex at ', x, 1);
+              last_x = x; 
+              offset = x;
+            } else {
+              cont = false;
+              last_y = (1-last_x)*slope;
+            }
+            j++;
+          } // end while
         } // end if 
 
         // calculate incremental points along the path
@@ -409,7 +421,6 @@
                     if (j==99) {
                       // since this waypoint is a vertex, set ver
                       ver = {x: vertices[i].x, y: vertices[i].y}; 
-                      console.log('setting vertex at x=', ver.x, 'y=', ver.y);
                     } 
                     // "ignore" (aka do not draw) the last and first point to avoid drawing vertical lines
                     // points with ignore=true use context.moveTo instead of context.lineTo

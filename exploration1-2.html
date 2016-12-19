@@ -13,22 +13,27 @@
 <body>
 <div class="grid">
     <div class="col-1-2">
-        <label for="fader">Slope</label>
-        <input type="range" min="-10" max="10" value="2" id="slope_slider" step="0.1"
-          oninput="updateValue(this.value, 'slope_slider')">
-        <br><br>
-        <input class="slope" type="number" id="numerator" value="2" step="1" 
-          onchange="updateValue(this.value, 'slope_text')">
-        <hr class="slope" align='left'>
-        <input class="slope" type="number" id="denominator" value="2" step="1" 
-          onchange="updateValue(this.value, 'slope_text')">
+        <!-- <div class="fraction"> -->
+          <!-- input for the numerator of the fraction --> 
+          <input class="slope" type="number" id="numerator" value="2" step="1" 
+            onchange="updateValue(this.value, 'slope_text')">
+          
+          <!-- the line of the fraction --> 
+          <!-- <hr align='left'> -->
+          <p id="eq"> y = ---------   x</p>
+
+          <input class="slope" type="number" id="denominator" value="2" step="1" 
+            onchange="updateValue(this.value, 'slope_text')">
+        <!-- </div> -->
 
         <br><br>
-        <button id="renderButton" onclick="outputUpdate()">Fire!</button>
-        <button id="clear" onclick="myGraph.clearPath()">Clear</button>
-        <button id="resetCurrent" onclick="resetCurrent()">Reset this setup</button>
-        <br>
-        <button id="nextConfig" onclick="nextConfig()">Try another setup!</button>
+        <input type="range" min="-10" max="10" value="2" id="slope_slider" step="0.1"
+          oninput="updateValue(this.value, 'slope_slider')">
+
+        <br><br>
+        <button id="renderButton" onclick="outputUpdate()">Fire!</button><br>
+        <button id="resetCurrent" onclick="resetCurrent()">Reset this setup</button><br>
+        <button id="nextConfig" onclick="nextConfig()">Try another setup!</button><br>
 
         <p><br></p>
         <p id="error-text"></p>
@@ -76,9 +81,31 @@
           }
         } 
         if (id="slope_slider") {
-          // document.getElementById('numerator').value = val;
-          // document.getElementById('denominator').value = 1;
+          findSmallestFraction(val);
         }
+    }
+
+    function findSmallestFraction(val) {
+      console.log('value is ', val); 
+      var numerator = val*10; 
+      var denom = 10; 
+      var divisor = 0;
+      while (divisor != 1) {
+        if (numerator%10 == 0 && denom%10 == 0) {
+          divisor = 10;
+        } else if (numerator%5 == 0 && denom%5 == 0) {
+          divisor = 5;
+        } else if (numerator%2 == 0 && denom%2 == 0) {
+          divisor = 2;
+        } else {
+          divisor = 1; // signals end
+        }
+        // console.log('dividing by ', divisor);
+        numerator /= divisor;
+        denom /= divisor;
+      }
+      document.getElementById('numerator').value = numerator;
+      document.getElementById('denominator').value = denom;
     }
 
     // Coordinates of the objects they are trying to hit

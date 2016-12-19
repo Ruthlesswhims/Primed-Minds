@@ -14,9 +14,21 @@
     to {top: 400px;}
 }
 
+/*.fraction > .slope {*/
 .slope {
   text-align: center;
-  width: 80px;
+  width: 40px;
+  margin-left: 30px;
+}
+
+.fraction {
+  width: 40px;
+  /*float: left;*/
+}
+
+#eq {
+  margin-top: 0px; 
+  margin-bottom: 0px;
 }
 
 #img0 {

@@ -1,3 +1,7 @@
+body {
+  font-size: 14pt;
+}
+
 .hittable {
   position: absolute;
   float: left;
@@ -14,24 +18,48 @@
     to {top: 400px;}
 }
 
-/*.fraction > .slope {*/
-.slope {
-  text-align: center;
-  width: 40px;
-  margin-left: 30px;
+.container {
+  align-content: space-between;
 }
 
-.fraction {
-  width: 40px;
-  /*float: left;*/
+.slope {
+  text-align: center;
+  width: 50px;
+}
+
+.col-md-1 {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.row > [class*='col-'] {
+   display: flex;
+   flex-direction: column;
+}
+
+.buttons {
+  justify-content: center;
+}
+
+[class*='col-'] {
+  padding: 20px;
 }
 
 button {
   width: 100px;
-  min-height: 70px;
+  min-height: 85px;
   padding: 15px; /* padding for the text inside the box */
   margin: 10px; /* margin between button and other objects */
+  border-radius: 10px; /* rounded edges */ 
+  border-width: 0px;
   background-color: yellow;
+  font-size: 12pt;
 }
 
 button:hover {
@@ -42,6 +70,8 @@ button:hover {
 #resetCurrent {
   float: left;
 }
+
+#
 
 #eq {
   margin-top: 0px; 

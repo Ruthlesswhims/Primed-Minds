@@ -11,42 +11,57 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/exploration1-2.css">
 </head>
 <body>
-<div class="grid">
-    <div class="col-1-2">
-        <!-- <div class="fraction"> -->
-          <!-- input for the numerator of the fraction --> 
-          <input class="slope" type="number" id="numerator" value="2" step="1" 
-            onchange="updateValue(this.value, 'slope_text')">
-          
-          <!-- the line of the fraction --> 
-          <!-- <hr align='left'> -->
-          <p id="eq"> y = ---------   x</p>
-
-          <input class="slope" type="number" id="denominator" value="2" step="1" 
-            onchange="updateValue(this.value, 'slope_text')">
-        <!-- </div> -->
-
-        <br><br>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- the column containing all the setters for the interactive.
+      This includes the slope input and setters, as well as all buttons --> 
+      <div class="col-md-5" id="setters">
+        <div class="row">
+          <div class="col-md-1 fraction"> y = </div>
+          <div class="col-md-2">
+            <!-- input for the numerator of the fraction --> 
+            <input class="slope" type="number" id="numerator" value="2" step="1" 
+              onchange="updateValue(this.value, 'slope_text')">
+            <!-- the line of the fraction --> 
+            <hr class="slope">
+            <input class="slope" type="number" id="denominator" value="2" step="1" 
+              onchange="updateValue(this.value, 'slope_text')">
+          </div>
+          <div class="col-md-1 fraction"> x </div>
+        </div> <!-- end fraction row--> 
         <input type="range" min="-10" max="10" value="2" id="slope_slider" step="0.1"
           oninput="updateValue(this.value, 'slope_slider')">
+        <div class="row buttons">
+                 <button id="renderButton" onclick="outputUpdate()">Fire!</button>
+        </div>
+        <div class="row">
+          <button id="resetCurrent" onclick="resetCurrent()">Reset</button>
+          <button id="nextConfig" onclick="nextConfig()">Try another setup!</button><br>
+        </div>
+      </div> <!-- end setters col--> 
+      <!-- the column containing the graph itself --> 
+      <div class="col-md-7" id="graph">
+        <div class="hittable" id="img0"><img src="banana.png" width="40px"/></div>
+        <div class="hittable" id="img1"><img src="banana.png" width="40px"/></div>
+        <div class="hittable" id="img2"><img src="banana.png" width="40px"/></div>
+        <div class="hittable" id="img3"><img src="banana.png" width="40px"/></div>
+        <canvas id="myCanvas" width="400" height="400"></canvas>
+      </div> <!-- end graph col--> 
+    </div> <!-- end row --> 
+  </div> <!-- end container --> 
 
         <br><br>
-        <button id="renderButton" onclick="outputUpdate()">Fire!</button><br>
-        <button id="resetCurrent" onclick="resetCurrent()">Reset</button>
-        <button id="nextConfig" onclick="nextConfig()">Try another setup!</button><br>
+
+
+        <br><br>
+ 
 
         <p><br></p>
         <p id="error-text"></p>
         <p id="slope-text"></p>
     </div>
     <div class="col-2-2">
-        <div class="hittable" id="img0"><img src="banana.png" width="40px"/></div>
-        <div class="hittable" id="img1"><img src="banana.png" width="40px"/></div>
-        <div class="hittable" id="img2"><img src="banana.png" width="40px"/></div>
-        <div class="hittable" id="img3"><img src="banana.png" width="40px"/></div>
-    </div>
-
-    <canvas id="myCanvas" width="400" height="400"></canvas>
+       
 
 <!-- Scripts for validating equation input and hitting objects -->
 <script>

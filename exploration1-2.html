@@ -74,19 +74,20 @@
 
     // Updates the slider value when the text value is changed for the input named 'id'
     function updateValue(val, id) {
+      console.log(id);
         var value = validate();
-        if (id="slope_text") {
+        if (id == "slope_text") {
           if(value != INVALID_VALUE) {
             document.getElementById('slope_slider').value = parseFloat(value);
           }
-        } 
-        if (id="slope_slider") {
+        } else if (id == 'slope_slider') {
           findSmallestFraction(val);
         }
+        console.log('value is ', value);
     }
 
     function findSmallestFraction(val) {
-      console.log('value is ', val); 
+      // console.log('value is ', val); 
       var numerator = val*10; 
       var denom = 10; 
       var divisor = 0;
@@ -100,7 +101,6 @@
         } else {
           divisor = 1; // signals end
         }
-        // console.log('dividing by ', divisor);
         numerator /= divisor;
         denom /= divisor;
       }

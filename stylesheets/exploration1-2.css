@@ -79,15 +79,15 @@ button:hover {
 }
 
 #img0 {
-  left: 200px;
+  padding-left: 200px;
 }
 
 #img1 {
-  left: 400px;
+  padding-left: 400px;
 }
 
 #img2 {
-  left: 400px;
+  padding-left: 400px;
 }
 
 #chart {

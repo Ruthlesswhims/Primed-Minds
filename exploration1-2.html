@@ -32,7 +32,7 @@
 
         <br><br>
         <button id="renderButton" onclick="outputUpdate()">Fire!</button><br>
-        <button id="resetCurrent" onclick="resetCurrent()">Reset this setup</button><br>
+        <button id="resetCurrent" onclick="resetCurrent()">Reset</button>
         <button id="nextConfig" onclick="nextConfig()">Try another setup!</button><br>
 
         <p><br></p>
@@ -120,7 +120,7 @@
           return;
         }
 
-        document.getElementById("slope-text").innerHTML = 'slope is ' + num;
+        document.getElementById("slope-text").innerHTML = "Slope is " + num;
 
         var positiveslope;
         if (num > 0) {

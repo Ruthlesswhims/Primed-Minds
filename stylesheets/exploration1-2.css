@@ -26,6 +26,23 @@
   /*float: left;*/
 }
 
+button {
+  width: 100px;
+  min-height: 70px;
+  padding: 15px; /* padding for the text inside the box */
+  margin: 10px; /* margin between button and other objects */
+  background-color: yellow;
+}
+
+button:hover {
+  background-color: red;
+  color: white;
+}
+
+#resetCurrent {
+  float: left;
+}
+
 #eq {
   margin-top: 0px; 
   margin-bottom: 0px;

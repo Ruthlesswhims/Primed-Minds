@@ -45,6 +45,7 @@
         <div class="hittable" id="img1"><img src="banana.png" width="40px"/></div>
         <div class="hittable" id="img2"><img src="banana.png" width="40px"/></div>
         <div class="hittable" id="img3"><img src="banana.png" width="40px"/></div>
+        <div id="satellite"><img src="assets/satellite.JPG" width="70px"/></div>
         <canvas id="myCanvas" width="400" height="400"></canvas>
       </div> <!-- end graph col--> 
     </div> <!-- end row --> 
@@ -66,39 +67,42 @@
 <!-- Scripts for validating equation input and hitting objects -->
 <script>
   var INVALID_VALUE = 20; 
-    document.getElementById('img2').style.display = "none";
-    document.getElementById('img3').style.display = "none";
 
-    // This function validates if entries are between -10 and 10
-    function validate() {
-        var value, text, pass;
-        
-        var num = parseFloat(document.getElementById("numerator").value);
-        var den = parseFloat(document.getElementById("denominator").value);
-        value = num/den; 
-        if (value < -10 || value > 10) {
-            text = "Please enter values between -10 and 10";
-            value = INVALID_VALUE; // represents non-pass
-        }
-        else {
-            text = "";
-        }
-        document.getElementById("error-text").innerHTML = text;
-        return value;
-    }
+  var INITIAL_ROTATION = 45;
 
-    // Updates the slider value when the text value is changed for the input named 'id'
-    function updateValue(val, id) {
-      console.log(id);
-        var value = validate();
-        if (id == "slope_text") {
-          if(value != INVALID_VALUE) {
-            document.getElementById('slope_slider').value = parseFloat(value);
-          }
-        } else if (id == 'slope_slider') {
-          findSmallestFraction(val);
+  document.getElementById('img2').style.display = "none";
+  document.getElementById('img3').style.display = "none";
+
+  // This function validates if entries are between -10 and 10
+  function validate() {
+      var value, text, pass;
+      
+      var num = parseFloat(document.getElementById("numerator").value);
+      var den = parseFloat(document.getElementById("denominator").value);
+      value = num/den; 
+      if (value < -10 || value > 10) {
+          text = "Please enter values between -10 and 10";
+          value = INVALID_VALUE; // represents non-pass
+      }
+      else {
+          text = "";
+      }
+      document.getElementById("error-text").innerHTML = text;
+      return value;
+  }
+
+  // Updates the slider value when the text value is changed for the input named 'id'
+  function updateValue(val, id) {
+    console.log(id);
+      var value = validate();
+      if (id == "slope_text") {
+        if(value != INVALID_VALUE) {
+          document.getElementById('slope_slider').value = parseFloat(value);
         }
-        console.log('value is ', value);
+      } else if (id == 'slope_slider') {
+        findSmallestFraction(val);
+      }
+      console.log('value is ', value);
     }
 
     function findSmallestFraction(val) {
@@ -128,23 +132,36 @@
 
     // Called when "Fire" is clicked
     function outputUpdate() {
-        var num = parseFloat(validate());
+      var num = parseFloat(validate());
 
-        if (num == INVALID_VALUE) {
-          document.getElementById("error-text").innerHTML = "cannot fire - slope must be between -10 and 10";
-          return;
-        }
+      if (num == INVALID_VALUE) {
+        document.getElementById("error-text").innerHTML = "cannot fire - slope must be between -10 and 10";
+        return;
+      }
 
-        document.getElementById("slope-text").innerHTML = "Slope is " + num;
+      document.getElementById("slope-text").innerHTML = "Slope is " + num;
 
-        var positiveslope;
-        if (num > 0) {
-          positiveslope = true;
-        } else {
-          positiveslope = false;
-        }
-        myGraph.clearPath();
-        drawEquation(num, positiveslope);
+      turnSatellite(num);
+
+      var positiveslope;
+      if (num > 0) {
+        positiveslope = true;
+      } else {
+        positiveslope = false;
+      }
+      myGraph.clearPath();
+      drawEquation(num, positiveslope);
+    }
+
+    function turnSatellite(slope) {
+      var angle = Math.atan(slope); // returns angle IN RADIANS between -pi/2 and pi/2
+      // convert to degrees
+      angle = angle * 180 / Math.PI;
+      angle -= INITIAL_ROTATION; 
+      angle *= -1; 
+      console.log('angle is ', angle);
+      var sat = document.getElementById("satellite");
+      sat.style.webkitTransform = "rotate(" + angle + "deg)"; 
     }
 
     function checkHits(x, y) {

@@ -2,22 +2,6 @@ body {
   font-size: 14pt;
 }
 
-.hittable {
-  position: absolute;
-  float: left;
-  /*animation-name: fall;*/
-  animation-duration: 2s;
-  /*-webkit-animation-name: fall;*/
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-duration: 2s;
-  animation-fill-mode: forwards;
-  top: 30px;
-}
-
-@-webkit-keyframes fall {
-    to {top: 400px;}
-}
-
 .container {
   align-content: space-between;
 }
@@ -71,11 +55,20 @@ button:hover {
   float: left;
 }
 
-#
+.hittable {
+  /* position styling */ 
+  position: absolute;
+  float: left;
+  top: 30px;
+  /* animation styling */ 
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-fill-mode: forwards;         /* makes it so once animated, object stays there */
+  -webkit-animation-fill-mode: forwards; /* instead of resetting to initial position */ 
+}
 
-#eq {
-  margin-top: 0px; 
-  margin-bottom: 0px;
+@-webkit-keyframes fall {
+    to {top: 400px;}
 }
 
 #img0 {
@@ -90,9 +83,22 @@ button:hover {
   padding-left: 400px;
 }
 
-#chart {
-	position: relative;
-	top: 40px;
+#satellite {
+  margin-top: 400px;
+  position: absolute;
+  -webkit-animation-name: turn;
+  animation-name: turn;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;         /* makes it so once animated, object stays there */
+  -webkit-animation-fill-mode: forwards; /* instead of resetting to initial position */ 
+}
+
+@-webkit-keyframes turn {
+  to { -webkit-transform:rotate(90deg); }
+}
+@keyframes turn {
+  /*to { transform:rotate(90deg); }*/
 }
 
 #myCanvas {

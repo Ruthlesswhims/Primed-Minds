@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
-<html class="no-js" lang="en" >
-
+<html>
 <head>
     <meta charset="utf-8">
     <!-- If you delete this meta tag World War Z will become a reality -->
@@ -9,6 +8,8 @@
 
     <!-- Local css -->
     <link rel="stylesheet" type="text/css" href="stylesheets/exploration1-2.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
+
 </head>
 <body>
   <div class="container-fluid">
@@ -20,17 +21,23 @@
           <div class="col-md-1 fraction"> y = </div>
           <div class="col-md-2">
             <!-- input for the numerator of the fraction --> 
+            <div class="row" id='num'>
             <input class="slope" type="number" id="numerator" value="2" step="1" 
               onchange="updateValue(this.value, 'slope_text')">
+              </div>
+              <div class="row">
             <!-- the line of the fraction --> 
-            <hr class="slope">
+            <!-- <hr class="slope"> -->
             <input class="slope" type="number" id="denominator" value="2" step="1" 
               onchange="updateValue(this.value, 'slope_text')">
+              </div>
           </div>
           <div class="col-md-1 fraction"> x </div>
         </div> <!-- end fraction row--> 
-        <input type="range" min="-10" max="10" value="2" id="slope_slider" step="0.1"
+        <div class="row-fluid">
+        <input type="range" min="0" max="10" value="2" id="slope_slider" step="0.1" width="100%"
           oninput="updateValue(this.value, 'slope_slider')">
+        </div>
         <div class="row buttons">
                  <button id="renderButton" onclick="outputUpdate()">Fire!</button>
         </div>
@@ -94,8 +101,8 @@
       var num = parseFloat(document.getElementById("numerator").value);
       var den = parseFloat(document.getElementById("denominator").value);
       value = num/den; 
-      if (value < -10 || value > 10) {
-          text = "Please enter values between -10 and 10";
+      if (value < 0 || value > 10) {
+          text = "Please enter values between 0 and 10";
           value = INVALID_VALUE; // represents non-pass
       }
       else {
@@ -114,6 +121,10 @@
         }
       } else if (id == 'slope_slider') {
         findSmallestFraction(val);
+      }
+
+      if(value != INVALID_VALUE) {
+        turnSatellite(value);
       }
     }
 
@@ -149,8 +160,6 @@
       }
 
       document.getElementById("slope-text").innerHTML = "Slope is " + num;
-
-      turnSatellite(num);
 
       var positiveslope;
       if (num > 0) {

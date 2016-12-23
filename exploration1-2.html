@@ -293,7 +293,7 @@
       for (var i=0; i<objects.length; i++) {
         var el = document.getElementById('img' + i); 
         el.style.paddingLeft = (objects[i].x * CANVAS_SIZE) + "px"; 
-        el.style.paddingTop = (CANVAS_SIZE - (CANVAS_SIZE)*objects[i].y) + "px";
+        el.style.top = (CANVAS_SIZE - (CANVAS_SIZE)*objects[i].y) + "px";
         el.style.display = "inline"; 
       }
       // hide all other images

@@ -36,17 +36,17 @@
         </div>
         <div class="row">
           <button id="resetCurrent" onclick="resetCurrent()">Reset</button>
-          <button id="nextConfig" onclick="nextConfig()">Try another setup!</button><br>
+          <button id="nextConfig" onclick="nextConfig()">New setup!</button><br>
         </div>
       </div> <!-- end setters col--> 
       <!-- the column containing the graph itself --> 
       <div class="col-md-7" id="graph">
-        <div class="hittable" id="img0"><img src="banana.png" width="40px"/></div>
-        <div class="hittable" id="img1"><img src="banana.png" width="40px"/></div>
-        <div class="hittable" id="img2"><img src="banana.png" width="40px"/></div>
-        <div class="hittable" id="img3"><img src="banana.png" width="40px"/></div>
+        <!-- <div class="hittable" id="img0"><img src="banana.png" width="40px"/></div> -->
+        <!-- <div class="hittable" id="img1"><img src="banana.png" width="40px"/></div> -->
+        <!-- <div class="hittable" id="img2"><img src="banana.png" width="40px"/></div> -->
+        <!-- <div class="hittable" id="img3"><img src="banana.png" width="40px"/></div> -->
         <div id="satellite"><img src="assets/satellite.JPG" width="70px"/></div>
-        <canvas id="myCanvas" width="400" height="400"></canvas>
+        <canvas id="myCanvas"></canvas>
       </div> <!-- end graph col--> 
     </div> <!-- end row --> 
   </div> <!-- end container --> 
@@ -66,17 +66,31 @@
 
 <!-- Scripts for validating equation input and hitting objects -->
 <script>
+  // static values 
   var INVALID_VALUE = 20; 
-
   var INITIAL_ROTATION = 45;
+  var CANVAS_SIZE = 400;
+  var NUM_CONFIGS = 8;
+  var NUM_HITTABLES = 8; 
 
-  document.getElementById('img2').style.display = "none";
-  document.getElementById('img3').style.display = "none";
+  // variables that change throughout run
+  var currentConfig = 0;
+
+  // initialize 
+  document.getElementById("myCanvas").height = CANVAS_SIZE;
+  document.getElementById("myCanvas").width = CANVAS_SIZE;
+
+  for(var i=0; i<NUM_HITTABLES; i++) {
+    document.getElementById("graph").innerHTML += 
+      '<div class="hittable" id="img' + i + '"><img src="banana.png" width="40px"/></div>'; 
+  }
+
+  renderCurrentConfig();
 
   // This function validates if entries are between -10 and 10
   function validate() {
       var value, text, pass;
-      
+  
       var num = parseFloat(document.getElementById("numerator").value);
       var den = parseFloat(document.getElementById("denominator").value);
       value = num/den; 
@@ -93,7 +107,6 @@
 
   // Updates the slider value when the text value is changed for the input named 'id'
   function updateValue(val, id) {
-    console.log(id);
       var value = validate();
       if (id == "slope_text") {
         if(value != INVALID_VALUE) {
@@ -102,11 +115,9 @@
       } else if (id == 'slope_slider') {
         findSmallestFraction(val);
       }
-      console.log('value is ', value);
     }
 
     function findSmallestFraction(val) {
-      // console.log('value is ', val); 
       var numerator = val*10; 
       var denom = 10; 
       var divisor = 0;
@@ -127,8 +138,6 @@
       document.getElementById('denominator').value = denom;
     }
 
-    // Coordinates of the objects they are trying to hit
-    var objects = [{x: .5, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}];
 
     // Called when "Fire" is clicked
     function outputUpdate() {
@@ -178,13 +187,10 @@
         }
     }
 
-
-    var currentConfig = 0;
-
     function nextConfig() {
       myGraph.clearPath();
       clearHits();
-      currentConfig = (currentConfig+1)%3;
+      currentConfig = (currentConfig+1)%NUM_CONFIGS;
       renderCurrentConfig();
     }
 
@@ -207,52 +213,65 @@
       switch(currentConfig) {
         case 0:
           // Update the objects variable
-          objects = [{x: 0.5, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}];
-
-          // Update the hittable image positions
-          document.getElementById('img0').style.paddingLeft = 200 + "px";
-          document.getElementById('img1').style.paddingLeft = 400 + "px";
-
-          // Update hittable image visibilities
-          document.getElementById('img0').style.display = "inline";
-          document.getElementById('img1').style.display = "inline";
-          document.getElementById('img2').style.display = "none";
-          document.getElementById('img3').style.display = "none";
+          objects = [{x: 1/2, y: 1.0}, 
+                     {x: 1.0, y: 1.0}];
           break;  
-        case 1:
-          // Update objects variable
-          objects = [{x: (1/3), y: 1.0, hit: false}, {x: (2/3), y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}];
 
-          // Update hittable image positions
-          document.getElementById('img0').style.paddingLeft = 133 + "px";
-          document.getElementById('img1').style.paddingLeft = 267 + "px";
-          document.getElementById('img2').style.paddingLeft = 400 + "px";
-          document.getElementById('img2').style.paddingTop = 0 + "px";
-
-          // Update hittable image visibilities
-          document.getElementById('img0').style.display = "inline";
-          document.getElementById('img1').style.display = "inline";
-          document.getElementById('img2').style.display = "inline";
-          document.getElementById('img3').style.display = "none";
-          break; 
+        case 1: 
+          objects = [{x: 1.0, y: 1/3}, 
+                     {x: 1.0, y: 2/3},
+                     {x: 1.0, y: 1.0}];
+          break;
         case 2:
-          // Update objects variable
-          objects = [{x: 0.5, y: 1.0, hit: false}, {x: 1.0, y: 1.0, hit: false}, 
-            {x: 1.0, y: 0.5, hit: false}];
-
-          // Update hittable image positions
-          document.getElementById('img0').style.paddingLeft = 200 + "px";
-          document.getElementById('img1').style.paddingLeft = 400 + "px";
-          document.getElementById('img2').style.paddingLeft = 400 + "px";
-          // 200px = middle of graph, adding 30px so line hits middle of object
-          document.getElementById('img2').style.paddingTop = 200 + "px";
-
-          // Update hittable image visibilities
-          document.getElementById('img0').style.display = "inline";
-          document.getElementById('img1').style.display = "inline";
-          document.getElementById('img2').style.display = "inline";
-          document.getElementById('img3').style.display = "none";
+          objects = [{x: 1/3, y: 1.0}, 
+                     {x: 2/3, y: 1.0}, 
+                     {x: 1.0, y: 1.0},
+                     {x: 1.0, y: 1/2}];
           break; 
+
+        case 3:
+          objects = [{x: 1/2, y: 1.0  }, 
+                     {x: 1.0, y: 1/3}, 
+                     {x: 1.0, y: 2/3},
+                     {x: 1.0, y: 1.0}];
+          break; 
+
+
+        case 4:
+          objects = [{x: 1/5, y: 1.0}, 
+                     {x: 2/5, y: 1.0}, 
+                     {x: 3/5, y: 1.0},
+                     {x: 4/5, y: 1.0},
+                     {x: 1.0, y: 1.0},
+                     {x: 1.0, y: 1/4},
+                     {x: 1.0, y: 1/2},
+                     {x: 1.0, y: 3/4}];
+          break; 
+
+        case 5:
+          objects = [{x: 1/4, y: 1.0}, 
+                     {x: 1/2, y: 1.0}, 
+                     {x: 3/4, y: 1.0},
+                     {x: 1.0, y: 1/5},
+                     {x: 1.0, y: 2/5},
+                     {x: 1.0, y: 3/5},
+                     {x: 1.0, y: 4/5},
+                     {x: 1.0, y: 1.0}];
+          break; 
+
+        case 6:
+          objects = [{x: 2/7, y: 1.0}, 
+                     {x: 5/7, y: 1.0}, 
+                     {x: 1.0, y: 1.0},
+                     {x: 1.0, y: 3/10}];
+          break; 
+
+        case 7: 
+          objects = [{x: 1/2, y: 1.0}, 
+                     {x: 1.0, y: 1.0},
+                     {x: 1.0, y: 1/2}];
+          break;  
+
         default: // if none of the above cases
           console.log("Could not find configuration #" + currentConfig);
           console.log("Resetting");
@@ -260,7 +279,28 @@
           // Call function to actually display config
           renderCurrentConfig();
           break; 
-      } 
+      } // end switch 
+
+      // set all hits to false
+      for (i=0; i<objects.length; i++) {
+        objects[i].hit = false; 
+      }
+
+      renderConfigImages();  
+    }
+
+    function renderConfigImages() {
+      for (var i=0; i<objects.length; i++) {
+        var el = document.getElementById('img' + i); 
+        el.style.paddingLeft = (objects[i].x * CANVAS_SIZE) + "px"; 
+        el.style.paddingTop = (CANVAS_SIZE - (CANVAS_SIZE)*objects[i].y) + "px";
+        el.style.display = "inline"; 
+      }
+      // hide all other images
+      for (var i=objects.length; i<NUM_HITTABLES; i++) {
+        var el = document.getElementById('img' + i); 
+        el.style.display = "none";
+      }
     }
 
     function Graph(config) {
@@ -303,7 +343,7 @@
         // this.transformContext();
         this.drawXAxis();
         this.drawYAxis();
-        context.moveTo(0, 400); 
+        context.moveTo(0, CANVAS_SIZE); 
 
       }
 
@@ -422,7 +462,7 @@
         t = 1;
         vertices = [];
         hits = 0;
-        context.moveTo(0, 400); 
+        context.moveTo(0, CANVAS_SIZE); 
 
         // Find list of vertices 
         vertices.push({x: 0, y: 0});
@@ -475,11 +515,11 @@
       function calcWaypoints(vertices) {
             var waypoints = [];
             for (var i = 1; i < vertices.length; i+=2) {
-                var pt0 = (vertices[i-1].x)*400;
-                var pt1 = (vertices[i].x)*400;
+                var pt0 = (vertices[i-1].x)*CANVAS_SIZE;
+                var pt1 = (vertices[i].x)*CANVAS_SIZE;
                 var dx = pt1 - pt0;
-                var y0 = 400 - (vertices[i-1].y)*400; 
-                var y1 = 400 - (vertices[i].y)*400;
+                var y0 = CANVAS_SIZE - (vertices[i-1].y)*CANVAS_SIZE; 
+                var y1 = CANVAS_SIZE - (vertices[i].y)*CANVAS_SIZE;
                 var dy = y1 - y0;
                 for (var j = 0; j < 100; j++) {
                     var x = pt0 + dx * j / 100;

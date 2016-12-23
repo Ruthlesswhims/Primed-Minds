@@ -58,7 +58,6 @@ button:hover {
 .hittable {
   /* position styling */ 
   position: absolute;
-  float: left;
   top: 30px;
   /* animation styling */ 
   animation-duration: 2s;

@@ -1,148 +1,171 @@
 <!DOCTYPE html>
 <html>
-	<head lang="en">
-	    <meta charset="UTF-8">
-	    <title>Primed Minds</title>
-			<!-- materialize css -->
-			<link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
 
-			<!-- jquery js -->
-	  		<script src="public/javascript/jquery-1.12.3.min.js"></script>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Primed Minds</title>
+    <!-- materialize css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
 
-			<!-- materialize js -->
-	  		<script src="public/javascript/materialize.min.js"></script>
+    <!-- jquery js -->
+    <script src="public/javascript/jquery-1.12.3.min.js"></script>
 
-	  		<!-- local js -->
-	  		<script src="public/javascript/script.js"></script>
+    <!-- materialize js -->
+    <script src="public/javascript/materialize.min.js"></script>
 
-			<!-- fonts from gapis -->
-			<link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet"> 
-			<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
-			<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300">
+    <!-- local js -->
+    <script src="public/javascript/script.js"></script>
 
-			<!-- local css -->
+    <!-- fonts from gapis -->
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300">
+
+    <!-- local css -->
 
 
-        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-            <link rel="stylesheet" type="text/css" href="stylesheets/resources.css">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/resources.css">
 
-<!--             <link href="slider/js-image-slider.css" rel="stylesheet" type="text/css" /> -->
-            <!-- <script src="slider/js-image-slider.js" type="text/javascript"></script> -->
+    <!--             <link href="slider/js-image-slider.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <script src="slider/js-image-slider.js" type="text/javascript"></script> -->
 
-<!--             lightbox -->
+    <!--             lightbox -->
 
     <link rel="stylesheet" type="text/css" href="lightbox/css/boom-lightbox/boom-lightbox.1.0.0.min.css" />
     <script type="text/javascript" src="lightbox/js/boom-lightbox/boom-lightbox.1.0.0.min.js"></script>
-	</head>
+</head>
 
-	<body>
-        <!-- navbar code, copy code to top of body -->
+<body>
+    <!-- navbar code, copy code to top of body -->
 
-        <!-- dropdown structures -->
-        <ul id="dropdown-about" class="dropdown-content">
-            <li><a href="about.html">About Primed Minds</a></li>    
-            <li><a href="about.html#team">The Team</a></li>
-            <li><a href="about.html#partners">Partners</a></li>
-        </ul>
+    <!-- dropdown structures -->
+    <ul id="dropdown-about" class="dropdown-content">
+        <li><a href="about.html">About Primed Minds</a></li>
+        <li><a href="about.html#team">The Team</a></li>
+        <li><a href="about.html#partners">Partners</a></li>
+    </ul>
 
-        <ul id="dropdown-explorations" class="dropdown-content">
-            <li><a href="card.html">Exploration 1</a></li>
-            <li><a href="#">Exploration 2</a></li>
-            <li><a href="#">Exploration 3</a></li>
-        </ul>
+    <ul id="dropdown-explorations" class="dropdown-content">
+        <li><a href="card.html">Exploration 1</a></li>
+        <li><a href="#">Exploration 2</a></li>
+        <li><a href="#">Exploration 3</a></li>
+    </ul>
 
-        <!-- nav wrapper -->
-        <nav class="red navbar navbar-default navbar-fixed-top" id="nav_bar">
-            <div class="container">
-                <a href="index.html"><img id="pom" src="assets/pom.png"></a>
-                <a href="index.html" id="logo">PRIMED MINDS</a>
+    <!-- nav wrapper -->
+    <nav class="red navbar navbar-default navbar-fixed-top" id="nav_bar">
+        <div class="container">
+            <a href="index.html"><img id="pom" src="assets/pom.png"></a>
+            <a href="index.html" id="logo">PRIMED MINDS</a>
 
-                <!-- right aligned navitems -->
-                <ul class="right">
-                        <!-- change 'active' class based on current page -->
-                        <li><a href="index.html">Home</a></li>
-                        <li><a class="dropdown-button" href="about_2.html" data-activates="dropdown-about">About</a></li>
-                        <li><a class="dropdown-button" href="explorations.html" data-activates="dropdown-explorations">Explorations</a></li>
-                        <li class="active"><a href="resources.html">Resources</a></li>
-                        <li><a href="contact.html">FAQ</a></li>
-                    </li>
-                </ul>
+            <!-- right aligned navitems -->
+            <ul class="right">
+                <!-- change 'active' class based on current page -->
+                <li><a href="index.html">Home</a></li>
+                <li><a class="dropdown-button" href="about_2.html" data-activates="dropdown-about">About</a></li>
+                <li><a class="dropdown-button" href="explorations.html" data-activates="dropdown-explorations">Explorations</a></li>
+                <li class="active"><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">FAQ</a></li>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--<div id="header"><h1>RESOURCES</h1></div>-->
+    <div id="main">
+
+        <h2>Numberphile:</h2>
+        <p>A wonderful Youtube channel that has many videos that talk about all sorts of wonderful things from the world of mathematics. Subject matter ranges in difficulty, but some great places to start include contributions by: </p>
+        <p>- Tadashi Tokieda’s <a href="#" onclick="boomLightBoxShow('divStatic');">Freaky Dots</a>
+            <div id="divStatic" class="boom-lightbox" style="display: none;">
+                <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/QAja2jp1VjE" frameborder="0" allowfullscreen></iframe>
+            </div> or <a href="#" onclick="boomLightBoxShow('divResponsive');">Perplexing Paperclips</a>
+            <div id="divResponsive" class="boom-lightbox" style="display: none;">
+                <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/wGkvyN6s9cY" frameborder="0" allowfullscreen></iframe>
             </div>
-        </nav>
-            <div id="header"><h1>RESOURCES</h1></div>
-		<div id="main">
+            <p>- Vi Hart’s
+                <a href="#" onclick="boomLightBoxShow('divResponsive2');">Infinity Elephants</a>
+                <div id="divResponsive2" class="boom-lightbox" style="display: none;">
+                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/DK5Z709J2eo" frameborder="0" allowfullscreen></iframe>
+                </div>
 
-			<h2>Numberphile:</h2>
-<p>A wonderful Youtube channel that has many videos that talk about all sorts of wonderful things from the world of mathematics. Subject matter ranges in difficulty, but some great places to start include contributions by: </p>
-<p>-	Tadashi Tokieda’s         <a href="#" onclick="boomLightBoxShow('divStatic');">Freaky Dots</a>
-    <div id="divStatic" class="boom-lightbox" style="display: none;">
-        <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/QAja2jp1VjE" frameborder="0" allowfullscreen></iframe>
-    </div> or         <a href="#" onclick="boomLightBoxShow('divResponsive');">Perplexing Paperclips</a> 
-    <div id="divResponsive" class="boom-lightbox" style="display: none;">
-        <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/wGkvyN6s9cY" frameborder="0" allowfullscreen></iframe>
-    </div> 
-<p>-	Vi Hart’s 
-    <a href="#" onclick="boomLightBoxShow('divResponsive2');">Infinity Elephants</a> 
-    <div id="divResponsive2" class="boom-lightbox" style="display: none;">
-        <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/DK5Z709J2eo" frameborder="0" allowfullscreen></iframe>
-    </div> 
+                or
+                <a href="#" onclick="boomLightBoxShow('divResponsive3');">Hexaflagons</a>
+                <div id="divResponsive3" class="boom-lightbox" style="display: none;">
+                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/VIVIegSt81k" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </p>
+            <p>- Simon Pampena’s
+                <a href="#" onclick="boomLightBoxShow('divResponsive4');">The Epic Story of Circles</a>
+                <div id="divResponsive4" class="boom-lightbox" style="display: none;">
+                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/sG_6nlMZ8f4" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </p>
+            <p>- Katie Steckles’
+                <a href="#" onclick="boomLightBoxShow('divResponsive5');">Fold and Cut</a>
+                <div id="divResponsive5" class="boom-lightbox" style="display: none;">
+                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/ZREp1mAPKTM" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </p>
+            <h2>Desmos.com:</h2>
+            <p>A wonderful website graphing calculator that allows you to explore what functions look like. Has some delightful interactive pieces including <a href="https://teacher.desmos.com/marbleslides-lines" target="_blank">Marbleslide</a>.</p>
+            <h2>BetterExplained.com:</h2>
+            <p>A magnificent repository of better explanations than you will typically encounter for many mathematical concepts covered between middle school and college. For the day you encounter imaginary numbers Kalid’s <a href="https://betterexplained.com/articles/a-visual-intuitive-guide-to-imaginary-numbers/"
+                    target="_blank">explanation</a> is magnificent.</p>
 
-    or 
-        <a href="#" onclick="boomLightBoxShow('divResponsive3');">Hexaflagons</a> 
-    <div id="divResponsive3" class="boom-lightbox" style="display: none;">
-        <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/VIVIegSt81k" frameborder="0" allowfullscreen></iframe>
-    </div> </p>
-<p>-	Simon Pampena’s 
-    <a href="#" onclick="boomLightBoxShow('divResponsive4');">The Epic Story of Circles</a> 
-    <div id="divResponsive4" class="boom-lightbox" style="display: none;">
-        <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/sG_6nlMZ8f4" frameborder="0" allowfullscreen></iframe>
-    </div> </p>
-<p>-	Katie Steckles’ 
- <a href="#" onclick="boomLightBoxShow('divResponsive5');">Fold and Cut</a> 
-    <div id="divResponsive5" class="boom-lightbox" style="display: none;">
-        <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/ZREp1mAPKTM" frameborder="0" allowfullscreen></iframe>
-    </div></p> 
-<h2>Desmos.com:</h2>
-<p>A wonderful website graphing calculator that allows you to explore what functions look like. Has some delightful interactive pieces including <a href="https://teacher.desmos.com/marbleslides-lines" target="_blank">Marbleslide</a>.</p>
-<h2>BetterExplained.com:</h2>
-<p>A magnificent repository of better explanations than you will typically encounter for many mathematical concepts covered between middle school and college. For the day you encounter imaginary numbers Kalid’s <a href="https://betterexplained.com/articles/a-visual-intuitive-guide-to-imaginary-numbers/" target="_blank">explanation</a> is magnificent.</p>
+    </div>
 
-		</div>
-    
     <a href="#" onclick="boomLightBoxShow('divResponsive');"></a>
     <div id="divResponsive" class="boom-lightbox" style="display: none;">
         <p>This is responsive content</p>
     </div>
-    
-    
+
+
     <!-- place the initialization at the end of the code -->
     <script type="text/javascript">
-         (function() { //document ready, init one or more lightbox divs
+        (function() { //document ready, init one or more lightbox divs
             boomLightBoxInit([{
                 selector: 'divStatic',
-                configs: { width: '775px', height: '460px' }
-            },{
-                selector: 'divResponsive', 
-                configs: { width: '775px', height: '460px' }
-            },{
-                selector: 'divResponsive2', 
-                configs: { width: '775px', height: '460px' }
-            },{
-                selector: 'divResponsive3', 
-                configs: { width: '775px', height: '460px' }            
-            },{
-                selector: 'divResponsive4', 
-                configs: { width: '775px', height: '460px' }   
-            },{
-                selector: 'divResponsive5', 
-                configs: { width: '775px', height: '460px' }  
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
+            }, {
+                selector: 'divResponsive',
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
+            }, {
+                selector: 'divResponsive2',
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
+            }, {
+                selector: 'divResponsive3',
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
+            }, {
+                selector: 'divResponsive4',
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
+            }, {
+                selector: 'divResponsive5',
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
             }]);
         })();
     </script>
 
 
 
-<!--      <div id="sliderFrame">
+    <!--      <div id="sliderFrame">
         <div id="slider">
             <img src="slider/resources-images/MagicCircles1.jpg" />
             <img src="slider/resources-images/MagicCircles2.jpg" />
@@ -154,82 +177,93 @@
             <img src="slider/resources-images/MagicCircles8.jpg" />
             <img src="slider/resources-images/MagicCircles9.jpg" />
         </div> -->
-        <!--Custom navigation buttons on both sides-->
-<!--         <div class="group1-Wrapper">
+    <!--Custom navigation buttons on both sides-->
+    <!--         <div class="group1-Wrapper">
             <a onclick="imageSlider.previous()" class="group1-Prev"></a>
             <a onclick="imageSlider.next()" class="group1-Next"></a>
         </div> -->
-        <!--nav bar-->
-<!--         <div style="text-align:center;padding:20px;z-index:20;">
+    <!--nav bar-->
+    <!--         <div style="text-align:center;padding:20px;z-index:20;">
             <a onclick="imageSlider.previous()" class="group2-Prev"></a>
             <a id='auto' onclick="switchAutoAdvance()"></a>
             <a onclick="imageSlider.next()" class="group2-Next"></a>
         </div>
     </div> -->
 
-         <script type="text/javascript">
+    <script type="text/javascript">
         //The following script is for the group 2 navigation buttons.
-    //     function switchAutoAdvance() {
-    //         imageSlider.switchAuto();
-    //         switchPlayPauseClass();
-    //     }
-    //     function switchPlayPauseClass() {
-    //         var auto = document.getElementById('auto');
-    //         var isAutoPlay = imageSlider.getAuto();
-    //         auto.className = isAutoPlay ? "group2-Pause" : "group2-Play";
-    //         auto.title = isAutoPlay ? "Pause" : "Play";
-    //     }
-    //     switchPlayPauseClass();
-    // </script>
+        //     function switchAutoAdvance() {
+        //         imageSlider.switchAuto();
+        //         switchPlayPauseClass();
+        //     }
+        //     function switchPlayPauseClass() {
+        //         var auto = document.getElementById('auto');
+        //         var isAutoPlay = imageSlider.getAuto();
+        //         auto.className = isAutoPlay ? "group2-Pause" : "group2-Play";
+        //         auto.title = isAutoPlay ? "Pause" : "Play";
+        //     }
+        //     switchPlayPauseClass();
+        //
+    </script>
 
     <div class="col-2-2" id="sliderFrame">
-                    <div id="slider">
-                        <img class="mySlides" src="slider/resources-images/MagicCircles1.jpg" />
-                        <img class="mySlides" src="slider/resources-images/MagicCircles2.jpg" />
-                        <img class="mySlides" src="slider/resources-images/MagicCircles3.jpg"/>
-                        <img class="mySlides" src="slider/resources-images/MagicCircles4.jpg" />
-                        <img class="mySlides" src="slider/resources-images/MagicCircles5.jpg" />
-                        <img class="mySlides" src="slider/resources-images/MagicCircles6.jpg" />
-                        <img class="mySlides" src="slider/resources-images/MagicCircles7.jpg" />
-                        <img class="mySlides" src="slider/resources-images/MagicCircles8.jpg" />
-                        <img class="mySlides" src="slider/resources-images/MagicCircles9.jpg" />
-                    </div> <!-- end slider div--> 
-                    <a class="w3-btn-floating w3-yellow w3-hover-khaki w3-display-left" onclick="plusDivs(-1)">&#10094;</a>
-                    <a class="w3-btn-floating w3-yellow w3-hover-khaki w3-display-right" onclick="plusDivs(+1)">&#10095;</a>
-                </div> <!-- end second col --> 
-            </div> <!-- end grid --> 
+        <div id="slider">
+            <img class="mySlides" src="slider/resources-images/MagicCircles1.jpg" />
+            <img class="mySlides" src="slider/resources-images/MagicCircles2.jpg" />
+            <img class="mySlides" src="slider/resources-images/MagicCircles3.jpg" />
+            <img class="mySlides" src="slider/resources-images/MagicCircles4.jpg" />
+            <img class="mySlides" src="slider/resources-images/MagicCircles5.jpg" />
+            <img class="mySlides" src="slider/resources-images/MagicCircles6.jpg" />
+            <img class="mySlides" src="slider/resources-images/MagicCircles7.jpg" />
+            <img class="mySlides" src="slider/resources-images/MagicCircles8.jpg" />
+            <img class="mySlides" src="slider/resources-images/MagicCircles9.jpg" />
+        </div>
+        <!-- end slider div-->
+        <a class="w3-btn-floating w3-yellow w3-hover-khaki w3-display-left" onclick="plusDivs(-1)">&#10094;</a>
+        <a class="w3-btn-floating w3-yellow w3-hover-khaki w3-display-right" onclick="plusDivs(+1)">&#10095;</a>
+    </div>
+    <!-- end second col -->
+    </div>
+    <!-- end grid -->
 
-              <script>
-            var slideIndex = 0;
-            carousel();
+    <script>
+        var slideIndex = 0;
+        carousel();
 
-            function carousel() {
-                var i;
-                var x = document.getElementsByClassName("mySlides");
-                for (i = 0; i < x.length; i++) {
-                   x[i].style.display = "none";
-                }
-                slideIndex++;
-                if (slideIndex > x.length) {slideIndex = 1}
-                x[slideIndex-1].style.display = "block";
-                setTimeout(carousel, 3000); // Change image every 3 seconds
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
             }
-
-            function plusDivs(n) {
-              showDivs(slideIndex += n);
+            slideIndex++;
+            if (slideIndex > x.length) {
+                slideIndex = 1
             }
+            x[slideIndex - 1].style.display = "block";
+            setTimeout(carousel, 3000); // Change image every 3 seconds
+        }
 
-            function showDivs(n) {
-              var i;
-              var x = document.getElementsByClassName("mySlides");
-              if (n > x.length) {slideIndex = 1}
-              if (n < 1) {slideIndex = x.length}
-              for (i = 0; i < x.length; i++) {
-                 x[i].style.display = "none";
-              }
-              x[slideIndex-1].style.display = "block";
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) {
+                slideIndex = 1
             }
-            </script>
+            if (n < 1) {
+                slideIndex = x.length
+            }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+    </script>
 
-	</body>
+</body>
+
 </html>

@@ -1,122 +1,114 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<!-- materialize css -->
-		<link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
 
-		<!-- jquery js -->
-  		<script src="public/javascript/jquery-1.12.3.min.js"></script>
+<head>
+    <!-- materialize css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
 
-		<!-- materialize js -->
-  		<script src="public/javascript/materialize.min.js"></script>
+    <!-- jquery js -->
+    <script src="public/javascript/jquery-1.12.3.min.js"></script>
 
-  		<!-- local js -->
-  		<script src="public/javascript/script.js"></script>
+    <!-- materialize js -->
+    <script src="public/javascript/materialize.min.js"></script>
 
-		<!-- fonts from gapis -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet">
+    <!-- local js -->
+    <script src="public/javascript/script.js"></script>
 
-		<!-- local css -->
-       <link rel="stylesheet" type="text/css" href="stylesheets/explorations.css">
+    <!-- fonts from gapis -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet">
 
-	</head>
+    <!-- local css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/explorations.css">
 
-	<body>
-        <!-- navbar code, copy code to top of body -->
+</head>
 
-        <!-- dropdown structures -->
-        <ul id="dropdown-about" class="dropdown-content">
-            <li><a href="about_2.html">About Primed Minds</a></li>
-            <li><a href="about_2.html#team">The Team</a></li>
-            <li><a href="about_2.html#partners">Partners</a></li>
-        </ul>
+<body>
+    <!-- navbar code, copy code to top of body -->
 
-        <ul id="dropdown-explorations" class="dropdown-content">
-            <li><a href="card.html">Exploration 1</a></li>
-            <li><a href='exploration1-2.html'>Exploration 2</a></li>
-            <li><a href="#">Exploration 3</a></li>
-        </ul>
+    <!-- dropdown structures -->
+    <ul id="dropdown-about" class="dropdown-content">
+        <li><a href="about_2.html">About Primed Minds</a></li>
+        <li><a href="about_2.html#team">The Team</a></li>
+        <li><a href="about_2.html#partners">Partners</a></li>
+    </ul>
 
-        <!-- nav wrapper -->
-        <nav class="red navbar navbar-default navbar-fixed-top" id="nav_bar">
-            <div class="container">
-                <a href="index.html"><img id="pom" src="assets/pom.png"></a>
-                <a href="index.html" id="logo">PRIMED MINDS</a>
+    <ul id="dropdown-explorations" class="dropdown-content">
+        <li><a href="card.html">Exploration 1</a></li>
+        <li><a href='exploration1-2.html'>Exploration 2</a></li>
+        <li><a href="#">Exploration 3</a></li>
+    </ul>
 
-                <!-- right aligned navitems -->
-                <ul class="right">
-                        <!-- change 'active' class based on current page -->
-                        <li><a href="index.html">Home</a></li>
-                        <li><a class="dropdown-button" href="about_2.html" data-activates="dropdown-about">About</a></li>
-                        <li class="active"><a class="dropdown-button" href="explorations.html" data-activates="dropdown-explorations">Explorations</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                        <li><a href="contact.html">FAQ</a></li>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <!-- nav wrapper -->
+    <nav class="red navbar navbar-default navbar-fixed-top" id="nav_bar">
+        <div class="container">
+            <a href="index.html"><img id="pom" src="assets/pom.png"></a>
+            <a href="index.html" id="logo">PRIMED MINDS</a>
 
-        <div class="exploration-page-container" id="main">
-            <h3 class="centered">Explorations</h3>
-            <div class='flex-container'>
-
-								<div class='explore-cont'>
-                    <div class='explore-cont-left'>
-                        <a href="card.html">
-                            <h3>Spot It</h3>
-                        <p>What do monsters stretching out to relax have to do with the math behind the card game Spot It?</p>
-                            <p><strong>Concepts:</strong> slope, parallel lines, and irrational numbers</p>
-                        <div class='button'>EXPLORE</div></a>
-                    </div>
-                    <div class='explore-cont-right'>
-                        <img src='assets/exploration1 cover.jpg'>
-                    </div>
-                </div>
-
-                <div class='explore-cont'>
-                    <div class='explore-cont-left'>
-                        <a href="exploration1-2.html">
-                            <h3>Placeholder for Graphing</h3>
-                        <p>This is a placeholder to reach the graphing exploration. This exploration will later be linked to Spot It as a second part, but for now click here!</p>
-                        <div class='button'>EXPLORE</div></a>
-                    </div>
-                    <div class='explore-cont-right'>
-                        <img src='assets/graphcover.jpg'>
-                    </div>
-                </div>
-
-
-								<div class='explore-cont' id='two'>
-                    <div class='explore-cont-left'>
-                        <a href="#two">
-                            <h3 class='smallll'>Power of Parity and Pigeons</h3>
-                        <p>Walk through an ancient city, shake hands with monsters and cut loopy one-sided pieces of paper.</p>
-                            <p><strong>Concepts:</strong> Parity, Pigeon-hole principle</p>
-                        <div class='button'>EXPLORE</div></a>
-                    </div>
-                    <div class='explore-cont-right'>
-                       Under Construction
-                    </div>
-                </div>
-
-
-								<div class='explore-cont' id='three'>
-										<div class='explore-cont-left'>
-												<a href="#three">
-														<h3 class='smallll'>Chocolate for Aliens</h3>
-												<p>Explore how to count to infinity, and how not to. Along the way rescue a lot of aliens from a wormhole in space, and share the taste of chocolate with all of them. </p>
-														<p><strong>Concepts:</strong> Countable and uncountable infinity, Geometric Series</p>
-												<div class='button'>EXPLORE</div></a>
-										</div>
-										<div class='explore-cont-right'>
-												Under Construction
-										</div>
-								</div>
-
-
-
-            </div>
+            <!-- right aligned navitems -->
+            <ul class="right">
+                <!-- change 'active' class based on current page -->
+                <li><a href="index.html">Home</a></li>
+                <li><a class="dropdown-button" href="about_2.html" data-activates="dropdown-about">About</a></li>
+                <li class="active"><a class="dropdown-button" href="explorations.html" data-activates="dropdown-explorations">Explorations</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">FAQ</a></li>
+                </li>
+            </ul>
         </div>
-	</body>
+    </nav>
+
+    <div class="exploration-page-container" id="main">
+        <div class='flex-container'>
+
+            <div class='explore-cont'>
+                <div class='explore-cont-left'>
+                    <a href="card.html">
+                        <h3>Spot It</h3>
+                        <p>What do monsters stretching out to relax have to do with the math behind the card game Spot It?</p>
+                        <p><strong>Concepts:</strong> slope, parallel lines, and irrational numbers</p>
+                        <div class='button'>EXPLORE</div>
+                    </a>
+                </div>
+                <div class='explore-cont-right'>
+                    <img src='assets/exploration1 cover.jpg'>
+                </div>
+            </div>
+
+
+            <div class='explore-cont' id='two'>
+                <div class='explore-cont-left'>
+                    <a href="#two">
+                        <h3 class='smallll'>Power of Parity and Pigeons</h3>
+                        <p>Walk through an ancient city, shake hands with monsters and cut loopy one-sided pieces of paper.</p>
+                        <p><strong>Concepts:</strong> Parity, Pigeon-hole principle</p>
+                        <div class='button'>EXPLORE</div>
+                    </a>
+                </div>
+                <div class='explore-cont-right'>
+                    Under Construction
+                </div>
+            </div>
+
+
+            <div class='explore-cont' id='three'>
+                <div class='explore-cont-left'>
+                    <a href="#three">
+                        <h3 class='smallll'>Chocolate for Aliens</h3>
+                        <p>Explore how to count to infinity, and how not to. Along the way rescue a lot of aliens from a wormhole in space, and share the taste of chocolate with all of them. </p>
+                        <p><strong>Concepts:</strong> Countable and uncountable infinity, Geometric Series</p>
+                        <div class='button'>EXPLORE</div>
+                    </a>
+                </div>
+                <div class='explore-cont-right'>
+                    Under Construction
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+
 </html>

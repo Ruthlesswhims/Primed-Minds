@@ -1,388 +1,187 @@
 <!DOCTYPE html>
 <html>
-	<head lang="en">
-	    <meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	    <title>Spot It Exploration</title>
-			<!-- materialize css -->
-			<link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spot It Exploration</title>
+    <!-- materialize css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- fonts from gapis -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300">
+    <!-- local css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/card.css">
 
+</head>
 
-			<!-- fonts from gapis -->
-			<link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet">
-			<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-			<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300">
+<body>
 
-			<!-- local css -->
-			<link rel="stylesheet" type="text/css" href="stylesheets/card.css">
-	</head>
 
-	<body>
-	    <!-- navbar code, copy code to top of body -->
 
-	    <!-- dropdown structures -->
-<!--<div class='absolute-container'>
-<div class='video-container'>
+    <div id='backHome-container'>
+        <a href='explorations.html'>
+            <div id='backHome'></div>
+        </a>
+        Back to Explorations
+    </div>
 
-		<iframe id='video-iframe' src="https://www.youtube.com/embed/A5P29MO0X-U" frameborder="0" allowfullscreen></iframe>
 
-</div>
-</div>-->
-<div class='progression red'>
-	<div id="scroll-wrap">
+    <div class='left-arrow arrow'>
+        <i class="material-icons md-48">arrow_back</i>
+    </div>
 
-		<div class="meter nostripes">
-			<span id='increment' style="width: 9%"></span>
-		</div>
+    <div class='right-arrow arrow'>
 
-	</div>
-</div>
-</div>
+        <i class="material-icons md-48">arrow_forward</i>
 
+    </div>
 
 
 
+    <div id="main">
 
+        <div id='slide' class='container2-video' style="display: inline-block;">
 
-<div id='backHome-container'>
-<a href='explorations.html'><div id='backHome'></div></a>
-  Back to Explorations
-</div>
 
+            <div class='absolute-video-container'>
 
-<div class='left-arrow arrow'>
-<
-</div>
+                <div class="video-container">
+                    <iframe frameborder="0" width="" height="" src="https://www.youtube.com/embed/A5P29MO0X-U?rel=0&amp;showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                </div>
 
-<div class='right-arrow arrow'>
->
-</div>
+            </div>
 
+        </div>
 
 
-<div id="main">
 
-	<div class='container2'>
-		<div class='container2-top'>
-			<p class="bubble" id="text_bubble">Welcome to Spot It! Good Luck!</p>
-		</div>
-		<div class='container2-left'>
+        <div id='slide' class='container2'>
+            <div class='container2-top'>
+                <p class="bubble" id="text_bubble">Welcome to Spot It! Good Luck!</p>
+            </div>
+            <div class='container2-left'>
 
-			<div class="container" id="images">
-				<div id="buttons">
-					<button id="reset" onclick="clearCards()">Start Over</button>
+                <div class="container" id="images">
+                    <div id="buttons">
+                        <button id="reset" onclick="clearCards()">Start Over</button>
 
-					<button id="draw1">Draw Card</button>
-				</div>
+                        <button id="draw1">Draw Card</button>
+                    </div>
 
-				<div id='trash-it'>
-					<img id="trashcan" ondrop="dropTrash(event)" ondragover="allowDrop(event)" src="assets/trash.png">
-				</div>
+                    <div id='trash-it'>
+                        <!--<img id="trashcan" ondrop="dropTrash(event)" ondragover="allowDrop(event)" src="assets/trash.png">-->
+                        <i class="material-icons md-48" id="trashcan" ondrop="dropTrash(event)" ondragover="allowDrop(event)">delete_forever</i>
+                    </div>
 
 
-				<div id="monster_bar" ondrop="dropTrash(event)" ondragover="allowDrop(event)">
-					<img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" src="assets/blackPom-min.png">
-					<img class="monster" id="image bwPom" image="bw" draggable="true" ondragstart="drag(event)" img="" src="assets/bwPom-min.png">
-					<img class="monster" id="image bluePom" image="blue" draggable="true" ondragstart="drag(event)" img="" src="assets/bluePom-min.png">
-					<img class="monster" id="image orangePom" image="orange" draggable="true" ondragstart="drag(event)" img="" src="assets/orangePom-min.png">
-					<img class="monster" id="image purplePom" image="purple" draggable="true" ondragstart="drag(event)" img="" src="assets/purplePom-min.png">
-					<img class="monster" id="image greenPom" image="green" draggable="true" ondragstart="drag(event)" img="" src="assets/greenPom-min.png">
-					<img class="monster" id="image redPom" image="red" draggable="true" ondragstart="drag(event)" img="" src="assets/redPom-min.png">
+                    <div id="monster_bar" ondrop="dropTrash(event)" ondragover="allowDrop(event)">
+                        <img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" src="assets/blackPom-min.png">
+                        <img class="monster" id="image bwPom" image="bw" draggable="true" ondragstart="drag(event)" img="" src="assets/bwPom-min.png">
+                        <img class="monster" id="image bluePom" image="blue" draggable="true" ondragstart="drag(event)" img="" src="assets/bluePom-min.png">
+                        <img class="monster" id="image orangePom" image="orange" draggable="true" ondragstart="drag(event)" img="" src="assets/orangePom-min.png">
+                        <img class="monster" id="image purplePom" image="purple" draggable="true" ondragstart="drag(event)" img="" src="assets/purplePom-min.png">
+                        <img class="monster" id="image greenPom" image="green" draggable="true" ondragstart="drag(event)" img="" src="assets/greenPom-min.png">
+                        <img class="monster" id="image redPom" image="red" draggable="true" ondragstart="drag(event)" img="" src="assets/redPom-min.png">
 
-				</div>
+                    </div>
 
-			</div>
-		</div>
-		<div class='container2-right'>
-			<div class="sortable container" id="cards">
-				<!-- filled in by card.js -->
-			</div>
-		</div>
-	</div>
+                </div>
+            </div>
+            <div class='container2-right'>
+                <div class="sortable container" id="cards">
+                    <!-- filled in by card.js -->
+                </div>
+            </div>
+        </div>
 
 
+        <div id='slide' class='placeholder'>
+            <h1>Placeholder #1</h1>
+        </div>
+        <div id='slide' class='placeholder'>
+            <h1>Placeholder #2</h1>
+        </div>
+        <div id='slide' class='placeholder'>
+            <h1>Placeholder #3</h1>
+        </div>
+        <div id='slide' class='placeholder'>
+            <h1>Placeholder #4</h1>
+        </div>
 
+        <!--<div class='container2-video'>
 
-	<div class='container2-video'>
 
+            <div class='absolute-video-container'>
 
-		<div class='absolute-video-container'>
+                <div class="video-container">
+                    <iframe frameborder="0" width="" height="" src="https://www.youtube.com/embed/A5P29MO0X-U?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                </div>
 
-			<div class="video-container">
-				<iframe frameborder="0" width="" height="" src="https://www.youtube.com/embed/A5P29MO0X-U?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-			</div>
+            </div>
 
-		</div>
+        </div>-->
 
-	</div>
 
 
-</div>
 
 
 
 
+    </div>
 
 
+    <div class='progress-'>
+        <div class='progress-tooltip'>
+            <ul>
+                <li>
+                    <div> <i class="material-icons">ondemand_video</i> <span>Video: Learn Spot It</span></div>
+                </li>
+                <li>
+                    <div> <i class="material-icons yellow-color">directions_boat</i> <span>Assemble Spot It</span></div>
+                </li>
+                <li>
+                    <div><i class="material-icons">ondemand_video</i> <span>Placeholder for Something</span></div>
+                </li>
+                <li>
+                    <div> <i class="material-icons red-color">directions_bus</i> <span>Placeholder for Something</span></div>
+                </li>
+                <li>
+                    <div> <i class="material-icons">ondemand_video</i> <span>Placeholder for Something</span></div>
+                </li>
+            </ul>
+        </div>
+        <div class='progress-indicator'>
+            <i class="material-icons md-36 runman">directions_run</i>
+            <div id="scroll-wrap">
+                <div class="meter nostripes">
+                    <span id='increment' style="width: 20%"></span>
+                </div>
+            </div>
+            <i class="material-icons md-36 flag">flag</i>
+        </div>
+    </div>
 
-	<!-- jquery js -->
-	<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- jquery js -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.js" >
+    </script>
 
-	<!-- materialize js -->
-	<script src="public/javascript/materialize.min.js"></script>
+    <!-- materialize js -->
+    <script src="public/javascript/materialize.min.js"></script>
 
-	<!-- local js -->
-	<script src="public/javascript/script.js"></script>
-	<script src="js/card.js"></script>
+    <!-- local js -->
+    <script src="public/javascript/script.js"></script>
+    <script src="js/card.js"></script>
 
-	<script>
+    <script>
+    </script>
 
+</body>
 
-	function onPlayerStateChange(event) {
-	  if (event.data == YT.PlayerState.ENDED){
-	    console.log('ended')
-	  }
-	}
-
-
-	$(function() {
-		$(".meter > span").each(function() {
-			$(this)
-				.data("origWidth", $(this).width())
-				.width(0)
-				.animate({
-					width: $(this).data("origWidth")
-				}, 1200);
-		});
-	});
-
-	$('.right-arrow').on('click',function(){
-
-	var current =	$('#increment').width();
-	var newWidth = current * 1.3;
-	$('#increment').animate(({'width': '+=10%'}))
-
-	if(newWidth>550){
-		$('#increment').stop();
-	}
-
-	});
-
-	$('.left-arrow').on('click',function(){
-
-	var current =	$('#increment').width();
-	var newWidth = current * 1.3;
-	$('#increment').animate(({'width': '-=10%'}))
-
-	if(newWidth<5){
-		$('#increment').stop();
-	}
-
-	});
-
-
-$('.right-arrow').on('click',function(){
-		$(".container2-video").toggle()
-		$(".container2").toggle();
-		$('.left-arrow').toggle();
-
-})
-
-$('.left-arrow').on('click',function(){
-		$(".container2-video").toggle()
-		$(".container2").toggle();
-		$('.left-arrow').toggle();
-})
-
-
-
-	function allowDrop(ev) {
-	    ev.preventDefault();
-	}
-
-	function drag(ev) {
-	    ev.dataTransfer.setData("text", ev.target.id);
-	}
-
-	function dropTrash(ev) {
-		ev.preventDefault();
-		var data = ev.dataTransfer.getData("text");
-		var el = document.getElementById(data);
-		var index = findCardIndex(el.parentNode.id);
-		console.log("removing " + data + " from card: " + index);
-		var dataSubstring = data.substring(0, data.indexOf("_"));
-		var deleted = cards[index].images.delete(dataSubstring);
-		console.log(dataSubstring + " is deleted: " + deleted);
-		el.parentNode.removeChild(el);
-		findCardError();
-	}
-
-	function drop(ev) {
-	    ev.preventDefault();
-	    var data = ev.dataTransfer.getData("text");
-	    var nodeCopy = document.getElementById(data).cloneNode(true);
-  		if (ev.target.childNodes.length < 4) {
-  			var index = findCardIndex(ev.target.id);
-			var contains = cards[index].images.has(data);
-			console.log(contains);
-			if (contains) {
-				document.getElementById("text_bubble").innerHTML = "Oops, you can't repeat monsters on a card!";
-			} else {
-	  			nodeCopy.id += ("_" + index);
-	  			ev.target.appendChild(nodeCopy);
-	  			cards[index].images.add(data);
-	  			console.log("adding " + data + " to " + index)
-	  			findCardError();
-	  		}
-  		} else {
-			document.getElementById("text_bubble").innerHTML = "Sorry! No more than 3 monsters per card";
-  		}
-	}
-
-	// Array of cards (objects).
-	var cards = [];
-
-	// Create 8 cards & push to array of cards.
-	for(var i = 0; i < 8; i++){
-	  // Temporary object
-	  var tempCard = {
-	    // Each card gets a name: card0, card1, etc.
-	    name: 'card' + i,
-	    // By default, each card is invalid (red).
-	    valid: false,
-	    // At the start, cards don't have any images.
-	    // imageName: numPresent,
-	    images: new Set(),
-	  }
-
-      // Add temp card to array of cards.
-      cards.push(tempCard);
-	}
-
-	function clearCards() {
-		for(var i=0; i<cards.length; i++) {
-			document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
-			var el = document.getElementById(cards[i].name);
-			// Should always have one child (the handle span, which is always child[0])
-			while (el.childNodes.length != 1) {
-				el.removeChild(el.childNodes[1]);
-			}
-
-			cards[i].images.clear();
-			cards[i].valid = false;
-		}
-	}
-
-	/*
-	 * Find index of a card in 'cards' array based on its name.
-	 * Returns -1 if card is not found.
-	 * Returns card index (in this case 0 - 6) if found.
-	 */
-	function findCardIndex(cardName) {
-		// Set index to -1 (not found) by default. If found, we'll overwrite this.
-		var index = -1;
-
-		// Iterate through all the cards.
-		for(var i = 0; i < cards.length; i++){
-	          if (cards[i].name == cardName) {
-	              // Card name found. Set index & end looop.
-	              index = i;
-	              break;
-	          }
-		}
-
-	        return index;
-	} /*END findCardIndex()*/
-
-	// Finds the first error, if any
-	function findCardError() {
-		var foundError = false;
-		var i=0;
-		while(!foundError && i<cards.length) {
-			for(var j=0; j<cards.length; j++) {
-				// don't compare to itself
-				if (i!=j) {
-					// only cards with 3 monsters should be compared
-					if (cards[i].images.size == 3 && cards[j].images.size == 3) {
-						var matches = 0;
-						cards[j].images.forEach(function(image) {
-							if (cards[i].images.has(image)) {
-								matches++;
-							}
-						});
-						if(matches != 1) {
-							foundError = true;
-							cards[i].valid = false;
-							cards[j].valid = false;
-							var text = "Oh no! ";
-							if (matches == 0) {
-								text = "Oops! These two cards don't have a match.";
-							} else {
-								text = "Oh no! Cards can only match ONE monster.";
-							}
-							colorErrors(i, j, text);
-						} else {
-							cards[i].valid = true;
-							cards[j].valid = true;
-						}
-					}
-				}
-			}
-			i++;
-		}
-		if (!foundError) {
-			colorCards();
-		}
-	}
-
-	// Color cards x and y red, rest of the cards should be yellow
-	function colorErrors(x, y, text) {
-		document.getElementById(cards[x].name).style.backgroundColor = "#f5493d";
-		document.getElementById(cards[y].name).style.backgroundColor = "#f5493d";
-		for(var i=0; i<cards.length; i++) {
-			if(i != x && i != y) {
-				document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
-				document.getElementById("text_bubble").innerHTML = text;
-			}
-		}
-
-	}
-
-	// Called if no error was found
-	// Color all matching cards green, non-matched cards yellow
-	function colorCards() {
-		for(var i=0; i<cards.length; i++) {
-			if (cards[i].images.size != 3) {
- 				document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
-			} else {
-				if (cards[i].valid) {
-					document.getElementById(cards[i].name).style.backgroundColor = "#53dd25";
-					document.getElementById("text_bubble").innerHTML = "Great job! Can you match more cards?";
-				} else {
-					document.getElementById(cards[i].name).style.backgroundColor = "#ffdd54";
-				}
-			}
-		}
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	</script>
-
-	</body>
 </html>

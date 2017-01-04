@@ -26,8 +26,6 @@
               onchange="updateValue(this.value, 'slope_text')">
               </div>
               <div class="row">
-            <!-- the line of the fraction --> 
-            <!-- <hr class="slope"> -->
             <input class="slope" type="number" id="denominator" value="2" step="1" 
               onchange="updateValue(this.value, 'slope_text')">
               </div>
@@ -155,7 +153,7 @@
       var num = parseFloat(validate());
 
       if (num == INVALID_VALUE) {
-        document.getElementById("error-text").innerHTML = "cannot fire - slope must be between -10 and 10";
+        document.getElementById("error-text").innerHTML = "cannot fire - slope must be between 0 and 10";
         return;
       }
 

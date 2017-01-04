@@ -26,8 +26,12 @@ body {
   justify-content: center;
 }
 
-.col-md-2 {
+.row > .fraction {
+  padding: 0px;
+}
 
+.row > .col-md-2 { 
+  padding: 10px;
 }
 
 .row {

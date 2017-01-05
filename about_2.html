@@ -17,6 +17,7 @@
     <script src="public/javascript/script.js"></script>
 
     <!-- fonts from gapis -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet">
 
@@ -124,6 +125,15 @@
                 <div class="answer" id="a5">
                     <p>There's been enough talk, just pick <a href="/explorations.html">one</a> and dive in!</p>
                 </div>
+
+                <div id="q6">
+                    <h3>
+                        <div class="w3-btn w3-round-xxlarge w3-green arrow" id="q6-plus">+</div>Are there any teacher resources?</h3>
+                </div>
+                <div class="answer" id="a6">
+                    <p>Yes! We have lesson plans to accompany Exlporations that expand and relate materials to standard curriculum. Check our <a href="/explorations.html">Resources 
+                        Page </a>for more information</p>
+                </div>
                 <br><br>
             </div>
             <!-- end first col -->
@@ -147,16 +157,16 @@
                     <img class="mySlides" src="slider/images/AboutSlideShow15.jpg" />
                 </div>
                 <!-- end slider div-->
-                <a class="w3-btn-floating w3-yellow w3-hover-khaki w3-display-left" onclick="plusDivs(-1)">&#10094;</a>
-                <a class="w3-btn-floating w3-yellow w3-hover-khaki w3-display-right" onclick="plusDivs(+1)">&#10095;</a>
+                <a class="arrowss left-arrowss" onclick="plusDivs(-1)"><i class="material-icons md-36">arrow_back</i></a>
+                <a class="arrowss right-arrowss" onclick="plusDivs(+1)"><i class="material-icons md-36">arrow_forward</i></a>
             </div>
             <!-- end second col -->
         </div>
         <!-- end grid -->
 
         <div class="grid" id="team">
-            <h1 class="h1" id="team-header">THE TEAM</h1>
-            <h2 class="h2">(Hover over to learn more)</h2>
+            <h1 class="h1" id="team-header">Team</h1>
+            <h2 class="h2"></h2>
             <div class="col-1-3">
                 <div class="team1">
                     <img src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-circle-512.png" width="100px" height="100px"></img>
@@ -191,7 +201,44 @@
         </div>
         <!-- end grid/ team div  -->
 
-        <div class="grid" id="partners">
+        <div class="grid" id="team">
+            <h1 class="h1" id="team-header">Partners</h1>
+            <h2 class="h2"></h2>
+            <div class="col-1-3">
+                <div class="partner1">
+                    <a href="http://mathspathway.com" target="_blank"><img src="aboutphotos/mathspathway.jpg" title="Maths Pathway"></a>
+                </div>
+                <div class="pbio1">
+                    <h3>Maths Pathway</h3>
+                    <p>An Australian Online learning company that believes in individualized learning. Trialing Primed Minds in over 100 schools throughout Australia.
+                    </p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="partner2">
+                    <a href="http://betterexplained.com" target="_blank"><img src="aboutphotos/betterexplained.jpg" title="Better Explained"></a>
+                </div>
+                <div class="pbio2">
+                    <h3>Betterexplained.com</h3>
+                    <p>Kalid, the mastermind behind BetterExplained.com has exquisite mathematical taste and helps advise on content.
+                    </p>
+                </div>
+            </div>
+            <div class="col-3-3">
+                <div class="partner3">
+                    <a href="http://mathforlove.com/" target="_blank"><img src="aboutphotos/math4love.jpg" title="Math For Love"></a>
+                </div>
+                <div class="pbio3">
+                    <h3>Math for Love</h3>
+                    <p>Founder of Math for Love, Dan Finkel, has facilitated road-testing of Primed Minds in dozens of schools around Seattle.
+                    </p>
+                </div>
+            </div>
+            <!-- end col-->
+        </div>
+
+
+        <!--<div class="grid" id="partners">
             <h1 class="h1">PARTNERS</h1>
             <div class="col-1-3">
                 <a href="http://mathspathway.com" target="_blank"><img src="aboutphotos/mathspathway.jpg" title="Maths Pathway"></a>
@@ -202,7 +249,7 @@
             <div class="col-3-3">
                 <a href="http://mathforlove.com/" target="_blank"><img src="aboutphotos/math4love.jpg" title="Math For Love"></a>
             </div>
-        </div>
+        </div>-->
         <!-- end partners div -->
 
         <!-- contact us button -->

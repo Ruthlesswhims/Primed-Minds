@@ -1,0 +1,106 @@
+<!-- /* boom-lighbox: Pure javascript responsive lightbox */ -->
+<!-- /* MIT License copyright (c) 2016 Boom Interactive Inc, Jason Jakob, boominteractiveinc@gmail.com */ -->
+
+<!DOCTYPE html>
+	<head>
+		<!-- includes for boom-lightbox -->
+		<link rel="stylesheet" type="text/css" href="css/boom-lightbox/boom-lightbox.1.0.0.min.css" />
+	  <script type="text/javascript" src="js/boom-lightbox/boom-lightbox.1.0.0.min.js"></script>
+	</head>
+  	
+	<body>
+		<h1>boom-lighbox: A pure javascript responsive lightbox</h1>
+		
+		<h2>License</h2>
+		<p>Developed by Jason Jakob, Boom Interactive Inc., boominteractiveinc@gmail.com</p>
+		<p>boom-lightbox is licensed under <a href="https://github.com/boominteractive/boom-lightbox/blob/master/LICENSE">The MIT License.</a></p>
+		<p> - 100% Free. boom-lightbox is free to use in both commercial and non-commercial work.</p>
+		<p> - Attribution is required.This means you must leave my name, my homepage link, and the license info intact. None of these items have to be user-facing and can remain within the code.</p>
+		
+		<h2>Introduction</h2>
+		<p>light weight (14k minified), fast and easy to implement, content can be youtube, audio, etc.</p>
+		
+		<h2>Install</h2>
+		<p>include the following in the head section</p>		
+		
+		<pre><code>		
+&lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/boom-lightbox/boom-lightbox.1.0.0.min.css" /&gt;
+    &lt;script type="text/javascript" src="js/boom-lightbox/boom-lightbox.1.0.0.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+    </code></pre>
+
+    <h2>Usage</h2>
+		<p>Use the css class boom-lightbox on the container div that contains content</p>
+		
+    <pre><code>
+&lt;body&gt;
+    &lt;a href="#" onclick="boomLightBoxShow('divStatic');"&gt;Open Video in Static Lightbox&lt;/a&gt;
+    &lt;div id="divStatic" class="boom-lightbox" style="display: none;"&gt;
+    	&lt;iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/M7lc1UVf-VE" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+    
+    &lt;a href="#" onclick="boomLightBoxShow('divResponsive');"&gt;Open Content in Responsive Lightbox&lt;/a&gt;
+    &lt;div id="divResponsive" class="boom-lightbox" style="display: none;"&gt;
+        &lt;p&gt;This is responsive content&lt;/p&gt;
+    &lt;/div&gt;
+    
+    
+    &lt;!-- place the initialization at the end of the code --&gt;
+    &lt;script type="text/javascript"&gt;
+    	 (function() { //document ready, init one or more lightbox divs
+            boomLightBoxInit([{
+                selector: 'divStatic',
+                configs: { width: '721px', height: '406px' }
+            },{
+                selector: 'divResponsive',
+                configs: { width: '60%', height: '60%' }
+            }]);
+        })();
+    &lt;/script&gt;
+&lt;/body&gt;
+    </code></pre>
+
+		<h2>Exmples</h2>
+		<p>click the links to see different ways of using lightbox</p>		
+		
+		
+		<!-- setup some buttons to trigger popups in code -->
+		<a href="#" onclick="boomLightBoxShow('divStatic');">Open Video in Static Lightbox</a>
+		<br/><br/>
+		<a href="#" onclick="boomLightBoxShow('divResponsive');">Open Content in Responsive Lightbox</a>
+				
+		<!-- define some divs to hold content in lightboxes -->
+		<div id="divStatic" class="boom-lightbox" style="display: none;">
+			<center>
+				 <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/M7lc1UVf-VE" frameborder="0" allowfullscreen></iframe>
+      </center>
+    </div>  
+    
+    <div id="divResponsive" class="boom-lightbox" style="display: none;">
+			<center>
+      	 <h1>Responsive popup content</h1>
+      </center>
+    </div>  
+    
+    
+    <h2>Browser Support</h2>
+			<p>All known browsers</p>
+		</head>
+	
+	
+    <!-- initialize the light boxes -->
+    <script type="text/javascript">
+    	 (function() { //document ready
+    			//init one or more lightbox divs
+            boomLightBoxInit([{
+                selector: 'divStatic',
+                configs: { width: '721px', height: '406px' }
+            },{
+                selector: 'divResponsive',
+                configs: { width: '60%', height: '60%' }
+            }]);
+			  })();
+    </script>
+	</body>
+</html>

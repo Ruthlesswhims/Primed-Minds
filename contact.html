@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Primed Minds</title>
+    <!-- materialize css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
+
+    <!-- jquery js -->
+    <script src="public/javascript/jquery-1.12.3.min.js"></script>
+
+    <!-- materialize js -->
+    <script src="public/javascript/materialize.min.js"></script>
+
+    <!-- local js -->
+    <script src="javascript/navbar.js"></script>
+
+    <!-- fonts from gapis -->
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300">
+
+    <!-- local css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/contact.css">
+    <script src="javascript/contact.js"></script>
+</head>
+
+<body>
+    <!-- navbar code, copy code to top of body -->
+
+    <!-- dropdown structures -->
+    <ul id="dropdown-about" class="dropdown-content">
+        <li><a href="about_2.html">About Primed Minds</a></li>
+        <li><a href="about_2.html#team">The Team</a></li>
+        <li><a href="about_2.html#partners">Partners</a></li>
+    </ul>
+
+    <ul id="dropdown-explorations" class="dropdown-content">
+        <li><a href="card.html">Exploration 1</a></li>
+        <li><a href="#">Exploration 2</a></li>
+        <li><a href="#">Exploration 3</a></li>
+    </ul>
+
+    <!-- nav wrapper -->
+    <nav class="red navbar navbar-default navbar-fixed-top" id="nav_bar">
+        <div class="container">
+            <a href="index.html"><img id="pom" src="assets/pom.png"></a>
+            <a href="index.html" id="logo">PRIMED MINDS</a>
+
+            <!-- right aligned navitems -->
+            <ul class="right">
+                <!-- change 'active' class based on current page -->
+                <li><a href="index.html">Home</a></li>
+                <li><a class="dropdown-button" href="about_2.html" data-activates="dropdown-about">About</a></li>
+                <li><a class="dropdown-button" href="explorations.html" data-activates="dropdown-explorations">Explorations</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li class="active"><a href="contact.html">FAQ</a></li>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="main">
+        <h1> CONTACT US </h1>
+        <p>Name: <input type="text" id="name"></p>
+        <div id="name-msg"></div>
+        <p>Email: <input type="text" id="email"></p>
+        <div id="email-msg"></div>
+        <p>Message: <textarea id="message" rows="10" cols="50"></textarea></p>
+        <div id="message-msg"></div>
+        <p><button onclick="validate()">Submit</button></p>
+        <div id="success"></div>
+    </div>
+
+    <div id="faq">
+        <h1>FAQ</h1>
+        <a href='about_2.html'>
+            <div class='faq-button'>What is Primed Minds?</div>
+        </a>
+        <br>
+        <a href='resources.html'>
+            <div class='faq-button'>Are there any teacher resources?</div>
+        </a>
+    </div>
+</body>
+
+</html>

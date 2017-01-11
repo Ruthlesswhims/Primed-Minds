@@ -1,0 +1,284 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 48px;
+    font-family: "Open Sans";
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#header {
+    position: relative;
+    float: left;
+    margin-left: -225px;
+    top: 35px;
+}
+
+#main {
+    width: 100%;
+    max-width: 900px;
+    margin: 70px auto;
+}
+
+#sliderFrame {
+    position: absolute;
+    right: 50px;
+    top: 100px;
+    display: none;
+}
+
+
+/* NAVBAR STYLING */
+
+nav ul li {
+    text-align: center;
+}
+
+.title-logo {
+    font-size: 20px;
+    margin-left: 1%;
+}
+
+.title-image {
+    width: 50px;
+    height: 50px;
+    margin-left: 12px;
+    margin-bottom: 9px;
+    vertical-align: middle;
+}
+
+
+/* NAVBAR STYLING */
+
+nav ul li {
+    text-align: center;
+}
+
+.nav-wrapper {
+    font-family: "Open Sans";
+}
+
+#heading {
+    margin-top: 0;
+    box-sizing: border-box;
+    font-size: 38pt;
+    padding-top: 5px;
+    background-color: white;
+}
+
+#pom {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 10pt;
+}
+
+#logo {
+    font-family: 'Arima Madurai', cursive;
+    font-size: 30pt;
+}
+
+.title-logo {
+    font-size: 20px;
+    margin-left: 1%;
+}
+
+.title-image {
+    width: 50px;
+    height: 50px;
+    margin-left: 12px;
+    margin-bottom: 9px;
+    vertical-align: middle;
+}
+
+.nav-wrapper {
+    margin-left: 40px;
+    margin-right: 40px;
+    position: fixed;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#dropdown-about {
+    min-width: 250px;
+}
+
+#dropdown-explorations {
+    min-width: 140px;
+}
+
+.dropdown-content li a {
+    color: red;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ffe900
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#main a {
+    color: #da3b2f;
+    font-weight: 600;
+}
+
+#main a::after {
+    font-family: 'Material Icons';
+    content: '\E04A';
+    font-size: 14pt;
+    margin-left: 5px;
+    color: #e46056;
+    vertical-align: sub
+}
+
+#desmosP a::after {
+    content: '\E879';
+}
+
+#ext_sources h2 a {
+    vertical-align: sub
+}
+
+#ext_sources h2 a:after {
+    display: none;
+}
+
+.css3-tabstrip {
+    width: 100%;
+    max-width: 900px;
+    height: 220px;
+    margin: 100px auto;
+    display: none
+}
+
+.css3-tabstrip ul,
+.css3-tabstrip li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.css3-tabstrip,
+.css3-tabstrip input[type="radio"]:checked+label {
+    position: relative;
+}
+
+.css3-tabstrip li,
+.css3-tabstrip input[type="radio"]+label {
+    display: inline-block;
+}
+
+.css3-tabstrip li>div,
+.css3-tabstrip input[type="radio"] {
+    position: absolute;
+}
+
+.css3-tabstrip li>div,
+.css3-tabstrip input[type="radio"]+label {
+    border: solid 1px #ccc;
+}
+
+.css3-tabstrip {
+    font: normal 13pt Arial, Sans-serif;
+    color: #404040;
+}
+
+.css3-tabstrip li {
+    vertical-align: top;
+}
+
+.css3-tabstrip li:first-child {
+    margin-left: 8px;
+}
+
+.css3-tabstrip li>div {
+    top: 33px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px;
+    background: #fff;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.css3-tabstrip input[type="radio"]+label {
+    margin: 0 2px 0 0;
+    padding: 0 18px;
+    line-height: 32px;
+    background: #f1f1f1;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.css3-tabstrip input[type="radio"]:checked+label {
+    z-index: 1;
+    background: #fff;
+    border-bottom-color: #fff;
+    cursor: default;
+}
+
+.css3-tabstrip input[type="radio"] {
+    opacity: 0;
+}
+
+.css3-tabstrip input[type="radio"]~div {
+    display: none;
+}
+
+.css3-tabstrip input[type="radio"]:checked:not(:disabled)~div {
+    display: block;
+}
+
+.css3-tabstrip input[type="radio"]:disabled+label {
+    opacity: .5;
+    cursor: no-drop;
+}
+
+.css3-tabstrip input[type="radio"] {
+    visibility: hidden
+}
+
+[type="radio"]:not(:checked)+label,
+[type="radio"]:checked+label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1rem;
+    transition: .28s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: none
+}
+
+label::before {
+    display: none;
+}
+
+label::after {
+    display: none;
+}

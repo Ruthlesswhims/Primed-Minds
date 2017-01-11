@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Primed Minds</title>
+    <!-- materialize css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
+
+    <!-- jquery js -->
+    <script src="public/javascript/jquery-1.12.3.min.js"></script>
+
+    <!-- materialize js -->
+    <script src="public/javascript/materialize.min.js"></script>
+
+    <!-- local js -->
+    <script src="javascript/navbar.js"></script>
+
+    <!-- fonts from gapis -->
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <!-- local css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+</head>
+
+<body>
+    <!-- navbar code, copy code to top of body -->
+
+    <!-- dropdown structures -->
+    <ul id="dropdown-about" class="dropdown-content">
+        <li><a href="about_2.html">About Primed Minds</a></li>
+        <li><a href="about_2.html#team">The Team</a></li>
+        <li><a href="about_2.html#partners">Partners</a></li>
+    </ul>
+
+    <ul id="dropdown-explorations" class="dropdown-content">
+        <li><a href="card.html">Exploration 1</a></li>
+        <li><a href="#">Exploration 2</a></li>
+        <li><a href="#">Exploration 3</a></li>
+    </ul>
+
+    <!-- nav wrapper -->
+    <nav class="red navbar navbar-default navbar-fixed-top" id="nav_bar">
+        <div class="container">
+            <a href="index.html"><img id="pom" src="assets/pom.png"></a>
+            <a href="index.html" id="logo">PRIMED MINDS</a>
+
+            <!-- right aligned navitems -->
+            <ul class="right">
+                <!-- change 'active' class based on current page -->
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a class="dropdown-button" href="about_2.html" data-activates="dropdown-about">About</a></li>
+                <li><a class="dropdown-button" href="explorations.html" data-activates="dropdown-explorations">Explorations</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html">FAQ</a></li>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="main">
+        <video playsinline autoplay muted loop id="bgvid">
+		        <source src="assets/spotit1.mp4" type="video/mp4">
+		    </video>
+
+        <p id="homeText">A tool to inspire you mathematically!</p>
+
+        <footer>
+            &copy; Copyright 2016
+        </footer>
+    </div>
+</body>
+
+</html>

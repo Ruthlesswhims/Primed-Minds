@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- If you delete this meta tag World War Z will become a reality -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploration 1.2</title>
+
+    <!-- Local css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/graphing.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
+
+
+    <!-- jquery js -->
+    <script src="public/javascript/jquery-1.12.3.min.js"></script>
+
+    <!-- materialize js -->
+    <script src="public/javascript/materialize.min.js"></script>
+
+    <!-- local js -->
+    <script src="javascript/graphing.js"></script>
+
+
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- the column containing all the setters for the interactive.
+      This includes the slope input and setters, as well as all buttons --> 
+      <div class="col-md-5" id="setters">
+        <div class="row">
+          <div class="col-md-1 fraction"> y = </div>
+          <div class="col-md-2">
+            <!-- input for the numerator of the fraction --> 
+            <div class="row" id='num'>
+              <input class="slope" type="number" id="numerator" value="2" step="1">
+            </div>
+            <div class="row">
+              <input class="slope" type="number" id="denominator" value="2" step="1">
+            </div>
+          </div>
+          <div class="col-md-1 fraction"> x </div>
+        </div> <!-- end fraction row--> 
+
+        <div class="row-fluid">
+        <input type="range" min="0" max="10" value="2" id="slope_slider" step="0.1" width="100%">
+        </div>
+        <div class="row buttons">
+          <button id="renderButton">Fire!</button>
+        </div>
+        <div class="row">
+          <button id="resetCurrent">Reset</button>
+          <button id="nextConfig">New setup!</button><br>
+        </div>
+      </div> <!-- end setters col--> 
+
+      <!-- the column containing the graph itself --> 
+      <div class="col-md-7" id="graph">
+        <div id="satellite"><img src="assets/graphing/satellite.JPG" width="70px"/></div>
+        <canvas id="myCanvas"></canvas>
+      </div> <!-- end graph col--> 
+    </div> <!-- end row --> 
+  </div> <!-- end container --> 
+
+  <br><br>
+  <p><br></p>
+  <p id="error-text"></p>
+  <p id="slope-text"></p>
+</div>
+</body>
+</html>

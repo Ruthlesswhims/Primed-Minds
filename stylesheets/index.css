@@ -1,0 +1,122 @@
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+}
+
+#homeText {
+    color: white;
+    font-size: 28pt;
+    text-align: center;
+    background-color: black;
+    opacity: 0.7;
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 275px;
+}
+
+footer {
+    background-color: lightgray;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+    font-size: 13pt;
+}
+
+/* IMPORTANT
+Put rest of page in div with id="main"
+This pads the rest of the page below the navbar */
+
+#main {
+    padding-top: 100px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* NAVBAR STYLING */
+nav > ul > li {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25;
+}
+
+#heading {
+    margin-top: 0;
+    box-sizing: border-box;
+    font-size: 38pt;
+    padding-top: 5px;
+    background-color: white;
+}
+
+#pom {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 10pt;
+}
+
+#logo{
+    font-family: 'Arima Madurai', cursive;
+    font-size: 30pt;
+}
+
+.title-logo {
+    font-size: 20px;
+    margin-left: 1%;
+}
+
+.title-image {
+    width: 50px;
+    height: 50px;
+    margin-left: 12px;
+    margin-bottom: 9px;
+    vertical-align: middle;
+}
+
+#nav_bar {
+    position:fixed;
+    min-width: 1200px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#dropdown-about {
+    min-width: 250px;
+}
+
+#dropdown-explorations {
+    min-width: 140px;
+}
+
+.dropdown-content > li > a {
+    color: red;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content > a:hover {
+    background-color: #ffe900;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

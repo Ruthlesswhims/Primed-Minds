@@ -1,0 +1,144 @@
+body {
+  font-size: 14pt;
+}
+
+.container {
+  align-content: space-between;
+}
+
+[class*='col-'] > .row > .slope {
+  text-align: center;
+  width: 40px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14pt;
+  border-bottom: none;
+}
+
+#num {
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  margin: 0px;
+}
+
+.col-md-1 {
+  display: flex;
+  justify-content: center;
+}
+
+.row > .fraction {
+  padding: 0px;
+}
+
+.row > .col-md-2 { 
+  padding: 10px;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.row > [class*='col-'] {
+   display: flex;
+   flex-direction: column;
+}
+
+.buttons {
+  justify-content: center;
+}
+
+[class*='col-'] {
+  padding: 20px;
+}
+
+.row > button {
+  width: 100px;
+  min-height: 85px;
+  padding: 15px; /* padding for the text inside the box */
+  margin-left: 30px; /* margin between button and other objects */
+  margin-right: 30px;
+  border-radius: 10px; /* rounded edges */ 
+  border-width: 0px;
+  background-color: yellow;
+  font-size: 13pt;
+}
+
+button:hover {
+  background-color: red;
+  color: white;
+}
+
+#resetCurrent {
+  float: left;
+}
+
+.hittable {
+  /* position styling */ 
+  position: absolute;
+  padding-top: 30px;
+  /* animation styling */ 
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-fill-mode: forwards;         /* makes it so once animated, object stays there */
+  -webkit-animation-fill-mode: forwards; /* instead of resetting to initial position */ 
+}
+
+@-webkit-keyframes fall {
+    to {top: 400px;}
+}
+
+
+#satellite {
+  margin-top: 400px;
+  position: absolute;
+ /* -webkit-animation-name: turn;
+  animation-name: turn;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;         /* makes it so once animated, object stays there */
+ /* -webkit-animation-fill-mode: forwards; /* instead of resetting to initial position */ 
+}
+
+/*@-webkit-keyframes turn {*/
+  /*to { -webkit-transform:rotate(90deg); }*/
+/*}*/
+/*@keyframes turn {*/
+  /*to { transform:rotate(90deg); }
+/*}*/
+
+#myCanvas {
+  padding-left: 30px;
+}
+
+/* GRID STYLING */
+[class*='col-'] {
+  float: left;
+}
+
+.col-1-2 {
+    width: 35%;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 30px;
+}
+
+.col-2-2 {
+    width: 65%;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 40px;
+    padding-top: 30px;
+}
+.grid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

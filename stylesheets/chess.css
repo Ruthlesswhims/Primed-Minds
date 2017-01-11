@@ -1,0 +1,39 @@
+.chessboard {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #444;
+  width: 400px;
+  height: 400px;
+}
+
+.chessboard .tile {
+  float: left;
+}
+
+.chessboard .missing.tile{
+  background-color: #FFF
+}
+
+.chessboard .white.tile {
+	width: 50px;
+	height: 50px;
+    background-color: #FA7;
+}
+
+.chessboard .black.tile {
+	width: 50px;
+	height: 50px;
+    background-color: #A62;
+}
+
+.chessboard .selected.tile{
+    background-color: #500;
+}
+
+.chessboard .domino.tile{
+    width:46px;
+    height:46px;
+    border: 2px solid #000;
+    background-color: #050;
+}

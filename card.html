@@ -38,7 +38,6 @@
         Back to Explorations
     </div>
 
-
     <div class='left-arrow arrow'>
         <i class="material-icons md-48">arrow_back</i>
     </div>
@@ -51,7 +50,9 @@
         <div id='slide' class='container2-video' style="display: inline-block;">
             <div class='absolute-video-container'>
                 <div class="video-container">
-                    <iframe frameborder="0" width="" height="" src="https://www.youtube.com/embed/A5P29MO0X-U?rel=0&amp;showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                    <iframe frameborder="0" width="" height="" 
+                    src="https://www.youtube.com/embed/A5P29MO0X-U?rel=0&amp;showinfo=0&modestbranding=1" 
+                    frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -60,8 +61,8 @@
             <div class='container2-top'>
                 <p class="bubble" id="text_bubble">Welcome to Spot It! Good Luck!</p>
             </div>
-            <div class='container2-left'>
 
+            <div class='container2-left'>
                 <div class="container" id="images">
                     <div id="buttons">
                         <button id="reset" onclick="clearCards()">Start Over</button>
@@ -74,27 +75,32 @@
                         <i class="material-icons md-48" id="trashcan" ondrop="dropTrash(event)" ondragover="allowDrop(event)">delete_forever</i>
                     </div>
 
-
                     <div id="monster_bar" ondrop="dropTrash(event)" ondragover="allowDrop(event)">
-                        <img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" src="assets/blackPom-min.png">
-                        <img class="monster" id="image bwPom" image="bw" draggable="true" ondragstart="drag(event)" img="" src="assets/bwPom-min.png">
-                        <img class="monster" id="image bluePom" image="blue" draggable="true" ondragstart="drag(event)" img="" src="assets/bluePom-min.png">
-                        <img class="monster" id="image orangePom" image="orange" draggable="true" ondragstart="drag(event)" img="" src="assets/orangePom-min.png">
-                        <img class="monster" id="image purplePom" image="purple" draggable="true" ondragstart="drag(event)" img="" src="assets/purplePom-min.png">
-                        <img class="monster" id="image greenPom" image="green" draggable="true" ondragstart="drag(event)" img="" src="assets/greenPom-min.png">
-                        <img class="monster" id="image redPom" image="red" draggable="true" ondragstart="drag(event)" img="" src="assets/redPom-min.png">
-
+                        <img class="monster" id="image blackPom" draggable="true" ondragstart="drag(event)" 
+                        	src="assets/card/blackPom-min.png">
+                        <img class="monster" id="image bwPom" draggable="true" ondragstart="drag(event)"
+                        	src="assets/card/bwPom-min.png">
+                        <img class="monster" id="image bluePom" draggable="true" ondragstart="drag(event)"
+                        	src="assets/card/bluePom-min.png">
+                        <img class="monster" id="image orangePom" draggable="true" ondragstart="drag(event)" 
+                        	src="assets/card/orangePom-min.png">
+                        <img class="monster" id="image purplePom" draggable="true" ondragstart="drag(event)" 
+                        	src="assets/card/purplePom-min.png">
+                        <img class="monster" id="image greenPom" draggable="true" ondragstart="drag(event)"
+                        	src="assets/card/greenPom-min.png">
+                        <img class="monster" id="image redPom" draggable="true" ondragstart="drag(event)"
+                        	src="assets/card/redPom-min.png">
                     </div>
-
                 </div>
             </div>
+
             <div class='container2-right'>
                 <div class="sortable container" id="cards">
-                    <!-- filled in by card.js -->
+                    <!-- filled in by card.js 
+                    	Intentially left empty here as user has not "drawn" cards yet -->
                 </div>
             </div>
         </div>
-
 
         <div id='slide' class='placeholder'>
             <h1>Placeholder #1</h1>
@@ -108,28 +114,7 @@
         <div id='slide' class='placeholder'>
             <h1>Placeholder #4</h1>
         </div>
-
-        <!--<div class='container2-video'>
-
-
-            <div class='absolute-video-container'>
-
-                <div class="video-container">
-                    <iframe frameborder="0" width="" height="" src="https://www.youtube.com/embed/A5P29MO0X-U?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-                </div>
-
-            </div>
-
-        </div>-->
-
-
-
-
-
-
-
     </div>
-
 
     <div class='progress-'>
         <div class='progress-tooltip'>
@@ -161,12 +146,6 @@
             <i class="material-icons md-36 flag">flag</i>
         </div>
     </div>
-
-    
-
-
-
-
 </body>
 
 </html>

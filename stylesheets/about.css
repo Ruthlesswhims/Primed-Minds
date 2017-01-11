@@ -145,25 +145,25 @@ h3 {
     box-sizing: border-box;
 }
 
-.left-arrowss {
+.left-arrows {
     left: 0;
     cursor: pointer;
 }
 
-.right-arrowss {
+.right-arrows {
     right: 0;
     cursor: pointer;
 }
 
-.right-arrowss:hover {
+.right-arrows:hover {
     transform: translateX(-10px);
 }
 
-.left-arrowss:hover {
+.left-arrows:hover {
     transform: translateX(10px)
 }
 
-.arrowss {
+.arrows {
     top: 50%;
     border-radius: 100px;
     padding: 2px 17px;

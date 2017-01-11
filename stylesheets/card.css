@@ -261,19 +261,6 @@ nav ul li {
     height: 30px;
 }
 
-
-/*@media screen and (max-width: 1400px) {
-    body {
-        background-color: lightblue !important;
-    }
-}
-
-@media screen and (max-width: 1100px) {
-    body {
-        background-color: lightgreen !important;
-    }
-}*/
-
 .bubble {
     position: relative;
     /*width: 450px;
@@ -495,7 +482,6 @@ nav ul li {
 
 
 /*METER*/
-
 .progress-,
 .progress-tooltip,
 .progress-indicator {

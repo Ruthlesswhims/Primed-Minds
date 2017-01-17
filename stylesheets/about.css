@@ -167,7 +167,8 @@ h3 {
 }
 
 .arrows {
-    color: rgba(0, 0, 0, .7) top: 50%;
+    color: rgba(0, 0, 0, .7);
+    top: 50%;
     border-radius: 100px;
     padding: 2px 17px;
     background-color: #f14e32;

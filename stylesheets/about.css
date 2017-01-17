@@ -55,8 +55,10 @@ h3 {
 
 .answer {
     left: 50px;
-    background-color: #D3D3D3;
-    padding: 15px;
+    background-color: #ffe900;
+    box-sizing: border-box;
+    padding: 20px 19px;
+    border-radius: 8px;
     display: none;
 }
 
@@ -132,6 +134,11 @@ h3 {
 .pbio2,
 .pbio3 {
     display: none;
+    background-color: #ffe900;
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 20px 19px;
+    border-radius: 8px;
 }
 
 .grid:after {

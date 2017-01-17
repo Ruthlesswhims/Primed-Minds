@@ -1,3 +1,4 @@
+@import url('about.css');
 body {
     font-family: 'Open Sans', sans-serif;
 }
@@ -20,18 +21,14 @@ h2 {
     top: 35px;
 }
 
-#main {
+
+/*#main {
     width: 100%;
     max-width: 900px;
     margin: 70px auto;
-}
+}*/
 
-#sliderFrame {
-    position: absolute;
-    right: 50px;
-    top: 100px;
-    display: none;
-}
+#sliderFrame {}
 
 
 /* NAVBAR STYLING */
@@ -131,6 +128,10 @@ nav ul li {
     display: block;
 }
 
+#main {
+    padding-top: 150px
+}
+
 #main a {
     color: #da3b2f;
     font-weight: 600;
@@ -138,7 +139,7 @@ nav ul li {
 
 #main a::after {
     font-family: 'Material Icons';
-    content: '\E04A';
+    content: '\E63A';
     font-size: 14pt;
     margin-left: 5px;
     color: #e46056;
@@ -153,132 +154,54 @@ nav ul li {
     vertical-align: sub
 }
 
-#ext_sources h2 a:after {
+#team h3 a:after {
     display: none;
 }
 
-.css3-tabstrip {
-    width: 100%;
-    max-width: 900px;
-    height: 220px;
-    margin: 100px auto;
-    display: none
+#team {
+    padding: 10px 0 300px 0;
 }
 
-.css3-tabstrip ul,
-.css3-tabstrip li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+#team img {
+    border-radius: 5px
 }
 
-.css3-tabstrip,
-.css3-tabstrip input[type="radio"]:checked+label {
-    position: relative;
+#team-header {
+    margin-bottom: 20px;
 }
 
-.css3-tabstrip li,
-.css3-tabstrip input[type="radio"]+label {
-    display: inline-block;
+.bio1,
+.bio2,
+.bio3 {
+    background-color: #ffe900;
+    padding: 10px 19px;
+    margin-top: 20px;
+    border-radius: 8px;
 }
 
-.css3-tabstrip li>div,
-.css3-tabstrip input[type="radio"] {
-    position: absolute;
+.col-1-2 {
+    width: 35%;
+    padding: 5px 30px;
 }
 
-.css3-tabstrip li>div,
-.css3-tabstrip input[type="radio"]+label {
-    border: solid 1px #ccc;
+.col-2-2 {
+    padding: 0px 50px;
 }
 
-.css3-tabstrip {
-    font: normal 13pt Arial, Sans-serif;
-    color: #404040;
+.left-arrows {
+    left: 50px
 }
 
-.css3-tabstrip li {
-    vertical-align: top;
+.right-arrows {
+    right: 50px
 }
 
-.css3-tabstrip li:first-child {
-    margin-left: 8px;
-}
-
-.css3-tabstrip li>div {
-    top: 33px;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 8px;
-    background: #fff;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.css3-tabstrip input[type="radio"]+label {
-    margin: 0 2px 0 0;
-    padding: 0 18px;
-    line-height: 32px;
-    background: #f1f1f1;
-    text-align: center;
-    border-radius: 5px 5px 0 0;
-    cursor: pointer;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-.css3-tabstrip input[type="radio"]:checked+label {
-    z-index: 1;
-    background: #fff;
-    border-bottom-color: #fff;
-    cursor: default;
-}
-
-.css3-tabstrip input[type="radio"] {
-    opacity: 0;
-}
-
-.css3-tabstrip input[type="radio"]~div {
+.arrows::after,
+.arrows::before {
     display: none;
 }
 
-.css3-tabstrip input[type="radio"]:checked:not(:disabled)~div {
-    display: block;
-}
-
-.css3-tabstrip input[type="radio"]:disabled+label {
-    opacity: .5;
-    cursor: no-drop;
-}
-
-.css3-tabstrip input[type="radio"] {
-    visibility: hidden
-}
-
-[type="radio"]:not(:checked)+label,
-[type="radio"]:checked+label {
-    position: relative;
-    padding-left: 35px;
-    cursor: pointer;
-    display: inline-block;
-    height: 25px;
-    line-height: 25px;
-    font-size: 1rem;
-    transition: .28s ease;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    display: none
-}
-
-label::before {
-    display: none;
-}
-
-label::after {
-    display: none;
+#sliderFrame a {
+    line-height: 0;
+    color: rgba(0, 0, 0, .7);
 }

@@ -3,14 +3,14 @@
 //move the mouse and click
 //press and hold the up and down keys
 
-var dot;
+var dot, bg;
 
 function setup() {
-  createCanvas(800,300);
+  createCanvas(1000,500);
   
   //create a sprite and add the 3 animations
-  dot = createSprite(400, 150, 50, 100);
-  dot.scale = 0.15;
+  dot = createSprite(100, 100, 5, 10);
+  dot.scale = 0.07;
   
   //label, first frame, last frame
   //the addAnimation method returns the added animation
@@ -21,85 +21,151 @@ function setup() {
   //the vertical offset to make the transition between floating and moving look better
   // myAnimation.offY = 18;
   
-  dot.addAnimation("walking", "assets/bridges/WalkingMonster1.png", "assets/bridges/WalkingMonster2.png");
+  var walking = dot.addAnimation("walking", "assets/bridges/WalkingMonster1.png", "assets/bridges/WalkingMonster2.png");
   
-  // dot.addAnimation("spinning", "assets/dot_spin0001.png", "assets/dot_spin0003.png");
+  var drowning = dot.addAnimation("drowning", "assets/bridges/WaterMonster1.png", "assets/bridges/WaterMonster2.png", "assets/bridges/WaterMonster3.png");
   
+  // slow down the animation
+  walking.frameDelay = 6;
+  drowning.frameDelay = 12;
+
+  bg = loadImage("assets/bridges/KonigMap.JPG"); 
 }
 
+
+var water = [];
+water.push({x: 0.244, y: 0.14});
+water.push({x: 0.45, y: 0.14}); 
+water.push({x: 0.424, y:0.344}); 
+water.push({x: 0.27, y: 0.326});
+
+var time = -1; 
+var last_x = -1;
+var last_y = -1;
+var x_direction, y_direction;
+
 function draw() {
-  // background(600,600,600);  
-  
-  if (mouseIsPressed) {
-    dot.velocity.x = (mouseX - dot.position.x - 10);
-    dot.velocity.y = (mouseY - dot.position.y - 10);
-  } else {
-    // up,down, left, and right arrow keys can also be used to move the dot
-    // the keys are only used if dragging is not currently happening
-    if(keyIsDown(UP_ARROW)) {
-      dot.velocity.y = -5;
-    } else if(keyIsDown(DOWN_ARROW)) {
-      dot.velocity.y = 5;
-    } else {
-      dot.velocity.y = 0;
+  background(bg);
+
+  // debug purposes - press space bar
+  if (keyIsDown(32)) {
+    console.log(dot.position.x/width, dot.position.y/height);
+  }
+
+  if ( isInWater(dot.position.x, dot.position.y) ) {
+    // if just hit water, save the frameCount at which the water was hit 
+    // also save the x and y at which you hit the water, and which direction you were walking
+    if (time == -1) { 
+      time = frameCount; 
+      last_x = dot.position.x;
+      last_y = dot.position.y;
+      // save direction you were walking
+      if (dot.velocity.x > 0) { x_direction = -1; } else { x_direction = 1; }
+      if (dot.velocity.y > 0) { y_direction = -1; } else { y_direction = 1; }
     }
 
-    if(keyIsDown(LEFT_ARROW)) {
-      dot.velocity.x = -5;
-    } else if(keyIsDown(RIGHT_ARROW)) {
-      dot.velocity.x = 5;
+    // stop from moving 
+    dot.velocity.x = 0; dot.velocity.y = 0;
+
+    // change animation to drowning 
+    dot.changeAnimation("drowning");
+
+    // x frameCounts after hitting water initally, revert to position next to water, standing
+    if ( (time+60) == frameCount) {
+      dot.position.x = last_x + 10*x_direction;
+      dot.position.y = last_y + 10*y_direction;
+      time = -1; 
+      dot.changeAnimation("standing");
+    }
+
+  } else if ( dot.position.x > width - 9 ) {
+    // stop the dot from moving off the screen to the right side 
+    dot.velocity.x = 0; 
+    dot.position.x = width - 10;
+
+  } else if ( dot.position.y > height - 9 ) {
+    // stop the dot from moving off the screen to the bottom
+    dot.velocity.y = 0;
+    dot.position.y = height - 10;
+
+  } else if ( dot.position.x < 9) {
+    // stop the dot from moving off the screen to the left side
+    dot.velocity.x = 0; 
+    dot.position.x = 10;
+
+  } else if ( dot.position.y < 9) {
+    // stop the dot from moving off the screen to the top
+    dot.velocity.y = 0; 
+    dot.position.y = 10;
+
+  } else {
+    // if the mouse is pressed, move dot to that position
+    if (mouseIsPressed) {
+      dot.velocity.x = (mouseX - dot.position.x - 10);
+      dot.velocity.y = (mouseY - dot.position.y - 10);
     } else {
-      dot.velocity.x = 0;
+      // up,down, left, and right arrow keys can also be used to move the dot
+      // the keys are only used if dragging is not currently happening
+      if(keyIsDown(UP_ARROW)) {
+        dot.velocity.y = -5;
+      } else if(keyIsDown(DOWN_ARROW)) {
+        dot.velocity.y = 5;
+      } else {
+        dot.velocity.y = 0;
+      }
+
+      if(keyIsDown(LEFT_ARROW)) {
+        dot.velocity.x = -5;
+      } else if(keyIsDown(RIGHT_ARROW)) {
+        dot.velocity.x = 5;
+      } else {
+        dot.velocity.x = 0;
+      }
+    }
+
+    // add animations for walking 
+    if ( dot.velocity.x < 0) {
+      // flip to walk the other way
+      dot.mirrorX(-1); 
+      dot.changeAnimation("walking");
+    } else if ( dot.velocity.x > 0) {
+      // flip back
+      dot.mirrorX(1); 
+      dot.changeAnimation("walking");
+    } else if ( dot.velocity.y != 0) {
+      // if only moving vertically, mirror does not matter
+      dot.changeAnimation("walking");
+    } else {
+      // not moving
+      dot.changeAnimation("standing");
     }
   }
 
-  // add animations for walking 
-  if ( dot.velocity.x < 0) {
-    // flip to walk the other way
-    dot.mirrorX(-1); 
-    dot.changeAnimation("walking");
-  } else if ( dot.velocity.x > 0) {
-    // flip back
-    dot.mirrorX(1); 
-    dot.changeAnimation("walking");
-  } else if ( dot.velocity.y != 0) {
-    // if only moving vertically, mirror does not matter
-    dot.changeAnimation("walking");
-  } else {
-    // not moving
-    dot.changeAnimation("standing");
-  }
-
-
-  //if mouse is to the left
-  // if(mouseX < dot.position.x - 10) {
-  //   // dot.changeAnimation("walking");
-  //   //flip horizontally
-  //   dot.mirrorX(-1);
-  //   dot_animation = WALKING;
-  //   //negative x velocity: move left
-  //   // dot.velocity.x = - 2;
-  // }
-  // else if(mouseX > dot.position.x + 10) {
-  //   // dot.changeAnimation("walking");
-  //   //unflip 
-  //   dot.mirrorX(1);
-  //   dot_animation = WALKING;
-  //   // dot.velocity.x = (mouseX - dot.position.x);
-  // }
-  // else {
-  //   //if close to the mouse, don't move
-  //   dot.changeAnimation("standing");
-  //   dot.velocity.x = 0;
-  // }
-  
-  // if(mouseY < dot.position.y - 10 || mouseY > dot.position.y - 10) {
-  //     dot.changeAnimation("walking");
-  //     dot.velocity.y = (mouseY - dot.position.y);
-  // } else {
-  //     dot.changeAnimation("standing");
-  // }
-  
   //draw the sprite
   drawSprites();
+}
+
+// function that checks if dot walked into a water spot 
+function isInWater(x, y) {
+  var isInWater = false;
+
+  // for(k=0; k<water.length; k++){
+    polygon = water;
+    // console.log('x', x, 'y', y);
+    for(var i=0; i<polygon.length; i++) {
+      // console.log(polygon[i].x * width, polygon[i].y * height);
+    }
+
+    var j = polygon.length - 1;
+    for(var i = 0; i < polygon.length; i++) {
+      if (polygon[i].y * height < y && polygon[j].y * height >= y || polygon[j].y * height < y && polygon[i].y * height >= y ) {
+        if (polygon[i].x * width + (y - polygon[i].y * height) / (polygon[j].y * height - polygon[i].y * height * polygon[j].x * width - polygon[i].x * width) < x ) {
+          isInWater = !isInWater;
+        }
+      }
+      j = i;
+    }
+  // }
+  if (isInWater) { console.log('true'); }
+  return isInWater; 
 }

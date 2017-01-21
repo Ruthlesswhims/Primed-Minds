@@ -44,15 +44,19 @@ var last_x = -1;
 var last_y = -1;
 var x_direction, y_direction;
 
+var path = [];
+
 function draw() {
   background(bg);
 
   // debug purposes - press space bar
   if (keyIsDown(32)) {
-    console.log(dot.position.x/width, dot.position.y/height);
+    console.log(dot.position.x/width, (dot.position.y + 50)/height);
   }
 
-  if ( isInWater(dot.position.x, dot.position.y) ) {
+  // check if dot hit water 
+  // positions are adjusted so that it checks the dot's *foot* position
+  if ( isInWater(dot.position.x, dot.position.y + 50) ) {
     // if just hit water, save the frameCount at which the water was hit 
     // also save the x and y at which you hit the water, and which direction you were walking
     if (time == -1) { 
@@ -127,22 +131,33 @@ function draw() {
     if ( dot.velocity.x < 0) {
       // flip to walk the other way
       dot.mirrorX(-1); 
-      dot.changeAnimation("walking");
     } else if ( dot.velocity.x > 0) {
       // flip back
       dot.mirrorX(1); 
+    } 
+
+    if (dot.velocity.x != 0 || dot.velocity.y != 0) {
       dot.changeAnimation("walking");
-    } else if ( dot.velocity.y != 0) {
-      // if only moving vertically, mirror does not matter
-      dot.changeAnimation("walking");
+      // add the current position to the path
+      // positions are adjusted down so that path is at feet
+      path.push({x: dot.position.x, y: dot.position.y + 50});
     } else {
-      // not moving
       dot.changeAnimation("standing");
     }
   }
 
   //draw the sprite
   drawSprites();
+
+  // draw the path
+  drawPath();
+}
+
+// draws the dot's path
+function drawPath() {
+  for (var i=1; i<path.length; i++) {
+    line(path[i-1].x, path[i-1].y, path[i].x, path[i].y);
+  }
 }
 
 // function that checks if dot walked into a water spot 
@@ -165,7 +180,5 @@ function isInWater(x, y) {
       }
       j = i;
     }
-  // }
-  if (isInWater) { console.log('true'); }
-  return isInWater; 
+    return isInWater; 
 }

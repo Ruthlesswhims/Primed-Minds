@@ -15,6 +15,7 @@
 
     <!-- local js -->
     <script src="javascript/navbar.js"></script>
+    <script src="javascript/resources.js"></script>
 
     <!-- fonts from gapis -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -66,59 +67,142 @@
             </ul>
         </div>
     </nav>
-   
+
+
+
+
+
     <div id="main">
-     <div id='teach_resources'>
+        <!--<div id='teach_resources'>
             <h1>Teaching Materials</h1>
             <p>To complement Primed Minds Explorations, we have developed Teacher Resources to help teachers plan lessons and extension materials related to content in our Explorations. These Teacher Resources are being road tested in over 100 schools throughout
                 Australia (in conjunction with Maths Pathway – link) and the US. Click here to download a sample lesson plan.
                 <br><br> Interested in trying our Teacher’s Resources? Email us at: teachers@primedminds.com
             </p>
-        </div>
-
-        <div id='ext_sources'>
-            <h1>External Sources</h1>
-
-            <h2>Numberphile<a href='http://www.numberphile.com/'><i class="material-icons">exit_to_app</i></a></h2>
-            <p>A wonderful Youtube channel that has many videos that talk about all sorts of wonderful things from the world of mathematics. Subject matter ranges in difficulty, but some great places to start include contributions by: </p>
-            <p>Tadashi Tokieda’s <a href="#" onclick="boomLightBoxShow('divStatic');">Freaky Dot</a>
-            <div id="divStatic" class="boom-lightbox" style="display: none;">
-                <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/QAja2jp1VjE" frameborder="0" allowfullscreen></iframe>
-            </div> or <a href="#" onclick="boomLightBoxShow('divResponsive');">Perplexing Paperclip</a>
-            <div id="divResponsive" class="boom-lightbox" style="display: none;">
-                <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/wGkvyN6s9cY" frameborder="0" allowfullscreen></iframe>
+        </div>-->
+        <div class="grid">
+            <div class="col-1-2" id='teacher_resources'>
+                <h1>Teaching Materials</h1>
+                <p>To complement Primed Minds Explorations, we have developed Teacher Resources to help teachers plan lessons and extension materials related to content in our Explorations. These Teacher Resources are being road tested in over 100 schools
+                    throughout Australia (in conjunction with Maths Pathway – link) and the US. Click here to download a sample lesson plan.
+                    <br><br> Interested in trying our Teacher’s Resources? Email us at: teachers@primedminds.com
+                </p>
+                <br><br>
             </div>
-            <p>Vi Hart’s
-                <a href="#" onclick="boomLightBoxShow('divResponsive2');">Infinity Elephant</a>
-                <div id="divResponsive2" class="boom-lightbox" style="display: none;">
-                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/DK5Z709J2eo" frameborder="0" allowfullscreen></iframe>
-                </div>
+            <!-- end first col -->
 
-                or
-                <a href="#" onclick="boomLightBoxShow('divResponsive3');">Hexaflagon</a>
-                <div id="divResponsive3" class="boom-lightbox" style="display: none;">
-                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/VIVIegSt81k" frameborder="0" allowfullscreen></iframe>
+            <div class="col-2-2" id="sliderFrame">
+                <div id="slider">
+                    <img class="slides" src="assets/about/AboutSlideShow1.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow2.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow3.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow4.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow5.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow6.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow7.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow8.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow9.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow10.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow11.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow12.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow13.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow14.jpg" />
+                    <img class="slides" src="assets/about/AboutSlideShow15.jpg" />
                 </div>
-            </p>
-            <p>Simon Pampena’s
-                <a href="#" onclick="boomLightBoxShow('divResponsive4');">The Epic Story of Circle</a>
-                <div id="divResponsive4" class="boom-lightbox" style="display: none;">
-                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/sG_6nlMZ8f4"  frameborder="0" allowfullscreen></iframe>
-                </div>
-            </p>
-            <p>Katie Steckles’
-                <a href="#" onclick="boomLightBoxShow('divResponsive5');">Fold and Cut</a>
-                <div id="divResponsive5" class="boom-lightbox" style="display: none;">
-                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/ZREp1mAPKTM"  frameborder="0" allowfullscreen></iframe>
-                </div>
-            </p>
-        
-            <h2>Desmos.com<a href='https://www.desmos.com/'><i class="material-icons">exit_to_app</i></a></h2>
-            <p id='desmosP'>A wonderful website graphing calculator that allows you to explore what functions look like. Has some delightful interactive pieces including <a href="https://teacher.desmos.com/marbleslides-lines" target="_blank">Marbleslide</a>.</p>
-
-            <h2>BetterExplained.com<a href='https://betterexplained.com/'><i class="material-icons">exit_to_app</i></a></h2>
-            <p>A magnificent repository of better explanations than you will typically encounter for many mathematical concepts covered between middle school and college. For the day you encounter imaginary numbers Kalid’s <a href="https://betterexplained.com/articles/a-visual-intuitive-guide-to-imaginary-numbers/" target="_blank">explanation</a> is magnificent.</p>
+                <!-- end slider div-->
+                <a class="arrows left-arrows" onclick="plusDivs(-1)"><i class="material-icons md-36">arrow_back</i></a>
+                <a class="arrows right-arrows" onclick="plusDivs(+1)"><i class="material-icons md-36">arrow_forward</i></a>
+            </div>
+            <!-- end second col -->
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="grid" id="team">
+            <h1 class="h1" id="team-header">External Sources</h1>
+            <h2 class="h2"></h2>
+            <div class="col-1-3">
+                <div class="team1">
+                    <img src="assets/numberphile-logo.jpg" height="100px"></img>
+                </div>
+                <div class="bio1">
+                    <h3>Numberphile<a href='http://www.numberphile.com/'><i class="material-icons">exit_to_app</i></a></h3>
+                    <p>A wonderful Youtube channel that has many videos that talk about all sorts of wonderful things from the world of mathematics. Subject matter ranges in difficulty, but some great places to start include contributions by: </p>
+                    <p>Tadashi Tokieda’s <a href="#" onclick="boomLightBoxShow('divStatic');">Freaky Dot</a>
+                        <div id="divStatic" class="boom-lightbox" style="display: none;">
+                            <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/QAja2jp1VjE" frameborder="0" allowfullscreen></iframe>
+                        </div> and <a href="#" onclick="boomLightBoxShow('divResponsive');">Perplexing Paperclip</a>
+                        <div id="divResponsive" class="boom-lightbox" style="display: none;">
+                            <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/wGkvyN6s9cY" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <p>Vi Hart’s
+                            <a href="#" onclick="boomLightBoxShow('divResponsive2');">Infinity Elephant</a>
+                            <div id="divResponsive2" class="boom-lightbox" style="display: none;">
+                                <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/DK5Z709J2eo" frameborder="0" allowfullscreen></iframe>
+                            </div>
+
+                            and
+                            <a href="#" onclick="boomLightBoxShow('divResponsive3');">Hexaflagon</a>
+                            <div id="divResponsive3" class="boom-lightbox" style="display: none;">
+                                <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/VIVIegSt81k" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </p>
+                        <p>Simon Pampena’s
+                            <a href="#" onclick="boomLightBoxShow('divResponsive4');">The Epic Story of Circle</a>
+                            <div id="divResponsive4" class="boom-lightbox" style="display: none;">
+                                <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/sG_6nlMZ8f4" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </p>
+                        <p>Katie Steckles’
+                            <a href="#" onclick="boomLightBoxShow('divResponsive5');">Fold and Cut</a>
+                            <div id="divResponsive5" class="boom-lightbox" style="display: none;">
+                                <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/ZREp1mAPKTM" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </p>
+
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="team2">
+                    <img src="assets/desmos-logo.png" height="100px"></img>
+                </div>
+                <div class="bio2">
+                    <h3>Desmos.com<a href='https://www.desmos.com/'><i class="material-icons">exit_to_app</i></a></h3>
+                    <p id='desmosP'>A wonderful website graphing calculator that allows you to explore what functions look like. Has some delightful interactive pieces including <a href="https://teacher.desmos.com/marbleslides-lines" target="_blank">Marbleslide</a>.</p>
+                </div>
+            </div>
+            <div class="col-3-3">
+                <div class="team3">
+                    <img src="assets/about/betterexplained.jpg" width="100px" height="100px"></img>
+                </div>
+                <div class="bio3">
+                    <h3>BetterExplained.com<a href='https://betterexplained.com/'><i class="material-icons">exit_to_app</i></a></h3>
+                    <p>A magnificent repository of better explanations than you will typically encounter for many mathematical concepts covered between middle school and college. For the day you encounter imaginary numbers Kalid’s <a href="https://betterexplained.com/articles/a-visual-intuitive-guide-to-imaginary-numbers/"
+                            target="_blank">explanation</a> is magnificent.</p>
+                </div>
+            </div>
+            <!-- end col-->
+        </div>
+        <!-- end grid/ team div  -->
+
+
+
+
     </div>
 
     <a href="#" id='none' onclick="boomLightBoxShow('divResponsive');"></a>
@@ -126,123 +210,53 @@
         <p>This is responsive content</p>
     </div>
 
-    <div class="css3-tabstrip">
-        <ul>
-            <li>
-                <input type="radio" name="css3-tabstrip-0" checked="checked" id="css3-tabstrip-0-0" /><label for="css3-tabstrip-0-0">Numberphile</label>
-                <div>
-                    <h3>Numberphile</h3>
-                    <p>A wonderful Youtube channel that has many videos that talk about all sorts of wonderful things from the world of mathematics. Subject matter ranges in difficulty, but some great places to start include contributions by: </p>
-                    <p>Tadashi Tokieda’s <a href="#" onclick="boomLightBoxShow('divStatic');">Freaky Dot</a>
-                    <div id="divStatic" class="boom-lightbox" style="display: none;">
-                        <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/QAja2jp1VjE" frameborder="0" allowfullscreen></iframe>
-                    </div> or <a href="#" onclick="boomLightBoxShow('divResponsive');">Perplexing Paperclip</a>
-                    <div id="divResponsive" class="boom-lightbox" style="display: none;">
-                        <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/wGkvyN6s9cY" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <p>Vi Hart’s
-                        <a href="#" onclick="boomLightBoxShow('divResponsive2');">Infinity Elephant</a>
-                        <div id="divResponsive2" class="boom-lightbox" style="display: none;">
-                            <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/  DK5Z709J2eo" frameborder="0" allowfullscreen></iframe>
-                        </div>
 
-                        or
-                        <a href="#" onclick="boomLightBoxShow('divResponsive3');">Hexaflagon</a>
-                        <div id="divResponsive3" class="boom-lightbox" style="display: none;">
-                            <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/VIVIegSt81k" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </p>
-                    <p>Simon Pampena’s
-                        <a href="#" onclick="boomLightBoxShow('divResponsive4');">The Epic Story of Circle</a>
-                        <div id="divResponsive4" class="boom-lightbox" style="display: none;">
-                            <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/sG_6nlMZ8f4" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </p>
-                    <p>Katie Steckles’
-                        <a href="#" onclick="boomLightBoxShow('divResponsive5');">Fold and Cut</a>
-                        <div id="divResponsive5" class="boom-lightbox" style="display: none;">
-                            <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/ZREp1mAPKTM" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </p>
-            </li>
-            <li>
-                <input type="radio" name="css3-tabstrip-0" id="css3-tabstrip-0-1" /><label for="css3-tabstrip-0-1">Desmos.com</label>
-                <div>
-                    <h3>Desmos.com</h3>
-                    <p id='desmosP'>A wonderful website graphing calculator that allows you to explore what functions look like. Has some delightful interactive pieces including <a href="https://teacher.desmos.com/marbleslides-lines" target="_blank">Marbleslide</a>.</p>
-                </div>
-            </li>
-            <li>
-                <input type="radio" name="css3-tabstrip-0" id="css3-tabstrip-0-2" /><label for="css3-tabstrip-0-2">BetterExplained.com</label>
-                <div>
-                    <h3>BetterExplained.com</h3>
-                    <p>A magnificent repository of better explanations than you will typically encounter for many mathematical concepts covered between middle school and college. For the day you encounter imaginary numbers Kalid’s <a href="https://betterexplained.com/articles/a-visual-intuitive-guide-to-imaginary-numbers/"
-                            target="_blank">explanation</a> is magnificent.</p>
-                </div>
-            </li>
-        </ul>
-        </div>
 
-        <!-- place the initialization at the end of the code -->
-        <script type="text/javascript">
-            (function() { //document ready, init one or more lightbox divs
-                boomLightBoxInit([{
-                    selector: 'divStatic',
-                    configs: {
-                        width: '775px',
-                        height: '460px'
-                    }
-                }, {
-                    selector: 'divResponsive',
-                    configs: {
-                        width: '775px',
-                        height: '460px'
-                    }
-                }, {
-                    selector: 'divResponsive2',
-                    configs: {
-                        width: '775px',
-                        height: '460px'
-                    }
-                }, {
-                    selector: 'divResponsive3',
-                    configs: {
-                        width: '775px',
-                        height: '460px'
-                    }
-                }, {
-                    selector: 'divResponsive4',
-                    configs: {
-                        width: '775px',
-                        height: '460px'
-                    }
-                }, {
-                    selector: 'divResponsive5',
-                    configs: {
-                        width: '775px',
-                        height: '460px'
-                    }
-                }]);
-            })();
-        </script>
+    <!-- place the initialization at the end of the code -->
+    <script type="text/javascript">
+        (function() { //document ready, init one or more lightbox divs
+            boomLightBoxInit([{
+                selector: 'divStatic',
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
+            }, {
+                selector: 'divResponsive',
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
+            }, {
+                selector: 'divResponsive2',
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
+            }, {
+                selector: 'divResponsive3',
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
+            }, {
+                selector: 'divResponsive4',
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
+            }, {
+                selector: 'divResponsive5',
+                configs: {
+                    width: '775px',
+                    height: '460px'
+                }
+            }]);
+        })();
+    </script>
 
-        <div class="col-2-2" id="sliderFrame">
-            <div id="slider">
-                <img class="slides" src="assets/resources/MagicCircles1.jpg" />
-                <img class="slides" src="assets/resources/MagicCircles2.jpg" />
-                <img class="slides" src="assets/resources/MagicCircles3.jpg" />
-                <img class="slides" src="assets/resources/MagicCircles4.jpg" />
-                <img class="slides" src="assets/resources/MagicCircles5.jpg" />
-                <img class="slides" src="assets/resources/MagicCircles6.jpg" />
-                <img class="slides" src="assets/resources/MagicCircles7.jpg" />
-                <img class="slides" src="assets/resources/MagicCircles8.jpg" />
-                <img class="slides" src="assets/resources/MagicCircles9.jpg" />
-            </div>
-            <!-- end slider div-->
-            <a class="w3-btn-floating w3-yellow w3-hover-khaki w3-display-left" onclick="plusDivs(-1)">&#10094;</a>
-            <a class="w3-btn-floating w3-yellow w3-hover-khaki w3-display-right" onclick="plusDivs(+1)">&#10095;</a>
-        </div>
-        <!-- end second col -->
+
+    <!-- end second col -->
     </div>
     <!-- end grid -->
 

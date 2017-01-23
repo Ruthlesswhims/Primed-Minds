@@ -1,4 +1,34 @@
 ////// UI Interactions ///////
+
+// find the URL parameters
+var urlParams;
+(window.onpopstate = function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    urlParams = {};
+    while (match = search.exec(query)) {
+       urlParams[decode(match[1])] = decode(match[2]);
+    }
+
+    // console.log(urlParams);
+    // changeSlide();
+})();
+
+
+function changeSlide() {
+    // if already has slide param
+    if ( urlParams["slide"] != null) {
+        currentIndex = urlParams["slide"];
+        // cycleItems();
+    }
+
+    window.history.pushState(urlParams, "", "?slide=" + currentIndex);
+}
+
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.ENDED) {
         console.log('ended')
@@ -16,11 +46,12 @@ $(function() {
     });
 });
 
+var currentIndex;
 $(document).ready(function () {
     //slider
     var neutralWidth = 0;
-    var currentIndex = 0,
-        items = $('#main #slide'),
+    currentIndex = 0;
+    var items = $('#main #slide'),
         itemAmt = items.length;
 
     function cycleItems() {
@@ -51,6 +82,7 @@ $(document).ready(function () {
                 currentIndex = 4;
             }
         }
+        changeSlide();
     }
 
     function slideDecrement(n) {
@@ -76,6 +108,7 @@ $(document).ready(function () {
                 currentIndex = 0
             }
         }
+        changeSlide();
     }
 
 

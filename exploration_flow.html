@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spot It Exploration</title>
+    
+    <!-- materialize css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
+    <!-- local css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/exploration_flow.css">
+
+    <!-- jquery js -->
+    <script src="public/javascript/jquery-1.12.3.min.js"></script>
+    <!-- materialize js -->
+    <script src="public/javascript/materialize.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- local js -->
+    <script src="javascript/card.js"></script>
+    <script src="javascript/exploration_flow.js"></script>
+
+    <!-- fonts from gapis -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300">
+</head>
+
+<body>
+    <div id='backHome-container'>
+        <a href='explorations.html'>
+            <div id='backHome'></div>
+        Back to Explorations </a> 
+    </div>
+
+    <div class='left-arrow arrow'>
+        <i class="material-icons md-48">arrow_back</i>
+    </div>
+
+    <div class='right-arrow arrow'>
+        <i class="material-icons md-48">arrow_forward</i>
+    </div>
+
+    <div id="main">
+        <div id='slide' class='container2-video' style="display: inline-block;">
+            <div class='absolute-video-container'>
+                <div class="video-container">
+                    <iframe frameborder="0" width="" height="" 
+                    src="https://www.youtube.com/embed/A5P29MO0X-U?rel=0&amp;showinfo=0&modestbranding=1" 
+                    frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div id='slide' class='container2'></div>
+
+        <div id='slide' class='placeholder'>
+            <h1>Placeholder #1</h1>
+        </div>
+        <div id='slide' class='placeholder'>
+            <h1>Placeholder #2</h1>
+        </div>
+        <div id='slide' class='placeholder'>
+            <h1>Placeholder #3</h1>
+        </div>
+        <div id='slide' class='placeholder'>
+            <h1>Placeholder #4</h1>
+        </div>
+    </div>
+
+    <div class='progress-'>
+        <div class='progress-tooltip'>
+            <ul>
+                <li>
+                    <div> <i class="material-icons">ondemand_video</i> <span>Video: Learn Spot It</span></div>
+                </li>
+                <li>
+                    <div> <i class="material-icons yellow-color">directions_boat</i> <span>Assemble Spot It</span></div>
+                </li>
+                <li>
+                    <div><i class="material-icons">ondemand_video</i> <span>Placeholder for Something</span></div>
+                </li>
+                <li>
+                    <div> <i class="material-icons red-color">directions_bus</i> <span>Placeholder for Something</span></div>
+                </li>
+                <li>
+                    <div> <i class="material-icons">ondemand_video</i> <span>Placeholder for Something</span></div>
+                </li>
+            </ul>
+        </div>
+        <div class='progress-indicator'>
+            <i class="material-icons md-36 runman">directions_run</i>
+            <div id="scroll-wrap">
+                <div class="meter nostripes">
+                    <span id='increment' style="width: 20%"></span>
+                </div>
+            </div>
+            <i class="material-icons md-36 flag">flag</i>
+        </div>
+    </div>
+</body>
+
+<script>
+        $(function(){
+            $(".container2").load("card.html"); 
+        });                
+</script>
+
+</html>

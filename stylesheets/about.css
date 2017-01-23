@@ -135,10 +135,11 @@ h3 {
 .pbio3 {
     display: none;
     background-color: #ffe900;
-    margin-top: 20px;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     padding: 20px 19px;
     border-radius: 8px;
+    /*float: left;*/
+    margin: 20 auto;
 }
 
 .grid:after {
@@ -216,15 +217,6 @@ h3 {
 .about-buttons a {
     color: #f44336;
     font-weight: bold
-}
-
-.bio1,
-.bio2,
-.bio3 {
-    background-color: #ffe900;
-    padding: 10px 19px;
-    margin-top: 20px;
-    border-radius: 8px;
 }
 
 .col-1-2 {

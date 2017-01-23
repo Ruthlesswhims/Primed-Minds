@@ -1,3 +1,4 @@
+/* NAVBAR STYLING */
 nav ul li {
     text-align: center;
 }
@@ -17,7 +18,7 @@ nav ul li {
     margin-right: 10pt;
 }
 
-#logo {
+#logo{
     font-family: 'Arima Madurai', cursive;
     font-size: 30pt;
 }
@@ -36,9 +37,9 @@ nav ul li {
 }
 
 #nav_bar {
-    position: fixed;
-    z-index: 2;
+    position:fixed;
     min-width: 1200px;
+    z-index: 100000;
 }
 
 .dropdown {
@@ -61,7 +62,7 @@ nav ul li {
     display: block;
 }
 
-.dropdown-content a:hover {
+.dropdown-content a:hover, a.current {
     background-color: #ffe900
 }
 

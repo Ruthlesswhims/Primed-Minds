@@ -84,7 +84,7 @@ html {
 
 .left-arrow {
     left: 0;
-    display: none;
+    /*display: none;*/
     cursor: pointer;
 }
 

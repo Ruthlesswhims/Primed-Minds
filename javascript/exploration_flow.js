@@ -1,7 +1,8 @@
-////// UI Interactions ///////
-
 // find the URL parameters
+// i.e. http://website.com/index.html?param1=x&param2=y
+//      returns param1 = x, param2 = y
 var urlParams;
+var currentIndex = 0;
 (window.onpopstate = function () {
     var match,
         pl     = /\+/g,  // Regex for replacing addition symbol with a space
@@ -15,18 +16,36 @@ var urlParams;
     }
 
     // console.log(urlParams);
-    // changeSlide();
+    if(urlParams.length == 0) {
+        urlParams["s"] = 0;
+    }
 })();
 
 
 function changeSlide() {
     // if already has slide param
-    if ( urlParams["slide"] != null) {
-        currentIndex = urlParams["slide"];
-        // cycleItems();
+    if ( urlParams["s"] != null) {
+        // for safety, make sure index exists 
+        var numSlides = document.querySelectorAll("#slide").length-1;
+        if (urlParams["s"] < 0 || urlParams["s"] > numSlides) {
+            currentIndex = 0; // if it does not exist, just go to slide 0
+        } else {
+            currentIndex = parseInt(urlParams["s"]);
+        }
+        cycleItems();
     }
+    window.history.pushState(urlParams, "", "?s=" + currentIndex);
+}
 
-    window.history.pushState(urlParams, "", "?slide=" + currentIndex);
+// actually cycle the slides 
+function cycleItems() {
+    // get all slides 
+    var items = document.querySelectorAll("#slide");
+    var item = document.getElementsByClassName('slide')[currentIndex];
+    for(var i=0; i<items.length; i++) {
+        items[i].style.display = 'none';
+    }
+    item.style.display = 'inline-block';
 }
 
 function onPlayerStateChange(event) {
@@ -46,19 +65,17 @@ $(function() {
     });
 });
 
-var currentIndex;
+// when the page loads
 $(document).ready(function () {
+    // call this so that if url sent with a specific slide number, it will start at that slide
+    changeSlide();
     //slider
-    var neutralWidth = 0;
-    currentIndex = 0;
-    var items = $('#main #slide'),
-        itemAmt = items.length;
+    var items = $('#main #slide');
 
-    function cycleItems() {
-        var item = $('#main #slide').eq(currentIndex);
-        items.hide();
-        item.css('display', 'inline-block');
-    }
+    $('#increment').animate(({
+                    'width': '+=' + 20*currentIndex + '%'
+                }));
+
 
     function slideIncrement(n) {
         if (!n) {
@@ -82,7 +99,9 @@ $(document).ready(function () {
                 currentIndex = 4;
             }
         }
-        changeSlide();
+        cycleItems();
+            window.history.pushState(urlParams, "", "?s=" + currentIndex);
+
     }
 
     function slideDecrement(n) {
@@ -108,13 +127,13 @@ $(document).ready(function () {
                 currentIndex = 0
             }
         }
-        changeSlide();
-    }
+        cycleItems();
+            window.history.pushState(urlParams, "", "?s=" + currentIndex);    }
 
 
     $('.right-arrow').on('click', function() {
         slideIncrement();
-        $('.left-arrow').show();
+        // $('.left-arrow').show();
     });
 
     $('.left-arrow').on('click', function() {

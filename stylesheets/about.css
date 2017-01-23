@@ -2,7 +2,6 @@
 Put rest of page in div with id="main"
 This pads the rest of the page below the navbar */
 
-@import 'navbar.css';
 #main,
 #team,
 #partners {
@@ -25,16 +24,16 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.h1 {
+.h1 > #main {
     font-size: 48px;
 }
 
-.h2 {
+.h2 > #main {
     font-size: 20px;
     font-weight: bold;
 }
 
-h3 {
+h3 > #main {
     font-size: 18px;
     font-family: "Open Sans";
 }
@@ -68,14 +67,17 @@ h3 {
 }
 
 #contact {
-    width: 100%;
-    max-width: 300px;
+    width: 80%;
     text-align: center;
-    padding-bottom: 140px;
-    padding-top: 120px;
+    /*margin-bottom: 140px;*/
+    /*margin-top: 120px;*/
     font-size: 20px;
-    margin: 0 auto;
-    border-radius: 100px
+    margin: 80 40;
+    border-radius: 100px;
+    background-color: #ffe900;
+    /*max-height: 30px;*/
+    float: center;
+    display: inline-block;
 }
 
 #q1-plus,
@@ -91,11 +93,12 @@ h3 {
 
 #partners {
     padding-top: 85px;
+    /*float: left;*/
+    padding-bottom: 40px;
 }
 
 
 /* GRID STYLING */
-
 [class*='col-'] {
     float: left;
 }
@@ -140,6 +143,7 @@ h3 {
     border-radius: 8px;
     /*float: left;*/
     margin: 20 auto;
+    max-width: 70%;
 }
 
 .grid:after {

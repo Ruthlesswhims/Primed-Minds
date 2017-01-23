@@ -3,11 +3,11 @@ $(document).ready(function() {
     // on hover, appear
     $(".team1").on("mouseenter", function() {
         $(".bio1").slideDown(100);
-        $(".bio1").css("display", "inline-block");
+        $(".bio1").css("display", "table");
     });
     $(".team2").on("mouseenter", function() {
         $(".bio2").slideDown(100);
-        $(".bio2").css("display", "inline-block");
+        $(".bio2").css("display", "table");
     });
     $(".team3").on("mouseenter", function() {
         $(".bio3").slideDown(100);

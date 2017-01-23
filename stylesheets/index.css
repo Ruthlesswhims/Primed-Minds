@@ -49,10 +49,16 @@ body {
 }
 
 /* NAVBAR STYLING */
-nav > ul > li {
+#logo{
+    float: left; 
+    height: 100px;
+    margin-top: -20px;
+    filter: invert(100%);
+}
+
+/* NAVBAR STYLING */
+nav ul li {
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 25;
 }
 
 #heading {
@@ -63,11 +69,16 @@ nav > ul > li {
     background-color: white;
 }
 
-#logo{
-    float: left; 
+#pom {
+    width: 100px;
     height: 100px;
-    margin-top: -20px;
-    filter: invert(100%);
+    float: left;
+    margin-right: 10pt;
+}
+
+#logo{
+    font-family: 'Arima Madurai', cursive;
+    font-size: 30pt;
 }
 
 .title-logo {
@@ -86,6 +97,7 @@ nav > ul > li {
 #nav_bar {
     position:fixed;
     min-width: 1200px;
+    z-index: 100000;
 }
 
 .dropdown {
@@ -101,15 +113,15 @@ nav > ul > li {
     min-width: 140px;
 }
 
-.dropdown-content > li > a {
+.dropdown-content li a {
     color: red;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
-.dropdown-content > a:hover {
-    background-color: #ffe900;
+.dropdown-content a:hover {
+    background-color: #ffe900
 }
 
 .dropdown:hover .dropdown-content {

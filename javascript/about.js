@@ -16,26 +16,22 @@ $(document).ready(function() {
     //partner mouse over
     $(".partner1").on("mouseenter", function() {
         $(".pbio1").slideDown(100);
-        $(".pbio1").css("display", "inline-block");
+        $(".pbio1").css("display", "table");
     });
     $(".partner2").on("mouseenter", function() {
         $(".pbio2").slideDown(100);
+        $(".bio2").css("display", "table");
     });
-    $(".partner3").on("mouseenter", function() {
-        $(".pbio3").slideDown(100);
-    });
+
     // move mouse to disappear / show cursor
-    $(".col-1-3").on("mouseleave", function() {
+    $(".partner1").on("mouseleave", function() {
         $(".bio1").slideUp(100);
     });
 
-    $(".col-2-3").on("mouseleave", function() {
+    $(".partner2").on("mouseleave", function() {
         $(".bio2").slideUp(100);
     });
 
-    $(".col-3-3").on("mouseleave", function() {
-        $(".bio3").slideUp(100);
-    });
     $(".team1,.team2,.team3").hover(function() {
         $(this).css('cursor', 'pointer');
     });
@@ -105,15 +101,11 @@ $(document).ready(function() {
         $(this).css('cursor', 'pointer');
     });
 
-    $(".col-1-3").on("mouseleave", function() {
+    $(".partner1").on("mouseleave", function() {
         $(".pbio1").slideUp(100);
     });
-    $(".col-2-3").on("mouseleave", function() {
+    $(".partner2").on("mouseleave", function() {
         $(".pbio2").slideUp(100);
-    });
-
-    $(".col-3-3").on("mouseleave", function() {
-        $(".pbio3").slideUp(100);
     });
 
 

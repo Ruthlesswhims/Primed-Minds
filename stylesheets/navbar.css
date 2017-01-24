@@ -15,17 +15,12 @@ nav ul li {
     float: left;
 }
 
-.buttons {
-    float: right;
-    margin-right: -60px;
-}
-
 #nav_bar {
     position:fixed;
     /*min-width: 1200px;*/
     width: 100%;
     z-index: 100;
-    /*overflow: hidden;*/
+    overflow: hidden;
     display: block !important;
 }
 

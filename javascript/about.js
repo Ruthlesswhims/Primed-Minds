@@ -11,6 +11,19 @@ $(document).ready(function() {
     });
     $(".team3").on("mouseenter", function() {
         $(".bio3").slideDown(100);
+        $(".bio2").css("display", "table");
+    });
+     $(".team1").on("mouseleave", function() {
+        $(".bio1").slideUp(100);
+        // $(".bio1").css("display", "table");
+    });
+    $(".team2").on("mouseleave", function() {
+        $(".bio2").slideUp(100);
+        // $(".bio2").css("display", "table");
+    });
+    $(".team3").on("mouseleave", function() {
+        $(".bio3").slideUp(100);
+        // $(".bio2").css("display", "table");
     });
 
     //partner mouse over
@@ -20,16 +33,16 @@ $(document).ready(function() {
     });
     $(".partner2").on("mouseenter", function() {
         $(".pbio2").slideDown(100);
-        $(".bio2").css("display", "table");
+        $(".pbio2").css("display", "table");
     });
 
     // move mouse to disappear / show cursor
     $(".partner1").on("mouseleave", function() {
-        $(".bio1").slideUp(100);
+        $(".pbio1").slideUp(100);
     });
 
     $(".partner2").on("mouseleave", function() {
-        $(".bio2").slideUp(100);
+        $(".pbio2").slideUp(100);
     });
 
     $(".team1,.team2,.team3").hover(function() {

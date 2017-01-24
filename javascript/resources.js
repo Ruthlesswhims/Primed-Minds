@@ -23,4 +23,16 @@ $(document).ready(function() {
         $(this).css('cursor', 'pointer');
     });
 
+    // if moving back up to header - get rid of bios 
+    $(".header").on("mouseenter", function() {
+        $(".bio1").slideUp(100);
+        $(".bio2").slideUp(100);
+        $(".bio3").slideUp(100);
+    });
+    // if moving down to contact button - get rid of bios
+    $("#contact").on("mouseenter", function() {
+        $(".bio1").slideUp(100);
+        $(".bio2").slideUp(100);
+        $(".bio3").slideUp(100);
+    });
 });

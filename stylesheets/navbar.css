@@ -12,7 +12,9 @@ nav ul li {
     height: 75px;
     filter: invert(1);
     margin-top: -7px;
-    float: left;
+    margin-left: -40px;
+    /*float: left;*/
+    /*left: 10;*/
 }
 
 #nav_bar {

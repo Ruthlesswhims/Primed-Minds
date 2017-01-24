@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <title>
+        Primed Minds Resources
+    </title>
+    <!-- materialize css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/materialize.min.css">
+
+    <!-- jquery js -->
+    <script src="public/javascript/jquery-1.12.3.min.js"></script>
+
+    <!-- materialize js -->
+    <script src="public/javascript/materialize.min.js"></script>
+
+    <!-- local js -->
+    <script src="javascript/resources.js"></script>
+
+    <!-- fonts from gapis -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:800" rel="stylesheet">
+
+    <!-- local css -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/resources2.css">
+</head>
+
+<body>
+    <!-- navbar code, copy code to top of body -->
+    <div id="navbar"></div>
+    <!-- load the navbar --> 
+    <script>
+        $(function(){
+            $("#navbar").load("navbar.html"); 
+        });
+    </script>
+
+    <div class="exploration-page-container">
+        <div class="grid" id="main">
+            <div class="col-1-2 materials">
+                <div id="header">
+                    <h3 class="header">Teaching Materials</h3>
+                </div>
+                <p>To complement Primed Minds Explorations, we have developed Teacher Resources to help teachers plan lessons and extension materials related to content in our Explorations. These Teacher Resources are being road tested in over 100 schools
+                    throughout Australia (in conjunction with Maths Pathway – link) and the US. Click here to download a sample lesson plan.
+                    <br><br> Interested in trying our Teacher’s Resources? Email us at: teachers@primedminds.com
+                </p>
+                <br><br>
+            </div>
+            <!-- end first col -->
+
+            <div class="col-2-2" id="sliderFrame">
+                <div id="slider">
+                    <img class="slides" src="assets/resources/MagicCircles1.jpg" >
+                    <img class="slides" src="assets/resources/MagicCircles2.jpg" >
+                    <img class="slides" src="assets/resources/MagicCircles3.jpg" >
+                    <img class="slides" src="assets/resources/MagicCircles4.jpg" >
+                    <img class="slides" src="assets/resources/MagicCircles5.jpg" >
+                    <img class="slides" src="assets/resources/MagicCircles6.jpg" >
+                    <img class="slides" src="assets/resources/MagicCircles7.jpg" >
+                    <img class="slides" src="assets/resources/MagicCircles8.jpg" >
+                    <img class="slides" src="assets/resources/MagicCircles9.jpg" >
+                </div> <!-- end slider div-->
+
+                <a class="arrows left-arrows" onclick="plusDivs(-1)"><i class="material-icons md-36">arrow_back</i></a>
+                <a class="arrows right-arrows" onclick="plusDivs(+1)"><i class="material-icons md-36">arrow_forward</i></a>
+            </div> <!-- end second col -->
+        </div> <!-- end grid -->
+
+        <div class="grid" id="source">
+            <h1 class="header" id="source-header">External Resources</h1>
+            <h2 class="h2"></h2>
+            <div class="sources">
+                <div class="col-1-3">
+                    <img class="src1" src="assets/numberphile-logo.jpg">
+                </div>
+                <div class="col-2-3">
+                    <img class="src2" src="assets/desmos-logo.png">
+                </div>
+                <div class="col-3-3">
+                    <img class="src3" src="assets/about/betterexplained.jpg">
+                </div>
+            </div>
+        </div> <!-- end grid/ team div  -->
+
+        <div class="bio1 sources">
+            <h3>Numberphile<a href='http://www.numberphile.com/'><i class="material-icons">exit_to_app</i></a></h3>
+            <p>A wonderful Youtube channel that has many videos that talk about all sorts of delightful lands from the world of mathematics. Subject matter ranges in difficulty, but some great places to start include contributions by: </p>
+            <p>Tadashi Tokieda: <a href="#" onclick="boomLightBoxShow('divStatic');">Freaky Dot</a>
+                <span id="divStatic" class="boom-lightbox" style="display: none;">
+                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/QAja2jp1VjE" frameborder="0" allowfullscreen></iframe>
+                </span> and <a href="#" onclick="boomLightBoxShow('divResponsive');">Perplexing Paperclip</a>
+                <span id="divResponsive" class="boom-lightbox" style="display: none;">
+                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/wGkvyN6s9cY" frameborder="0" allowfullscreen></iframe>
+                </span>
+            </p>
+            <p>Vi Hart:
+                <a href="#" onclick="boomLightBoxShow('divResponsive2');">Infinity Elephant</a>
+                <span id="divResponsive2" class="boom-lightbox" style="display: none;">
+                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/DK5Z709J2eo"  frameborder="0" allowfullscreen></iframe>
+                </span>
+                and
+                <a href="#" onclick="boomLightBoxShow('divResponsive3');">Hexaflagon</a>
+                <span id="divResponsive3" class="boom-lightbox" style="display: none;">
+                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/VIVIegSt81k" frameborder="0" allowfullscreen></iframe>
+                </span>
+            </p>
+            <p>Simon Pampena:
+                <a href="#" onclick="boomLightBoxShow('divResponsive4');">The Epic Story of Circle</a>
+                <span id="divResponsive4" class="boom-lightbox" style="display: none;">
+                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/sG_6nlMZ8f4" frameborder="0" allowfullscreen></iframe>
+                </span>
+            </p>
+            <p>Katie Steckles:
+                <a href="#" onclick="boomLightBoxShow('divResponsive5');">Fold and Cut</a>
+                <span id="divResponsive5" class="boom-lightbox" style="display: none;">
+                    <iframe id="ytplayer" width="720" height="405" src="https://www.youtube.com/embed/ZREp1mAPKTM" frameborder="0" allowfullscreen></iframe>
+                </span>
+            </p>
+        </div>
+        <div class="bio2 sources">
+            <h3>Desmos.com<a href='https://www.desmos.com/'><i class="material-icons">exit_to_app</i></a></h3>
+            <p id='desmosP'>A wonderful website graphing calculator that allows you to explore what functions look like. Has some delightful interactive pieces including <a href="https://teacher.desmos.com/marbleslides-lines" target="_blank">Marbleslide</a>.</p>
+        </div>
+        <div class="bio3 sources">
+            <h3>BetterExplained.com<a href='https://betterexplained.com/'><i class="material-icons">exit_to_app</i></a></h3>
+            <p>A magnificent repository of better explanations than you will typically encounter for many mathematical concepts covered between middle school and college. For the day you encounter imaginary numbers Kalid’s <a href="https://betterexplained.com/articles/a-visual-intuitive-guide-to-imaginary-numbers/" target="_blank">explanation</a> is magnificent.</p>
+        </div>
+
+        <!-- contact us button -->
+        <div>
+            <a id="contact" href="contact.html">Contact Us</a>
+        </div>
+    </div>
+    <!-- end main -->
+</body>
+
+<!-- Slideshow script -->
+<script>
+    // How fast the slides change (in ms)
+    var SLIDE_SPEED = 3000;
+    // Current slide #
+    var slideIndex = 0;
+    // Handles slide timeout
+    var timeoutHandle;
+    // Begin carousel of slideshow
+    carousel();
+    // Cycle through slides automatically 
+    function carousel() {
+        var slides = document.getElementsByClassName("slides");
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
+        timeoutHandle = window.setTimeout(carousel, SLIDE_SPEED); // Change image every x ms
+    }
+    // Called when forward or back is pressed. 
+    // Navigate to slide_current + n 
+    function plusDivs(n) {
+        // Display next slide
+        showDivs(slideIndex += n);
+        // Reset timer so timeout count starts at beginning
+        window.clearTimeout(timeoutHandle);
+        timeoutHandle = window.setTimeout(carousel, SLIDE_SPEED);
+    }
+    // Show div #n 
+    function showDivs(n) {
+        var slides = document.getElementsByClassName("slides");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+</script>
+
+</html>

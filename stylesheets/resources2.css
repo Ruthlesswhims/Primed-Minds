@@ -3,32 +3,33 @@ Put rest of page in div with id="main"
 This pads the rest of the page below the navbar */
 
 #main,
-#team,
-#partners {
+#source,{
     max-width: 1300px;
     margin: 50px;
+    position: relative;
 }
 
 #main {
     margin-bottom: 0px;
 }
-#team-header {
-    margin-top: -40px;
+#source-header {
+    /*margin-top: -40px;*/
 }
 
-.team1,
-.team2,
-.team3,
-.partner1,
-.partner2 {
+.src1,
+.src2,
+.src3{
     text-align: center;
+    height: 100px;
+    padding: 0 20;
+    float: left;
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.h1 > #main {
+.header {
     font-size: 48px;
 }
 
@@ -44,45 +45,45 @@ h3 > #main {
 
 .exploration-page-container {
     padding-top: 50px;
+    margin: 50px;
 }
 
-.exploration-page-container>h3 {
+/*#header {
     font-weight: 500;
     color: #ffffff;
     text-align: center;
-    background-color: #e45858;
     font-size: 24pt;
-    padding: 70px 0;
-    margin: 0;
-}
-
-.answer {
-    left: 50px;
-    background-color: #ffe900;
-    box-sizing: border-box;
-    padding: 20px 19px;
-    border-radius: 8px;
-    display: none;
-}
+    /*padding: 70px 0;*/
+    /*margin: 50px;*/
+/*}*/
 
 #sliderFrame {
-    position: relative;
+    /*position: relative;*/
     z-index: 0;
+}
+
+#sliderFrame * {
+    margin-left: 20px;
+}
+
+#slider img {
+    /*height: 400px;*/
+    width: 95%;
+    /*padding: 10px;*/
+    margin-left: 30px;
 }
 
 #contact {
     width: 80%;
     text-align: center;
-    /*margin-bottom: 140px;*/
-    /*margin-top: 120px;*/
     font-size: 20px;
     margin: 80 40;
     border-radius: 100px;
     background-color: #ffe900;
-    /*max-height: 30px;*/
     float: center;
     display: inline-block;
 }
+
 
 /* GRID STYLING */
 [class*='col-'] {
@@ -90,44 +91,36 @@ h3 > #main {
 }
 
 #main > .col-1-2 {
-    width: 35%;
-    /*padding-right: 20px;*/
+    width: 40%;
 }
 
 #main > .col-2-2 {
-    width: 65%;
+    width: 55%;
     position: relative;
-    /*padding-left: 20px;*/
 }
-
-#partners > .col-1-2,
-#partners > .col-2-2 {
-    width: 50%;
-    padding: 0 50;
-} 
 
 .col-1-3,
 .col-2-3,
 .col-3-3 {
-    width: 33%;
-}
-
-.col-1-3,
-.col-2-3 {
-    padding-right: 20px;
+    padding: 0 20px;
+    border-radius: 8px;
+    width: auto;
 }
 
 .col-2-3,
 .col-3-3 {
-    padding-left: 20px;
+    position: relative;
+}
+
+.sources {
+    display: table;
+    margin: 20 auto;
+    /*width: 100%;*/
 }
 
 .bio1,
 .bio2,
-.bio3,
-.pbio1,
-.pbio2,
-.pbio3 {
+.bio3 {
     display: none;
     background-color: #ffe900;
     /*box-sizing: border-box;*/
@@ -153,12 +146,12 @@ h3 > #main {
 }
 
 .left-arrows {
-    left: 0;
+    left: 0px;
     cursor: pointer;
 }
 
 .right-arrows {
-    right: 0;
+    right: 0px;
     cursor: pointer;
 }
 
@@ -171,14 +164,14 @@ h3 > #main {
 }
 
 .arrows {
+    width: 65px;
     color: rgba(0, 0, 0, .7);
     top: 50%;
     border-radius: 100px;
-    padding: 2px 17px;
+    /*padding: 2px 17px;*/
     background-color: #f14e32;
     z-index: 1000;
-    /*transform: translateY(-50%);*/
-    margin: auto;
+    /*margin: auto;*/
     position: absolute;
     transition: all .3s;
     cursor: pointer;
@@ -190,37 +183,6 @@ h3 > #main {
     /* IE 10+ */
     user-select: none;
     /* Likely future */
-}
-
-.QnA h3 {
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 11px 20px;
-    color: white;
-    background-color: #f44336;
-    border-radius: 100px;
-    font-size: 13pt;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .4);
-    transition: all .2s;
-    margin: 15px 0;
-}
-
-.QnA h3:hover {
-    transform: scale(1.09);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, .6);
-}
-
-.QnA a {
-    color: #f44336;
-    font-weight: bold
-}
-
-.left-arrows {
-    left: 50px
-}
-
-.right-arrows {
-    right: 50px
 }
 
 .arrows::after,

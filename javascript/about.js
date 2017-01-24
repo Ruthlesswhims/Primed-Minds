@@ -11,7 +11,7 @@ $(document).ready(function() {
     });
     $(".team3").on("mouseenter", function() {
         $(".bio3").slideDown(100);
-        $(".bio2").css("display", "table");
+        $(".bio3").css("display", "table");
     });
      $(".team1").on("mouseleave", function() {
         $(".bio1").slideUp(100);

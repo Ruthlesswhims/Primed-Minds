@@ -17,6 +17,8 @@ nav ul li {
 
 #nav_bar {
     position:fixed;
+    top: 0 !important;
+    left: 0 !important;
     /*min-width: 1200px;*/
     width: 100%;
     z-index: 100;

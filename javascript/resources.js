@@ -1,34 +1,26 @@
 $(document).ready(function() {
-    $(".team1").on("mouseenter", function() {
+    // on hover, appear
+    $(".src1").on("mouseenter", function() {
         $(".bio1").slideDown(100);
+        $(".bio1").css("display", "table");
+        $(".bio2").hide();
+        $(".bio3").hide();
     });
-    $(".team2").on("mouseenter", function() {
+    $(".src2").on("mouseenter", function() {
         $(".bio2").slideDown(100);
+        $(".bio2").css("display", "table");
+        $(".bio1").hide();
+        $(".bio3").hide();
     });
-    $(".team3").on("mouseenter", function() {
+    $(".src3").on("mouseenter", function() {
         $(".bio3").slideDown(100);
+        $(".bio3").css("display", "table");
+        $(".bio1").hide();
+        $(".bio2").hide();
     });
-    // move mouse to disappear / show cursor
-    $(".col-1-3").on("mouseleave", function() {
-        $(".bio1").slideUp(100);
-    });
-    $(".team1").hover(function() {
-        $(this).css('cursor', 'pointer');
-    });
-    $(".col-2-3").on("mouseleave", function() {
-        $(".bio2").slideUp(100);
-    });
-    $(".team2").hover(function() {
-        $(this).css('cursor', 'pointer');
-    });
-    $(".col-3-3").on("mouseleave", function() {
-        $(".bio3").slideUp(100);
-    });
-    $(".team3").hover(function() {
+
+    $(".src1,.src2,.src3").hover(function() {
         $(this).css('cursor', 'pointer');
     });
 
-
-})
-
-console.log('jquery works')
+});
